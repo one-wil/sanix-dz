@@ -498,21 +498,21 @@ const STORE_CONFIG = {
     "promoDiscountProducts": []
   },
   "STORE_INFO": {
-    "name": "𝒇𝑜𝓇 𝓎𝑜𝓊",
+    "name": "SANIX-DZ",
     "storeIcon": "-",
     "storeTitle": "-",
     "tagline": "أحدث الموديلات لسنة 2026",
     "phoneNumbers": [
-      "0671466489",
+      "0778506974",
       "0551102155"
     ],
-    "logo": "https://raw.githubusercontent.com/one-wil/suifrab/main/images/store-logo-1775894696326-Screenshot-20260105-233819-Samsung-Internet.jpg",
+    "logo": "https://raw.githubusercontent.com/one-wil/suifrab/main/images/store-logo-1778186329577-Screenshot-20250903-115403-Facebook.jpg",
     "facebookUrl": "",
     "instagramUrl": "https://www.instagram.com/sanix_dz?igsh=MXY1a2w4am0yems5cA%3D%3D&utm_source=qr",
     "messengerUrl": "",
     "viberNumber": "",
-    "whatsappNumber": "213671466489",
-    "whatsappUrl": "https://wa.me/213671466489"
+    "whatsappNumber": "213778506974",
+    "whatsappUrl": "https://wa.me/213778506974"
   },
   "GOOGLE_SHEETS": {
     "url": "https://docs.google.com/spreadsheets/d/1B6um1tNw0Uh4NJvLjF5zUX6palzubXv1UeH5gSIt_Go/edit?gid=774585379#gid=774585379",
@@ -735,7 +735,7 @@ const STORE_CONFIG = {
     }
   },
   "POINTS_SYSTEM": {
-    "currentPoints": 975,
+    "currentPoints": 972,
     "remainingDays": 4,
     "lastReset": "2026-04-11T07:23:02.287Z",
     "planType": "مجاني",
@@ -815,7 +815,7 @@ const STORE_CONFIG = {
         "user": "admin"
       }
     ],
-    "lastUpdated": "2026-05-07T20:27:07.154Z"
+    "lastUpdated": "2026-05-07T20:41:10.436Z"
   },
   "PIXEL_CODES": {
     "facebook": {
