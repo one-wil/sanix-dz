@@ -730,7 +730,7 @@
     }
   },
   "POINTS_SYSTEM": {
-    "currentPoints": 970,
+    "currentPoints": 968,
     "remainingDays": 4,
     "lastReset": "2026-04-11T07:23:02.287Z",
     "planType": "مجاني",
@@ -810,11 +810,11 @@
         "user": "admin"
       }
     ],
-    "lastUpdated": "2026-05-07T20:41:55.549Z"
+    "lastUpdated": "2026-05-07T20:48:30.000Z"
   },
   "PIXEL_CODES": {
     "facebook": {
-      "enabled": false,
+      "enabled": true,
       "pixelId": "",
       "events": {
         "pageView": true,
@@ -825,7 +825,7 @@
       }
     },
     "tiktok": {
-      "enabled": false,
+      "enabled": true,
       "pixelId": "",
       "events": {
         "pageView": true,
