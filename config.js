@@ -29,7 +29,7 @@ const STORE_CONFIG = {
       "colorImages": {
         "Olive Green-black": {
           "images": [
-            "https://raw.githubusercontent.com/one-wil/suifrab/main/images/product-1778182443274-Olive%20Green-black-1778183913806-Messenger-creation-DA7E8AFE-784D-48C2-821E-C16D8C29DECF.jpeg"
+            "https://raw.githubusercontent.com/one-wil/sanix.dz/main/images/product-1778182443274-Olive%20Green-black-1778183913806-Messenger-creation-DA7E8AFE-784D-48C2-821E-C16D8C29DECF.jpeg"
           ],
           "ageRanges": [
             {
@@ -61,7 +61,7 @@ const STORE_CONFIG = {
         },
         "Black-olive Geen": {
           "images": [
-            "https://raw.githubusercontent.com/one-wil/suifrab/main/images/product-1778182443274-Black-olive%20Geen-1778183941777-Messenger-creation-BFECA40B-57E0-4596-BD25-4F9D45BA3562.jpeg"
+            "https://raw.githubusercontent.com/one-wil/sanix.dz/main/images/product-1778182443274-Black-olive%20Geen-1778183941777-Messenger-creation-BFECA40B-57E0-4596-BD25-4F9D45BA3562.jpeg"
           ],
           "ageRanges": [
             {
@@ -93,7 +93,7 @@ const STORE_CONFIG = {
         },
         "Beige - Black": {
           "images": [
-            "https://raw.githubusercontent.com/one-wil/suifrab/main/images/product-1778182443274-Beige%20-%20Black-1778184041964-Messenger-creation-810CA979-D104-4003-AC53-8D1BA722871C.jpeg"
+            "https://raw.githubusercontent.com/one-wil/sanix.dz/main/images/product-1778182443274-Beige%20-%20Black-1778184041964-Messenger-creation-810CA979-D104-4003-AC53-8D1BA722871C.jpeg"
           ],
           "ageRanges": [
             {
@@ -125,7 +125,7 @@ const STORE_CONFIG = {
         },
         "Gray-black": {
           "images": [
-            "https://raw.githubusercontent.com/one-wil/suifrab/main/images/product-1778182443274-Gray-black-1778184152098-Messenger-creation-25516B0A-A522-42F1-9AB6-57299C553605.jpeg"
+            "https://raw.githubusercontent.com/one-wil/sanix.dz/main/images/product-1778182443274-Gray-black-1778184152098-Messenger-creation-25516B0A-A522-42F1-9AB6-57299C553605.jpeg"
           ],
           "ageRanges": [
             {
@@ -161,7 +161,7 @@ const STORE_CONFIG = {
         "guide": {}
       },
       "createdAt": "2026-05-07T19:34:03.274Z",
-      "image": "https://raw.githubusercontent.com/one-wil/suifrab/main/images/product-1778182443274-1778182589626-Messenger-creation-810CA979-D104-4003-AC53-8D1BA722871C.jpeg",
+      "image": "https://raw.githubusercontent.com/one-wil/sanix.dz/main/images/product-1778182443274-1778182589626-Messenger-creation-810CA979-D104-4003-AC53-8D1BA722871C.jpeg",
       "updatedAt": "2026-05-07T19:50:58.095Z"
     }
   },
@@ -440,7 +440,7 @@ const STORE_CONFIG = {
       "0778506974",
       "0551102155"
     ],
-    "logo": "https://raw.githubusercontent.com/one-wil/suifrab/main/images/store-logo-1778186329577-Screenshot-20250903-115403-Facebook.jpg",
+    "logo": "https://raw.githubusercontent.com/one-wil/sanix.dz/main/images/store-logo-1778186329577-Screenshot-20250903-115403-Facebook.jpg",
     "facebookUrl": "",
     "instagramUrl": "https://www.instagram.com/sanix_dz?igsh=MXY1a2w4am0yems5cA%3D%3D&utm_source=qr",
     "messengerUrl": "",
