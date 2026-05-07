@@ -735,7 +735,7 @@ const STORE_CONFIG = {
     }
   },
   "POINTS_SYSTEM": {
-    "currentPoints": 970,
+    "currentPoints": 968,
     "remainingDays": 4,
     "lastReset": "2026-04-11T07:23:02.287Z",
     "planType": "مجاني",
@@ -815,11 +815,11 @@ const STORE_CONFIG = {
         "user": "admin"
       }
     ],
-    "lastUpdated": "2026-05-07T20:41:57.437Z"
+    "lastUpdated": "2026-05-07T20:48:33.540Z"
   },
   "PIXEL_CODES": {
     "facebook": {
-      "enabled": false,
+      "enabled": true,
       "pixelId": "",
       "events": {
         "pageView": true,
@@ -830,7 +830,7 @@ const STORE_CONFIG = {
       }
     },
     "tiktok": {
-      "enabled": false,
+      "enabled": true,
       "pixelId": "",
       "events": {
         "pageView": true,
