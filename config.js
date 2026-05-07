@@ -5,61 +5,6 @@
 
 const STORE_CONFIG = {
   "PRODUCTS": {
-    "1773311261825": {
-      "name": "مودال أنيق للفتيات",
-      "price": 3200,
-      "description": "",
-      "category": "",
-      "stock": 0,
-      "featured": false,
-      "availableColors": [
-        "وردي",
-        "Beige clair"
-      ],
-      "availableSizes": [
-        "S",
-        "M"
-      ],
-      "ageRanges": [],
-      "colorImages": {
-        "وردي": {
-          "images": [
-            "https://raw.githubusercontent.com/one-wil/suifrab/main/images/product-1773311261825-وردي-1773311374992-modal1.jpg"
-          ],
-          "ageRanges": [
-            {
-              "ageFrom": "12",
-              "ageTo": "10",
-              "size": "S"
-            },
-            {
-              "ageFrom": "14",
-              "ageTo": "12",
-              "size": "M"
-            }
-          ]
-        },
-        "Beige clair": {
-          "images": [
-            "https://raw.githubusercontent.com/one-wil/suifrab/main/images/product-1773311261825-Beige%20clair-1773311433188-modal9.jpg"
-          ],
-          "ageRanges": [
-            {
-              "ageFrom": "14",
-              "ageTo": "12",
-              "size": "M"
-            }
-          ]
-        }
-      },
-      "sizeGuide": {
-        "enabled": false,
-        "guide": {}
-      },
-      "createdAt": "2026-03-12T10:27:41.825Z",
-      "image": "https://raw.githubusercontent.com/one-wil/suifrab/main/images/product-1773311261825-1773311312952-modal1.jpg",
-      "updatedAt": "2026-03-12T10:29:16.508Z"
-    },
     "1774173075562": {
       "name": "begger nike ",
       "price": 3500,
@@ -126,27 +71,31 @@ const STORE_CONFIG = {
       "image": "https://raw.githubusercontent.com/one-wil/suifrab/main/images/product-1774173075562-1774173251000-1000056027.jpg",
       "updatedAt": "2026-03-22T09:56:45.442Z"
     },
-    "1775892441072": {
-      "name": "سروال رياضي",
-      "price": 4000,
+    "1778182443274": {
+      "name": "Ensemble POLO",
+      "price": 5500,
       "description": "",
       "category": "",
       "stock": 0,
       "featured": false,
       "availableColors": [
-        "أسود",
-        "أحمر"
+        "Olive Green-black",
+        "Black-olive Geen",
+        "Beige - Black",
+        "Gray-black"
       ],
       "availableSizes": [
         "S",
         "M",
-        "L"
+        "L",
+        "XL",
+        "XXL"
       ],
       "ageRanges": [],
       "colorImages": {
-        "أسود": {
+        "Olive Green-black": {
           "images": [
-            "https://raw.githubusercontent.com/one-wil/suifrab/main/images/product-1775892441072-أسود-1775892513914-9bce1ccbfc0b4441a3a773a79484986e.webp"
+            "https://raw.githubusercontent.com/one-wil/suifrab/main/images/product-1778182443274-Olive%20Green-black-1778183913806-Messenger-creation-DA7E8AFE-784D-48C2-821E-C16D8C29DECF.jpeg"
           ],
           "ageRanges": [
             {
@@ -163,23 +112,112 @@ const STORE_CONFIG = {
               "ageFrom": " ",
               "ageTo": " ",
               "size": "L"
+            },
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "XL"
+            },
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "XXL"
             }
           ]
         },
-        "أحمر": {
+        "Black-olive Geen": {
           "images": [
-            "https://raw.githubusercontent.com/one-wil/suifrab/main/images/product-1775892441072-أحمر-1775892547450-70a1ef3977a04ff59d7a030d79b72716.webp"
+            "https://raw.githubusercontent.com/one-wil/suifrab/main/images/product-1778182443274-Black-olive%20Geen-1778183941777-Messenger-creation-BFECA40B-57E0-4596-BD25-4F9D45BA3562.jpeg"
           ],
           "ageRanges": [
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "S"
+            },
             {
               "ageFrom": " ",
               "ageTo": " ",
               "size": "M"
             },
             {
-              "ageFrom": "  ",
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "L"
+            },
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "XL"
+            },
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "XXL"
+            }
+          ]
+        },
+        "Beige - Black": {
+          "images": [
+            "https://raw.githubusercontent.com/one-wil/suifrab/main/images/product-1778182443274-Beige%20-%20Black-1778184041964-Messenger-creation-810CA979-D104-4003-AC53-8D1BA722871C.jpeg"
+          ],
+          "ageRanges": [
+            {
+              "ageFrom": " ",
               "ageTo": " ",
               "size": "S"
+            },
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "M"
+            },
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "L"
+            },
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "XL"
+            },
+            {
+              "ageFrom": "   ",
+              "ageTo": " ",
+              "size": "XXL"
+            }
+          ]
+        },
+        "Gray-black": {
+          "images": [
+            "https://raw.githubusercontent.com/one-wil/suifrab/main/images/product-1778182443274-Gray-black-1778184152098-Messenger-creation-25516B0A-A522-42F1-9AB6-57299C553605.jpeg"
+          ],
+          "ageRanges": [
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "S"
+            },
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "M"
+            },
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "L"
+            },
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "XL"
+            },
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "XXL"
             }
           ]
         }
@@ -188,9 +226,9 @@ const STORE_CONFIG = {
         "enabled": false,
         "guide": {}
       },
-      "createdAt": "2026-04-11T07:27:21.072Z",
-      "image": "https://raw.githubusercontent.com/one-wil/suifrab/main/images/product-1775892441072-1775892472540-9bce1ccbfc0b4441a3a773a79484986e.webp",
-      "updatedAt": "2026-04-11T07:29:42.306Z"
+      "createdAt": "2026-05-07T19:34:03.274Z",
+      "image": "https://raw.githubusercontent.com/one-wil/suifrab/main/images/product-1778182443274-1778182589626-Messenger-creation-810CA979-D104-4003-AC53-8D1BA722871C.jpeg",
+      "updatedAt": "2026-05-07T19:50:58.095Z"
     }
   },
   "DELIVERY_PRICES": {
@@ -444,9 +482,7 @@ const STORE_CONFIG = {
       1765137505304,
       1765145035052,
       1765145814607,
-      1773311261825,
-      1774173075562,
-      1775892441072
+      1774173075562
     ]
   },
   "DISCOUNTS": {
@@ -470,7 +506,7 @@ const STORE_CONFIG = {
       "0671466489",
       "0551102155"
     ],
-    "logo": "https://raw.githubusercontent.com/one-wil/suifrab/main/images/store-logo-1776007265749-Screenshot-20260105-233819-Samsung-Internet.jpg",
+    "logo": "https://raw.githubusercontent.com/one-wil/suifrab/main/images/store-logo-1775894696326-Screenshot-20260105-233819-Samsung-Internet.jpg",
     "facebookUrl": "https://www.facebook.com/groups/3131209233768404/?ref=share&mibextid=NSMWBT",
     "instagramUrl": "",
     "messengerUrl": "",
@@ -497,7 +533,11 @@ const STORE_CONFIG = {
     "Beige clair",
     "Marron",
     "Marron clair",
-    "Vert  Kaki"
+    "Vert  Kaki",
+    "Olive Green-black",
+    "Black-olive Geen",
+    "Beige - Black",
+    "Gray-black"
   ],
   "AVAILABLE_SIZES": [
     "S",
@@ -695,7 +735,7 @@ const STORE_CONFIG = {
     }
   },
   "POINTS_SYSTEM": {
-    "currentPoints": 981,
+    "currentPoints": 977,
     "remainingDays": 4,
     "lastReset": "2026-04-11T07:23:02.287Z",
     "planType": "مجاني",
@@ -775,7 +815,7 @@ const STORE_CONFIG = {
         "user": "admin"
       }
     ],
-    "lastUpdated": "2026-05-07T19:03:37.959Z"
+    "lastUpdated": "2026-05-07T20:04:31.276Z"
   },
   "PIXEL_CODES": {
     "facebook": {
