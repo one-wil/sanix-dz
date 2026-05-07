@@ -5,72 +5,6 @@
 
 const STORE_CONFIG = {
   "PRODUCTS": {
-    "1774173075562": {
-      "name": "begger nike ",
-      "price": 3500,
-      "description": "",
-      "category": "",
-      "stock": 0,
-      "featured": false,
-      "availableColors": [
-        "أسود",
-        "رمادي"
-      ],
-      "availableSizes": [
-        "S",
-        "M",
-        "L"
-      ],
-      "ageRanges": [],
-      "colorImages": {
-        "أسود": {
-          "images": [
-            "https://raw.githubusercontent.com/one-wil/suifrab/main/images/product-1774173075562-أسود-1774173307446-1000056028.jpg"
-          ],
-          "ageRanges": [
-            {
-              "ageFrom": " ",
-              "ageTo": " ",
-              "size": "S"
-            },
-            {
-              "ageFrom": " ",
-              "ageTo": " ",
-              "size": "M"
-            },
-            {
-              "ageFrom": " ",
-              "ageTo": " ",
-              "size": "L"
-            }
-          ]
-        },
-        "رمادي": {
-          "images": [
-            "https://raw.githubusercontent.com/one-wil/suifrab/main/images/product-1774173075562-رمادي-1774173357735-1000056027.jpg"
-          ],
-          "ageRanges": [
-            {
-              "ageFrom": " ",
-              "ageTo": " ",
-              "size": "S"
-            },
-            {
-              "ageFrom": " ",
-              "ageTo": " ",
-              "size": "M"
-            }
-          ]
-        }
-      },
-      "sizeGuide": {
-        "enabled": false,
-        "guide": {}
-      },
-      "createdAt": "2026-03-22T09:51:15.562Z",
-      "image": "https://raw.githubusercontent.com/one-wil/suifrab/main/images/product-1774173075562-1774173251000-1000056027.jpg",
-      "updatedAt": "2026-03-22T09:56:45.442Z"
-    },
     "1778182443274": {
       "name": "Ensemble POLO",
       "price": 5500,
@@ -470,7 +404,7 @@ const STORE_CONFIG = {
       "enabled": true,
       "minAmount": 0,
       "wilayas": [],
-      "minQuantity": 2
+      "minQuantity": 1
     },
     "home": {
       "enabled": false,
@@ -735,7 +669,7 @@ const STORE_CONFIG = {
     }
   },
   "POINTS_SYSTEM": {
-    "currentPoints": 968,
+    "currentPoints": 966,
     "remainingDays": 4,
     "lastReset": "2026-04-11T07:23:02.287Z",
     "planType": "مجاني",
@@ -815,7 +749,7 @@ const STORE_CONFIG = {
         "user": "admin"
       }
     ],
-    "lastUpdated": "2026-05-07T20:48:33.540Z"
+    "lastUpdated": "2026-05-07T20:53:47.602Z"
   },
   "PIXEL_CODES": {
     "facebook": {
