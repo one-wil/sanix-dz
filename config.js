@@ -695,8 +695,8 @@ const STORE_CONFIG = {
     }
   },
   "POINTS_SYSTEM": {
-    "currentPoints": 983,
-    "remainingDays": 18,
+    "currentPoints": 981,
+    "remainingDays": 4,
     "lastReset": "2026-04-11T07:23:02.287Z",
     "planType": "مجاني",
     "monthlyPoints": 1000,
@@ -775,7 +775,7 @@ const STORE_CONFIG = {
         "user": "admin"
       }
     ],
-    "lastUpdated": "2026-04-23T14:07:43.881Z"
+    "lastUpdated": "2026-05-07T19:03:37.959Z"
   },
   "PIXEL_CODES": {
     "facebook": {
