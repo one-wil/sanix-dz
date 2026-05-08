@@ -255,7 +255,7 @@ const STORE_CONFIG = {
       "updatedAt": "2026-05-08T11:13:16.377Z"
     },
     "1778239126878": {
-      "name": "T-shirt sanix",
+      "name": "T-shirt ",
       "price": 2300,
       "description": "",
       "category": "",
@@ -273,7 +273,9 @@ const STORE_CONFIG = {
       "ageRanges": [],
       "colorImages": {
         "أبيض": {
-          "images": [],
+          "images": [
+            "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1778239126878-أبيض-1778239631074-Messenger-creation-408051E2-5D87-46C2-96F2-DBAC792167FB.jpeg"
+          ],
           "ageRanges": [
             {
               "ageFrom": " ",
@@ -293,7 +295,9 @@ const STORE_CONFIG = {
           ]
         },
         "أسود": {
-          "images": [],
+          "images": [
+            "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1778239126878-أسود-1778239655886-Messenger-creation-2437459D-A810-4853-B647-DB2C2D0BD6EC.jpeg"
+          ],
           "ageRanges": [
             {
               "ageFrom": " ",
@@ -318,8 +322,8 @@ const STORE_CONFIG = {
         "guide": {}
       },
       "createdAt": "2026-05-08T11:18:46.878Z",
-      "image": "",
-      "updatedAt": "2026-05-08T11:22:13.482Z"
+      "image": "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1778239126878-1778239561305-Messenger-creation-2437459D-A810-4853-B647-DB2C2D0BD6EC.jpeg",
+      "updatedAt": "2026-05-08T11:29:42.336Z"
     }
   },
   "DELIVERY_PRICES": {
@@ -826,7 +830,7 @@ const STORE_CONFIG = {
     }
   },
   "POINTS_SYSTEM": {
-    "currentPoints": 950,
+    "currentPoints": 945,
     "remainingDays": 3,
     "lastReset": "2026-04-11T07:23:02.287Z",
     "planType": "مجاني",
@@ -906,7 +910,7 @@ const STORE_CONFIG = {
         "user": "admin"
       }
     ],
-    "lastUpdated": "2026-05-08T11:23:19.905Z"
+    "lastUpdated": "2026-05-08T11:29:56.704Z"
   },
   "PIXEL_CODES": {
     "facebook": {
