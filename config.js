@@ -601,7 +601,7 @@ const STORE_CONFIG = {
       "0778506974",
       "0551102155"
     ],
-    "logo": "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/store-logo-1778240366881-Screenshot-20260508-123909-Gallery.jpg",
+    "logo": "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/store-logo-1778244056320-Screenshot-20260508-133934-Gallery.jpg",
     "facebookUrl": "",
     "instagramUrl": "https://www.instagram.com/sanix_dz?igsh=MXY1a2w4am0yems5cA%3D%3D&utm_source=qr",
     "messengerUrl": "",
@@ -830,7 +830,7 @@ const STORE_CONFIG = {
     }
   },
   "POINTS_SYSTEM": {
-    "currentPoints": 940,
+    "currentPoints": 937,
     "remainingDays": 3,
     "lastReset": "2026-04-11T07:23:02.287Z",
     "planType": "مجاني",
@@ -910,7 +910,7 @@ const STORE_CONFIG = {
         "user": "admin"
       }
     ],
-    "lastUpdated": "2026-05-08T11:39:36.194Z"
+    "lastUpdated": "2026-05-08T12:41:09.217Z"
   },
   "PIXEL_CODES": {
     "facebook": {
