@@ -166,7 +166,7 @@ const STORE_CONFIG = {
     },
     "1778238518007": {
       "name": "Ensemble Polo (t-shirt-short)",
-      "price": 4300,
+      "price": 5300,
       "description": "",
       "category": "",
       "stock": 0,
@@ -252,7 +252,7 @@ const STORE_CONFIG = {
       },
       "createdAt": "2026-05-08T11:08:38.007Z",
       "image": "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1778238518007-1778238752545-Messenger-creation-37FFDF3B-1672-4523-9137-8D369929585F.jpeg",
-      "updatedAt": "2026-05-08T11:13:16.377Z"
+      "updatedAt": "2026-05-08T11:32:02.679Z"
     },
     "1778239126878": {
       "name": "T-shirt ",
@@ -830,7 +830,7 @@ const STORE_CONFIG = {
     }
   },
   "POINTS_SYSTEM": {
-    "currentPoints": 945,
+    "currentPoints": 943,
     "remainingDays": 3,
     "lastReset": "2026-04-11T07:23:02.287Z",
     "planType": "مجاني",
@@ -910,7 +910,7 @@ const STORE_CONFIG = {
         "user": "admin"
       }
     ],
-    "lastUpdated": "2026-05-08T11:29:56.704Z"
+    "lastUpdated": "2026-05-08T11:32:14.845Z"
   },
   "PIXEL_CODES": {
     "facebook": {
