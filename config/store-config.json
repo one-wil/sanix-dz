@@ -262,7 +262,8 @@
       ],
       "availableSizes": [
         "S",
-        "M"
+        "M",
+        "L"
       ],
       "ageRanges": [],
       "colorImages": {
@@ -278,6 +279,11 @@
               "ageFrom": " ",
               "ageTo": " ",
               "size": "M"
+            },
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "L"
             }
           ]
         },
@@ -293,6 +299,11 @@
               "ageFrom": " ",
               "ageTo": " ",
               "size": "M"
+            },
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "L"
             }
           ]
         }
@@ -303,7 +314,7 @@
       },
       "createdAt": "2026-05-08T11:18:46.878Z",
       "image": "",
-      "updatedAt": "2026-05-08T11:19:56.961Z"
+      "updatedAt": "2026-05-08T11:22:13.482Z"
     }
   },
   "DELIVERY_PRICES": {
@@ -810,7 +821,7 @@
     }
   },
   "POINTS_SYSTEM": {
-    "currentPoints": 952,
+    "currentPoints": 950,
     "remainingDays": 3,
     "lastReset": "2026-04-11T07:23:02.287Z",
     "planType": "مجاني",
@@ -890,7 +901,7 @@
         "user": "admin"
       }
     ],
-    "lastUpdated": "2026-05-08T11:21:23.687Z"
+    "lastUpdated": "2026-05-08T11:23:17.760Z"
   },
   "PIXEL_CODES": {
     "facebook": {
