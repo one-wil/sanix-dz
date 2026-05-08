@@ -662,7 +662,7 @@ const STORE_CONFIG = {
     "tagline": "أحدث الموديلات لسنة 2026",
     "phoneNumbers": [
       "0778506974",
-      "0551102155"
+      "0792946548"
     ],
     "logo": "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/store-logo-1778244567755-file-00000000f55c722fa6802d1544ea54d1.png",
     "facebookUrl": "",
@@ -893,7 +893,7 @@ const STORE_CONFIG = {
     }
   },
   "POINTS_SYSTEM": {
-    "currentPoints": 925,
+    "currentPoints": 923,
     "remainingDays": 3,
     "lastReset": "2026-04-11T07:23:02.287Z",
     "planType": "مجاني",
@@ -973,7 +973,7 @@ const STORE_CONFIG = {
         "user": "admin"
       }
     ],
-    "lastUpdated": "2026-05-08T12:56:44.014Z"
+    "lastUpdated": "2026-05-08T12:59:30.117Z"
   },
   "PIXEL_CODES": {
     "facebook": {
