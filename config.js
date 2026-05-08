@@ -267,7 +267,8 @@ const STORE_CONFIG = {
       ],
       "availableSizes": [
         "S",
-        "M"
+        "M",
+        "L"
       ],
       "ageRanges": [],
       "colorImages": {
@@ -283,6 +284,11 @@ const STORE_CONFIG = {
               "ageFrom": " ",
               "ageTo": " ",
               "size": "M"
+            },
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "L"
             }
           ]
         },
@@ -298,6 +304,11 @@ const STORE_CONFIG = {
               "ageFrom": " ",
               "ageTo": " ",
               "size": "M"
+            },
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "L"
             }
           ]
         }
@@ -308,7 +319,7 @@ const STORE_CONFIG = {
       },
       "createdAt": "2026-05-08T11:18:46.878Z",
       "image": "",
-      "updatedAt": "2026-05-08T11:19:56.961Z"
+      "updatedAt": "2026-05-08T11:22:13.482Z"
     }
   },
   "DELIVERY_PRICES": {
@@ -815,7 +826,7 @@ const STORE_CONFIG = {
     }
   },
   "POINTS_SYSTEM": {
-    "currentPoints": 952,
+    "currentPoints": 950,
     "remainingDays": 3,
     "lastReset": "2026-04-11T07:23:02.287Z",
     "planType": "مجاني",
@@ -895,7 +906,7 @@ const STORE_CONFIG = {
         "user": "admin"
       }
     ],
-    "lastUpdated": "2026-05-08T11:21:26.032Z"
+    "lastUpdated": "2026-05-08T11:23:19.905Z"
   },
   "PIXEL_CODES": {
     "facebook": {
