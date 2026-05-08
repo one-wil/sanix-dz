@@ -158,6 +158,113 @@
       "createdAt": "2026-05-07T19:34:03.274Z",
       "image": "https://raw.githubusercontent.com/one-wil/suifrab/main/images/product-1778182443274-1778182589626-Messenger-creation-810CA979-D104-4003-AC53-8D1BA722871C.jpeg",
       "updatedAt": "2026-05-07T19:50:58.095Z"
+    },
+    "1778238518007": {
+      "name": "Ensemble Polo (t-shirt-short)",
+      "price": 4300,
+      "description": "",
+      "category": "",
+      "stock": 0,
+      "featured": false,
+      "availableColors": [
+        "أسود",
+        "رمادي"
+      ],
+      "availableSizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "ageRanges": [],
+      "colorImages": {
+        "أسود": {
+          "images": [
+            "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1778238518007-أسود-1778238812961-Messenger-creation-6EA5AF67-8692-4E49-B8E8-0CA2B0BC96CF.jpeg"
+          ],
+          "ageRanges": [
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "S"
+            },
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "M"
+            },
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "L"
+            }
+          ]
+        },
+        "رمادي": {
+          "images": [
+            "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1778238518007-رمادي-1778238854917-Messenger-creation-37FFDF3B-1672-4523-9137-8D369929585F.jpeg"
+          ],
+          "ageRanges": [
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "S"
+            },
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "M"
+            },
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "L"
+            }
+          ]
+        }
+      },
+      "sizeGuide": {
+        "enabled": true,
+        "guide": {
+          "S": {
+            "heightFrom": 160,
+            "heightTo": 170,
+            "weightFrom": 50,
+            "weightTo": 60
+          },
+          "M": {
+            "heightFrom": 170,
+            "heightTo": 177,
+            "weightFrom": 60,
+            "weightTo": 75
+          },
+          "L": {
+            "heightFrom": 178,
+            "heightTo": 185,
+            "weightFrom": 69,
+            "weightTo": 80
+          }
+        }
+      },
+      "createdAt": "2026-05-08T11:08:38.007Z",
+      "image": "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1778238518007-1778238752545-Messenger-creation-37FFDF3B-1672-4523-9137-8D369929585F.jpeg",
+      "updatedAt": "2026-05-08T11:13:16.377Z"
+    },
+    "1778239087200": {
+      "name": "",
+      "price": 0,
+      "description": "",
+      "category": "",
+      "stock": 0,
+      "featured": false,
+      "availableColors": [],
+      "availableSizes": [],
+      "ageRanges": [],
+      "colorImages": {},
+      "sizeGuide": {
+        "enabled": false,
+        "guide": {}
+      },
+      "createdAt": "2026-05-08T11:18:07.200Z"
     }
   },
   "DELIVERY_PRICES": {
@@ -435,7 +542,7 @@
       "0778506974",
       "0551102155"
     ],
-    "logo": "https://raw.githubusercontent.com/one-wil/suifrab/main/images/store-logo-1778186329577-Screenshot-20250903-115403-Facebook.jpg",
+    "logo": "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/store-logo-1778238506230-Screenshot-20260508-111538-Samsung-Internet.jpg",
     "facebookUrl": "",
     "instagramUrl": "https://www.instagram.com/sanix_dz?igsh=MXY1a2w4am0yems5cA%3D%3D&utm_source=qr",
     "messengerUrl": "",
@@ -664,7 +771,7 @@
     }
   },
   "POINTS_SYSTEM": {
-    "currentPoints": 962,
+    "currentPoints": 956,
     "remainingDays": 3,
     "lastReset": "2026-04-11T07:23:02.287Z",
     "planType": "مجاني",
@@ -744,7 +851,7 @@
         "user": "admin"
       }
     ],
-    "lastUpdated": "2026-05-08T11:04:57.435Z"
+    "lastUpdated": "2026-05-08T11:18:12.817Z"
   },
   "PIXEL_CODES": {
     "facebook": {
