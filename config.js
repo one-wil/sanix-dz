@@ -637,7 +637,10 @@ const STORE_CONFIG = {
       1765137505304,
       1765145035052,
       1765145814607,
-      1778182443274
+      1778182443274,
+      1778238518007,
+      1778239126878,
+      1778244770962
     ]
   },
   "DISCOUNTS": {
@@ -890,7 +893,7 @@ const STORE_CONFIG = {
     }
   },
   "POINTS_SYSTEM": {
-    "currentPoints": 927,
+    "currentPoints": 925,
     "remainingDays": 3,
     "lastReset": "2026-04-11T07:23:02.287Z",
     "planType": "مجاني",
@@ -970,7 +973,7 @@ const STORE_CONFIG = {
         "user": "admin"
       }
     ],
-    "lastUpdated": "2026-05-08T12:56:24.374Z"
+    "lastUpdated": "2026-05-08T12:56:44.014Z"
   },
   "PIXEL_CODES": {
     "facebook": {
