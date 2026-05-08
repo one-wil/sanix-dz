@@ -253,23 +253,6 @@ const STORE_CONFIG = {
       "createdAt": "2026-05-08T11:08:38.007Z",
       "image": "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1778238518007-1778238752545-Messenger-creation-37FFDF3B-1672-4523-9137-8D369929585F.jpeg",
       "updatedAt": "2026-05-08T11:13:16.377Z"
-    },
-    "1778239087200": {
-      "name": "",
-      "price": 0,
-      "description": "",
-      "category": "",
-      "stock": 0,
-      "featured": false,
-      "availableColors": [],
-      "availableSizes": [],
-      "ageRanges": [],
-      "colorImages": {},
-      "sizeGuide": {
-        "enabled": false,
-        "guide": {}
-      },
-      "createdAt": "2026-05-08T11:18:07.200Z"
     }
   },
   "DELIVERY_PRICES": {
@@ -776,7 +759,7 @@ const STORE_CONFIG = {
     }
   },
   "POINTS_SYSTEM": {
-    "currentPoints": 956,
+    "currentPoints": 954,
     "remainingDays": 3,
     "lastReset": "2026-04-11T07:23:02.287Z",
     "planType": "مجاني",
@@ -856,7 +839,7 @@ const STORE_CONFIG = {
         "user": "admin"
       }
     ],
-    "lastUpdated": "2026-05-08T11:18:14.393Z"
+    "lastUpdated": "2026-05-08T11:18:29.509Z"
   },
   "PIXEL_CODES": {
     "facebook": {
