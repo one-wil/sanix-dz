@@ -175,7 +175,7 @@ const STORE_CONFIG = {
       "desk": 400
     },
     "03 - الأغواط": {
-      "home": 1000,
+      "home": 900,
       "desk": 600
     },
     "04 - أم البواقي": {
@@ -383,7 +383,7 @@ const STORE_CONFIG = {
       "desk": 700
     },
     "55 - توقرت": {
-      "home": 950,
+      "home": 900,
       "desk": 550
     },
     "56 - جانت": {
@@ -391,11 +391,11 @@ const STORE_CONFIG = {
       "desk": 500
     },
     "57 - المغير": {
-      "home": 950,
+      "home": 900,
       "desk": 550
     },
     "58 - المنيعة": {
-      "home": 900,
+      "home": 1100,
       "desk": 400
     }
   },
@@ -749,7 +749,7 @@ const STORE_CONFIG = {
         "user": "admin"
       }
     ],
-    "lastUpdated": "2026-05-08T11:02:02.689Z"
+    "lastUpdated": "2026-05-08T11:04:59.211Z"
   },
   "PIXEL_CODES": {
     "facebook": {
