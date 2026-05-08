@@ -319,6 +319,66 @@
       "createdAt": "2026-05-08T11:18:46.878Z",
       "image": "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1778239126878-1778239561305-Messenger-creation-2437459D-A810-4853-B647-DB2C2D0BD6EC.jpeg",
       "updatedAt": "2026-05-08T11:29:42.336Z"
+    },
+    "1778244770962": {
+      "name": "T-shirt sanix",
+      "price": 2300,
+      "description": "",
+      "category": "",
+      "stock": 0,
+      "featured": false,
+      "availableColors": [
+        "أبيض",
+        "أسود"
+      ],
+      "availableSizes": [
+        "S",
+        "M"
+      ],
+      "ageRanges": [],
+      "colorImages": {
+        "أبيض": {
+          "images": [
+            "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1778244770962-أبيض-1778244898209-Messenger-creation-DBC61123-8E41-4C75-933B-A5397461B678.jpeg"
+          ],
+          "ageRanges": [
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "S"
+            },
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "M"
+            }
+          ]
+        },
+        "أسود": {
+          "images": [
+            "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1778244770962-أسود-1778244929756-Messenger-creation-DBC61123-8E41-4C75-933B-A5397461B678.jpeg"
+          ],
+          "ageRanges": [
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "S"
+            },
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "M"
+            }
+          ]
+        }
+      },
+      "sizeGuide": {
+        "enabled": false,
+        "guide": {}
+      },
+      "createdAt": "2026-05-08T12:52:50.962Z",
+      "image": "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1778244770962-1778244812749-Messenger-creation-DBC61123-8E41-4C75-933B-A5397461B678.jpeg",
+      "updatedAt": "2026-05-08T12:54:45.269Z"
     }
   },
   "DELIVERY_PRICES": {
@@ -825,7 +885,7 @@
     }
   },
   "POINTS_SYSTEM": {
-    "currentPoints": 932,
+    "currentPoints": 927,
     "remainingDays": 3,
     "lastReset": "2026-04-11T07:23:02.287Z",
     "planType": "مجاني",
@@ -905,7 +965,7 @@
         "user": "admin"
       }
     ],
-    "lastUpdated": "2026-05-08T12:51:59.590Z"
+    "lastUpdated": "2026-05-08T12:56:22.659Z"
   },
   "PIXEL_CODES": {
     "facebook": {
