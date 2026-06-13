@@ -166,7 +166,7 @@ const STORE_CONFIG = {
     },
     "1778238518007": {
       "name": "Ensemble Polo (t-shirt-short)",
-      "price": 5300,
+      "price": 4900,
       "description": "",
       "category": "",
       "stock": 0,
@@ -252,78 +252,7 @@ const STORE_CONFIG = {
       },
       "createdAt": "2026-05-08T11:08:38.007Z",
       "image": "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1778238518007-1778238752545-Messenger-creation-37FFDF3B-1672-4523-9137-8D369929585F.jpeg",
-      "updatedAt": "2026-05-08T11:32:02.679Z"
-    },
-    "1778239126878": {
-      "name": "T-shirt ",
-      "price": 2300,
-      "description": "",
-      "category": "",
-      "stock": 0,
-      "featured": false,
-      "availableColors": [
-        "أبيض",
-        "أسود"
-      ],
-      "availableSizes": [
-        "S",
-        "M",
-        "L"
-      ],
-      "ageRanges": [],
-      "colorImages": {
-        "أبيض": {
-          "images": [
-            "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1778239126878-أبيض-1778239631074-Messenger-creation-408051E2-5D87-46C2-96F2-DBAC792167FB.jpeg"
-          ],
-          "ageRanges": [
-            {
-              "ageFrom": " ",
-              "ageTo": " ",
-              "size": "S"
-            },
-            {
-              "ageFrom": " ",
-              "ageTo": " ",
-              "size": "M"
-            },
-            {
-              "ageFrom": " ",
-              "ageTo": " ",
-              "size": "L"
-            }
-          ]
-        },
-        "أسود": {
-          "images": [
-            "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1778239126878-أسود-1778239655886-Messenger-creation-2437459D-A810-4853-B647-DB2C2D0BD6EC.jpeg"
-          ],
-          "ageRanges": [
-            {
-              "ageFrom": " ",
-              "ageTo": " ",
-              "size": "S"
-            },
-            {
-              "ageFrom": " ",
-              "ageTo": " ",
-              "size": "M"
-            },
-            {
-              "ageFrom": " ",
-              "ageTo": " ",
-              "size": "L"
-            }
-          ]
-        }
-      },
-      "sizeGuide": {
-        "enabled": false,
-        "guide": {}
-      },
-      "createdAt": "2026-05-08T11:18:46.878Z",
-      "image": "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1778239126878-1778239561305-Messenger-creation-2437459D-A810-4853-B647-DB2C2D0BD6EC.jpeg",
-      "updatedAt": "2026-05-08T11:29:42.336Z"
+      "updatedAt": "2026-06-13T21:13:14.478Z"
     },
     "1778244770962": {
       "name": "T-shirt sanix",
@@ -384,6 +313,77 @@ const STORE_CONFIG = {
       "createdAt": "2026-05-08T12:52:50.962Z",
       "image": "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1778244770962-1778244812749-Messenger-creation-DBC61123-8E41-4C75-933B-A5397461B678.jpeg",
       "updatedAt": "2026-05-08T12:54:45.269Z"
+    },
+    "1781384545523": {
+      "name": "Ensemble SU  (short+t-shirt)",
+      "price": 4900,
+      "description": "",
+      "category": "",
+      "stock": 0,
+      "featured": false,
+      "availableColors": [
+        "أسود",
+        "رمادي"
+      ],
+      "availableSizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "ageRanges": [],
+      "colorImages": {
+        "أسود": {
+          "images": [
+            "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1781384545523-أسود-1781384879351-Messenger-creation-F4CE475B-2921-4253-96CC-6F820D07519A.jpeg"
+          ],
+          "ageRanges": [
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "S"
+            },
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "M"
+            },
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "L"
+            }
+          ]
+        },
+        "رمادي": {
+          "images": [
+            "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1781384545523-رمادي-1781384943903-Messenger-creation-20AF9E8C-5DE2-438B-919D-091B1D04C13A.jpeg"
+          ],
+          "ageRanges": [
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "S"
+            },
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "M"
+            },
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "L"
+            }
+          ]
+        }
+      },
+      "sizeGuide": {
+        "enabled": false,
+        "guide": {}
+      },
+      "createdAt": "2026-06-13T21:02:25.523Z",
+      "image": "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1781384545523-1781384803484-Messenger-creation-20AF9E8C-5DE2-438B-919D-091B1D04C13A.jpeg",
+      "updatedAt": "2026-06-13T21:13:47.939Z"
     }
   },
   "DELIVERY_PRICES": {
@@ -639,8 +639,8 @@ const STORE_CONFIG = {
       1765145814607,
       1778182443274,
       1778238518007,
-      1778239126878,
-      1778244770962
+      1778244770962,
+      1781384545523
     ]
   },
   "DISCOUNTS": {
@@ -893,9 +893,9 @@ const STORE_CONFIG = {
     }
   },
   "POINTS_SYSTEM": {
-    "currentPoints": 923,
-    "remainingDays": 3,
-    "lastReset": "2026-04-11T07:23:02.287Z",
+    "currentPoints": 995,
+    "remainingDays": 30,
+    "lastReset": "2026-06-13T21:01:43.398Z",
     "planType": "مجاني",
     "monthlyPoints": 1000,
     "resetPeriod": 30,
@@ -973,7 +973,7 @@ const STORE_CONFIG = {
         "user": "admin"
       }
     ],
-    "lastUpdated": "2026-05-08T12:59:30.117Z"
+    "lastUpdated": "2026-06-13T21:14:22.236Z"
   },
   "PIXEL_CODES": {
     "facebook": {
