@@ -893,9 +893,9 @@ const STORE_CONFIG = {
     }
   },
   "POINTS_SYSTEM": {
-    "currentPoints": 995,
-    "remainingDays": 30,
-    "lastReset": "2026-06-13T21:01:43.398Z",
+    "currentPoints": 997,
+    "remainingDays": 28,
+    "lastReset": "2026-07-09T07:41:39.193Z",
     "planType": "مجاني",
     "monthlyPoints": 1000,
     "resetPeriod": 30,
@@ -973,7 +973,7 @@ const STORE_CONFIG = {
         "user": "admin"
       }
     ],
-    "lastUpdated": "2026-06-13T21:14:22.236Z"
+    "lastUpdated": "2026-07-11T14:07:56.653Z"
   },
   "PIXEL_CODES": {
     "facebook": {
