@@ -997,7 +997,7 @@ const STORE_CONFIG = {
         "user": "admin"
       }
     ],
-    "lastUpdated": "2026-08-13T19:01:36.129Z"
+    "lastUpdated": "2026-08-13T19:53:40.050Z"
   },
   "FREE_DELIVERY_PRODUCTS": [
     1765456782838
