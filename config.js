@@ -1,6 +1,6 @@
 
 // =============================================================================
-// ⚙️ ملف الإعدادات الرئيسي للمتجر
+// ⚙️ ملف الإعدادات الرئيسي للمتجر - تم إنشاؤه تلقائياً
 // =============================================================================
 
 const STORE_CONFIG = {
@@ -166,7 +166,7 @@ const STORE_CONFIG = {
     },
     "1778238518007": {
       "name": "Ensemble Polo (t-shirt-short)",
-      "price": 4900,
+      "price": 5300,
       "description": "",
       "category": "",
       "stock": 0,
@@ -252,7 +252,78 @@ const STORE_CONFIG = {
       },
       "createdAt": "2026-05-08T11:08:38.007Z",
       "image": "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1778238518007-1778238752545-Messenger-creation-37FFDF3B-1672-4523-9137-8D369929585F.jpeg",
-      "updatedAt": "2026-06-13T21:13:14.478Z"
+      "updatedAt": "2026-05-08T11:32:02.679Z"
+    },
+    "1778239126878": {
+      "name": "T-shirt ",
+      "price": 2300,
+      "description": "",
+      "category": "",
+      "stock": 0,
+      "featured": false,
+      "availableColors": [
+        "أبيض",
+        "أسود"
+      ],
+      "availableSizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "ageRanges": [],
+      "colorImages": {
+        "أبيض": {
+          "images": [
+            "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1778239126878-أبيض-1778239631074-Messenger-creation-408051E2-5D87-46C2-96F2-DBAC792167FB.jpeg"
+          ],
+          "ageRanges": [
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "S"
+            },
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "M"
+            },
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "L"
+            }
+          ]
+        },
+        "أسود": {
+          "images": [
+            "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1778239126878-أسود-1778239655886-Messenger-creation-2437459D-A810-4853-B647-DB2C2D0BD6EC.jpeg"
+          ],
+          "ageRanges": [
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "S"
+            },
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "M"
+            },
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "L"
+            }
+          ]
+        }
+      },
+      "sizeGuide": {
+        "enabled": false,
+        "guide": {}
+      },
+      "createdAt": "2026-05-08T11:18:46.878Z",
+      "image": "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1778239126878-1778239561305-Messenger-creation-2437459D-A810-4853-B647-DB2C2D0BD6EC.jpeg",
+      "updatedAt": "2026-05-08T11:29:42.336Z"
     },
     "1778244770962": {
       "name": "T-shirt sanix",
@@ -313,77 +384,6 @@ const STORE_CONFIG = {
       "createdAt": "2026-05-08T12:52:50.962Z",
       "image": "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1778244770962-1778244812749-Messenger-creation-DBC61123-8E41-4C75-933B-A5397461B678.jpeg",
       "updatedAt": "2026-05-08T12:54:45.269Z"
-    },
-    "1781384545523": {
-      "name": "Ensemble SU  (short+t-shirt)",
-      "price": 4900,
-      "description": "",
-      "category": "",
-      "stock": 0,
-      "featured": false,
-      "availableColors": [
-        "أسود",
-        "رمادي"
-      ],
-      "availableSizes": [
-        "S",
-        "M",
-        "L"
-      ],
-      "ageRanges": [],
-      "colorImages": {
-        "أسود": {
-          "images": [
-            "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1781384545523-أسود-1781384879351-Messenger-creation-F4CE475B-2921-4253-96CC-6F820D07519A.jpeg"
-          ],
-          "ageRanges": [
-            {
-              "ageFrom": " ",
-              "ageTo": " ",
-              "size": "S"
-            },
-            {
-              "ageFrom": " ",
-              "ageTo": " ",
-              "size": "M"
-            },
-            {
-              "ageFrom": " ",
-              "ageTo": " ",
-              "size": "L"
-            }
-          ]
-        },
-        "رمادي": {
-          "images": [
-            "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1781384545523-رمادي-1781384943903-Messenger-creation-20AF9E8C-5DE2-438B-919D-091B1D04C13A.jpeg"
-          ],
-          "ageRanges": [
-            {
-              "ageFrom": " ",
-              "ageTo": " ",
-              "size": "S"
-            },
-            {
-              "ageFrom": " ",
-              "ageTo": " ",
-              "size": "M"
-            },
-            {
-              "ageFrom": " ",
-              "ageTo": " ",
-              "size": "L"
-            }
-          ]
-        }
-      },
-      "sizeGuide": {
-        "enabled": false,
-        "guide": {}
-      },
-      "createdAt": "2026-06-13T21:02:25.523Z",
-      "image": "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1781384545523-1781384803484-Messenger-creation-20AF9E8C-5DE2-438B-919D-091B1D04C13A.jpeg",
-      "updatedAt": "2026-06-13T21:13:47.939Z"
     }
   },
   "DELIVERY_PRICES": {
@@ -623,15 +623,15 @@ const STORE_CONFIG = {
   "FREE_DELIVERY": {
     "desk": {
       "enabled": true,
-      "minAmount": 0,
+      "minQuantity": 1,
       "wilayas": [],
-      "minQuantity": 1
+      "minAmount": 0
     },
     "home": {
       "enabled": false,
-      "minAmount": 0,
+      "minQuantity": 1,
       "wilayas": [],
-      "minQuantity": 1
+      "minAmount": 0
     },
     "freeDeliveryProducts": [
       1765137505304,
@@ -639,8 +639,8 @@ const STORE_CONFIG = {
       1765145814607,
       1778182443274,
       1778238518007,
-      1778244770962,
-      1781384545523
+      1778239126878,
+      1778244770962
     ]
   },
   "DISCOUNTS": {
@@ -657,8 +657,6 @@ const STORE_CONFIG = {
   },
   "STORE_INFO": {
     "name": "SANIX-DZ",
-    "storeIcon": "-",
-    "storeTitle": "-",
     "tagline": "أحدث الموديلات لسنة 2026",
     "phoneNumbers": [
       "0778506974",
@@ -670,7 +668,10 @@ const STORE_CONFIG = {
     "messengerUrl": "",
     "viberNumber": "",
     "whatsappNumber": "213778506974",
-    "whatsappUrl": "https://wa.me/213778506974"
+    "whatsappUrl": "https://wa.me/213778506974",
+    "tiktokUrl": "",
+    "storeIcon": "-",
+    "storeTitle": "-"
   },
   "GOOGLE_SHEETS": {
     "url": "https://docs.google.com/spreadsheets/d/1B6um1tNw0Uh4NJvLjF5zUX6palzubXv1UeH5gSIt_Go/edit?gid=774585379#gid=774585379",
@@ -807,6 +808,13 @@ const STORE_CONFIG = {
       "weightTo": 114,
       "enabled": false
     },
+    "XS": {
+      "heightFrom": 150,
+      "heightTo": 160,
+      "weightFrom": 40,
+      "weightTo": 55,
+      "enabled": true
+    },
     "S": {
       "heightFrom": 120,
       "heightTo": 130,
@@ -892,10 +900,34 @@ const STORE_CONFIG = {
       "enabled": false
     }
   },
+  "PIXEL_CODES": {
+    "facebook": {
+      "enabled": true,
+      "pixelId": "1399644568464007",
+      "events": {
+        "pageView": true,
+        "addToCart": true,
+        "purchase": true,
+        "initiateCheckout": true,
+        "viewContent": true
+      }
+    },
+    "tiktok": {
+      "enabled": true,
+      "pixelId": "",
+      "events": {
+        "pageView": true,
+        "addToCart": true,
+        "purchase": true,
+        "initiateCheckout": true,
+        "viewContent": true
+      }
+    }
+  },
   "POINTS_SYSTEM": {
-    "currentPoints": 998,
-    "remainingDays": 24,
-    "lastReset": "2026-08-07T19:44:16.729Z",
+    "currentPoints": 996,
+    "remainingDays": 22,
+    "lastReset": "2026-08-05T15:56:39.328Z",
     "planType": "مجاني",
     "monthlyPoints": 1000,
     "resetPeriod": 30,
@@ -973,31 +1005,7 @@ const STORE_CONFIG = {
         "user": "admin"
       }
     ],
-    "lastUpdated": "2026-08-13T21:01:38.863Z"
-  },
-  "PIXEL_CODES": {
-    "facebook": {
-      "enabled": true,
-      "pixelId": "",
-      "events": {
-        "pageView": true,
-        "addToCart": true,
-        "purchase": true,
-        "initiateCheckout": true,
-        "viewContent": true
-      }
-    },
-    "tiktok": {
-      "enabled": true,
-      "pixelId": "",
-      "events": {
-        "pageView": true,
-        "addToCart": true,
-        "purchase": true,
-        "initiateCheckout": true,
-        "viewContent": true
-      }
-    }
+    "lastUpdated": "2026-08-13T22:20:17.212Z"
   },
   "FREE_DELIVERY_PRODUCTS": [
     1765456782838
@@ -1618,79 +1626,11 @@ const STORE_CONFIG = {
   ]
 };
 
-// =============================================================================
-// 🛍️ دالة تحميل المنتجات
-// =============================================================================
-
-function loadProductsConfig() {
-    return STORE_CONFIG.PRODUCTS;
-}
-
-// =============================================================================
-// 🚚 دالة تحميل أسعار التوصيل
-// =============================================================================
-
-function loadDeliveryConfig() {
-    return {
-        deliveryPrices: STORE_CONFIG.DELIVERY_PRICES || {},
-        freeDelivery: STORE_CONFIG.FREE_DELIVERY || {},
-        freeDeliveryProducts: STORE_CONFIG.FREE_DELIVERY.freeDeliveryProducts || []
-    };
-}
-
-// =============================================================================
-// 💰 دالة تحميل إعدادات الخصم
-// =============================================================================
-
-function loadDiscountConfig() {
-    return STORE_CONFIG.DISCOUNTS || {};
-}
-
-// =============================================================================
-// 🏪 دالة تحميل معلومات المتجر
-// =============================================================================
-
-function loadStoreInfo() {
-    return STORE_CONFIG.STORE_INFO || {};
-}
-
-// =============================================================================
-// 🎨 دالة تحميل الألوان والمقاسات
-// =============================================================================
-
-function loadSizesColorsConfig() {
-    return {
-        availableColors: STORE_CONFIG.AVAILABLE_COLORS || [],
-        availableSizes: STORE_CONFIG.AVAILABLE_SIZES || [],
-        sizeGuide: STORE_CONFIG.SIZE_GUIDE || {}
-    };
-}
-
-// =============================================================================
-// 📊 دالة تحميل إعدادات البكسل
-// =============================================================================
-
-function loadPixelConfig() {
-    return STORE_CONFIG.PIXEL_CODES || {};
-}
-
-// =============================================================================
-// 📊 دالة تحميل جميع الإعدادات
-// =============================================================================
-
-function loadAllConfig() {
-    return STORE_CONFIG;
-}
-
-// =============================================================================
-// 🔄 دالة تحديث الإعدادات
-// =============================================================================
-
-function updateConfig(newConfig) {
-    for (const key in newConfig) {
-        if (newConfig.hasOwnProperty(key)) {
-            STORE_CONFIG[key] = newConfig[key];
-        }
-    }
-    return STORE_CONFIG;
-}
+function loadProductsConfig() { return STORE_CONFIG.PRODUCTS; }
+function loadDeliveryConfig() { return { deliveryPrices: STORE_CONFIG.DELIVERY_PRICES || {}, freeDelivery: STORE_CONFIG.FREE_DELIVERY || {}, freeDeliveryProducts: STORE_CONFIG.FREE_DELIVERY.freeDeliveryProducts || [] }; }
+function loadDiscountConfig() { return STORE_CONFIG.DISCOUNTS || {}; }
+function loadStoreInfo() { return STORE_CONFIG.STORE_INFO || {}; }
+function loadSizesColorsConfig() { return { availableColors: STORE_CONFIG.AVAILABLE_COLORS || [], availableSizes: STORE_CONFIG.AVAILABLE_SIZES || [], sizeGuide: STORE_CONFIG.SIZE_GUIDE || {} }; }
+function loadPixelConfig() { return STORE_CONFIG.PIXEL_CODES || {}; }
+function loadAllConfig() { return STORE_CONFIG; }
+function updateConfig(newConfig) { for (const key in newConfig) { if (newConfig.hasOwnProperty(key)) { STORE_CONFIG[key] = newConfig[key]; } } return STORE_CONFIG; }
