@@ -319,66 +319,6 @@
       "createdAt": "2026-05-08T11:18:46.878Z",
       "image": "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1778239126878-1778239561305-Messenger-creation-2437459D-A810-4853-B647-DB2C2D0BD6EC.jpeg",
       "updatedAt": "2026-05-08T11:29:42.336Z"
-    },
-    "1778244770962": {
-      "name": "T-shirt sanix",
-      "price": 2300,
-      "description": "",
-      "category": "",
-      "stock": 0,
-      "featured": false,
-      "availableColors": [
-        "أبيض",
-        "أسود"
-      ],
-      "availableSizes": [
-        "S",
-        "M"
-      ],
-      "ageRanges": [],
-      "colorImages": {
-        "أبيض": {
-          "images": [
-            "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1778244770962-أبيض-1778244898209-Messenger-creation-DBC61123-8E41-4C75-933B-A5397461B678.jpeg"
-          ],
-          "ageRanges": [
-            {
-              "ageFrom": " ",
-              "ageTo": " ",
-              "size": "S"
-            },
-            {
-              "ageFrom": " ",
-              "ageTo": " ",
-              "size": "M"
-            }
-          ]
-        },
-        "أسود": {
-          "images": [
-            "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1778244770962-أسود-1778244929756-Messenger-creation-DBC61123-8E41-4C75-933B-A5397461B678.jpeg"
-          ],
-          "ageRanges": [
-            {
-              "ageFrom": " ",
-              "ageTo": " ",
-              "size": "S"
-            },
-            {
-              "ageFrom": " ",
-              "ageTo": " ",
-              "size": "M"
-            }
-          ]
-        }
-      },
-      "sizeGuide": {
-        "enabled": false,
-        "guide": {}
-      },
-      "createdAt": "2026-05-08T12:52:50.962Z",
-      "image": "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1778244770962-1778244812749-Messenger-creation-DBC61123-8E41-4C75-933B-A5397461B678.jpeg",
-      "updatedAt": "2026-05-08T12:54:45.269Z"
     }
   },
   "DELIVERY_PRICES": {
@@ -618,24 +558,21 @@
   "FREE_DELIVERY": {
     "desk": {
       "enabled": true,
-      "minAmount": 0,
+      "minQuantity": 1,
       "wilayas": [],
-      "minQuantity": 1
+      "minAmount": 0
     },
     "home": {
       "enabled": false,
-      "minAmount": 0,
+      "minQuantity": 1,
       "wilayas": [],
-      "minQuantity": 1
+      "minAmount": 0
     },
     "freeDeliveryProducts": [
       1765137505304,
       1765145035052,
       1765145814607,
-      1778182443274,
-      1778238518007,
-      1778239126878,
-      1778244770962
+      1778182443274
     ]
   },
   "DISCOUNTS": {
@@ -652,20 +589,21 @@
   },
   "STORE_INFO": {
     "name": "SANIX-DZ",
-    "storeIcon": "-",
-    "storeTitle": "-",
     "tagline": "أحدث الموديلات لسنة 2026",
     "phoneNumbers": [
       "0778506974",
-      "0792946548"
+      "0551102155"
     ],
-    "logo": "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/store-logo-1778244567755-file-00000000f55c722fa6802d1544ea54d1.png",
+    "logo": "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/store-logo-1778238506230-Screenshot-20260508-111538-Samsung-Internet.jpg",
     "facebookUrl": "",
     "instagramUrl": "https://www.instagram.com/sanix_dz?igsh=MXY1a2w4am0yems5cA%3D%3D&utm_source=qr",
     "messengerUrl": "",
     "viberNumber": "",
     "whatsappNumber": "213778506974",
-    "whatsappUrl": "https://wa.me/213778506974"
+    "whatsappUrl": "https://wa.me/213778506974",
+    "tiktokUrl": "",
+    "storeIcon": "-",
+    "storeTitle": "-"
   },
   "GOOGLE_SHEETS": {
     "url": "https://docs.google.com/spreadsheets/d/1B6um1tNw0Uh4NJvLjF5zUX6palzubXv1UeH5gSIt_Go/edit?gid=774585379#gid=774585379",
@@ -802,6 +740,13 @@
       "weightTo": 114,
       "enabled": false
     },
+    "XS": {
+      "heightFrom": 150,
+      "heightTo": 160,
+      "weightFrom": 40,
+      "weightTo": 55,
+      "enabled": true
+    },
     "S": {
       "heightFrom": 120,
       "heightTo": 130,
@@ -890,7 +835,7 @@
   "PIXEL_CODES": {
     "facebook": {
       "enabled": true,
-      "pixelId": "1399644568464007",
+      "pixelId": "",
       "events": {
         "pageView": true,
         "addToCart": true,
@@ -912,9 +857,9 @@
     }
   },
   "POINTS_SYSTEM": {
-    "currentPoints": 996,
-    "remainingDays": 22,
-    "lastReset": "2026-08-05T15:56:39.328Z",
+    "currentPoints": 943,
+    "remainingDays": 2,
+    "lastReset": "2026-04-11T07:23:02.287Z",
     "planType": "مجاني",
     "monthlyPoints": 1000,
     "resetPeriod": 30,
@@ -992,7 +937,7 @@
         "user": "admin"
       }
     ],
-    "lastUpdated": "2026-08-13T19:53:40.050Z"
+    "lastUpdated": "2026-05-09T14:17:58.262Z"
   },
   "FREE_DELIVERY_PRODUCTS": [
     1765456782838
