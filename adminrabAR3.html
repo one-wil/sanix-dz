@@ -1,0 +1,3404 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>لوحة تحكم المتجر - نظام إدارة متكامل</title>
+    
+    <!-- إعدادات تطبيق ويب تقدمي (PWA) -->
+    <meta name="theme-color" content="#1e293b">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="مدير المتجر">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="description" content="لوحة تحكم متقدمة لإدارة متجرك الإلكتروني بكل سهولة">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="icons/icon-72x72.png">
+    <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+    
+    <!-- الخطوط والأيقونات -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js')
+                    .then(reg => console.log('Service Worker مسجل بنجاح', reg.scope))
+                    .catch(err => console.log('فشل تسجيل Service Worker', err));
+            });
+        }
+    </script>
+
+    <style>
+        /* ============================================================
+           متغيرات التصميم العصري
+           ============================================================ */
+        :root {
+            --bg-primary: #f1f5f9;
+            --bg-card: #ffffff;
+            --bg-sidebar: #0f172a;
+            --bg-sidebar-hover: #1e293b;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #94a3b8;
+            --text-white: #f8fafc;
+            --border-color: #e2e8f0;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+            --shadow-lg: 0 10px 30px rgba(0,0,0,0.10);
+            --radius: 16px;
+            --radius-sm: 10px;
+            --radius-xs: 6px;
+            --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            --primary: #3b82f6;
+            --primary-dark: #2563eb;
+            --success: #22c55e;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --info: #06b6d4;
+            --safe-top: env(safe-area-inset-top, 0px);
+            --safe-bottom: env(safe-area-inset-bottom, 0px);
+        }
+
+        /* ============================================================
+           إعادة تعيين عامة
+           ============================================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            min-height: -webkit-fill-available;
+            padding-top: var(--safe-top);
+            padding-bottom: var(--safe-bottom);
+            overflow-x: hidden;
+        }
+
+        /* ============================================================
+           شاشة التحميل
+           ============================================================ */
+        .splash-screen {
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(145deg, #0f172a, #1e293b);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.6s ease;
+        }
+        .splash-screen.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .splash-icon {
+            font-size: 4rem;
+            color: #3b82f6;
+            animation: pulse 1.8s infinite;
+        }
+        .splash-text {
+            color: #94a3b8;
+            margin-top: 1.5rem;
+            font-size: 1rem;
+            letter-spacing: 1px;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.08); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.8; }
+        }
+
+        /* ============================================================
+           شاشة تسجيل الدخول
+           ============================================================ */
+        .login-screen {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+        }
+        .login-card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 2.5rem 2rem;
+            width: 100%;
+            max-width: 420px;
+            box-shadow: var(--shadow-lg);
+            text-align: center;
+            animation: fadeUp 0.5s ease;
+        }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .login-logo {
+            margin-bottom: 2rem;
+        }
+        .login-logo i {
+            font-size: 3.5rem;
+            color: var(--primary);
+            background: linear-gradient(135deg, var(--primary), var(--info));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .login-logo h1 {
+            font-size: 1.6rem;
+            margin-top: 0.5rem;
+            color: var(--text-primary);
+        }
+        .login-form .input-group {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+        .login-form .input-group i {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+        }
+        .login-form input {
+            width: 100%;
+            padding: 0.9rem 3rem 0.9rem 1.2rem;
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            font-size: 1rem;
+            transition: var(--transition);
+            background: var(--bg-primary);
+        }
+        .login-form input:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(59,130,246,0.15);
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border: none;
+            padding: 0.9rem;
+            width: 100%;
+            border-radius: var(--radius-sm);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(59,130,246,0.35);
+        }
+        .login-error {
+            color: var(--danger);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: none;
+        }
+        .login-footer {
+            margin-top: 1.5rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+        .login-footer strong {
+            color: var(--primary);
+        }
+
+        /* ============================================================
+           القالب الرئيسي للوحة التحكم
+           ============================================================ */
+        .app-wrapper {
+            display: none;
+            min-height: 100vh;
+            background: var(--bg-primary);
+        }
+        .app-wrapper.active {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ============================================================
+           الشريط العلوي (Header)
+           ============================================================ */
+        .app-header {
+            background: var(--bg-card);
+            padding: 0.8rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .app-header .brand {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .app-header .brand i {
+            color: var(--primary);
+        }
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .sync-status {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            background: var(--bg-primary);
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .user-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--bg-primary);
+            padding: 0.3rem 1rem 0.3rem 0.8rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .user-badge:hover {
+            background: var(--border-color);
+        }
+        .user-avatar {
+            width: 34px;
+            height: 34px;
+            background: linear-gradient(135deg, var(--primary), var(--info));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        /* ============================================================
+           التخطيط الرئيسي (شريط جانبي + محتوى)
+           ============================================================ */
+        .app-layout {
+            display: flex;
+            flex: 1;
+        }
+
+        /* ============================================================
+           الشريط الجانبي
+           ============================================================ */
+        .app-sidebar {
+            width: 240px;
+            background: var(--bg-sidebar);
+            color: var(--text-white);
+            padding: 1.5rem 0;
+            height: calc(100vh - 70px);
+            position: sticky;
+            top: 70px;
+            overflow-y: auto;
+            flex-shrink: 0;
+            transition: var(--transition);
+            border-left: 1px solid rgba(255,255,255,0.05);
+        }
+        .app-sidebar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .app-sidebar::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 10px;
+        }
+        .sidebar-menu {
+            list-style: none;
+            padding: 0 1rem;
+        }
+        .sidebar-menu .menu-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.7rem 1rem;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: var(--transition);
+            color: #94a3b8;
+            margin-bottom: 0.2rem;
+            font-weight: 500;
+        }
+        .sidebar-menu .menu-item:hover {
+            background: var(--bg-sidebar-hover);
+            color: white;
+        }
+        .sidebar-menu .menu-item.active {
+            background: rgba(59,130,246,0.15);
+            color: white;
+            border-right: 3px solid var(--primary);
+        }
+        .sidebar-menu .menu-item i {
+            width: 1.4rem;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+        .sidebar-menu .menu-item span {
+            font-size: 0.95rem;
+        }
+        .sidebar-divider {
+            height: 1px;
+            background: rgba(255,255,255,0.06);
+            margin: 1rem 1rem;
+        }
+
+        /* ============================================================
+           المحتوى الرئيسي
+           ============================================================ */
+        .app-content {
+            flex: 1;
+            padding: 2rem;
+            overflow-y: auto;
+            background: var(--bg-primary);
+        }
+
+        /* ============================================================
+           بطاقات الإحصائيات
+           ============================================================ */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        .stat-card {
+            background: var(--bg-card);
+            padding: 1.2rem 1.5rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .stat-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+        .stat-info .stat-value {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            line-height: 1.2;
+        }
+        .stat-info .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            color: white;
+        }
+        .stat-icon.blue { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+        .stat-icon.green { background: linear-gradient(135deg, #22c55e, #16a34a); }
+        .stat-icon.orange { background: linear-gradient(135deg, #f59e0b, #d97706); }
+        .stat-icon.purple { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
+
+        /* ============================================================
+           بطاقات الإجراءات السريعة
+           ============================================================ */
+        .actions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.2rem;
+            margin-bottom: 2.5rem;
+        }
+        .action-card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+            text-align: center;
+        }
+        .action-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+        .action-card i {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        .action-card h4 {
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+        }
+        .action-card p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+        .btn-sm {
+            padding: 0.5rem 1.2rem;
+            font-size: 0.85rem;
+            border-radius: var(--radius-xs);
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .btn-sm:hover {
+            transform: scale(1.02);
+        }
+        .btn-outline-primary {
+            background: transparent;
+            border: 1.5px solid var(--primary);
+            color: var(--primary);
+        }
+        .btn-outline-primary:hover {
+            background: var(--primary);
+            color: white;
+        }
+        .btn-success {
+            background: var(--success);
+            color: white;
+        }
+        .btn-success:hover {
+            background: #16a34a;
+        }
+        .btn-warning {
+            background: var(--warning);
+            color: white;
+        }
+        .btn-warning:hover {
+            background: #d97706;
+        }
+        .btn-danger {
+            background: var(--danger);
+            color: white;
+        }
+        .btn-danger:hover {
+            background: #dc2626;
+        }
+        .btn-info {
+            background: var(--info);
+            color: white;
+        }
+        .btn-info:hover {
+            background: #0891b2;
+        }
+
+        /* ============================================================
+           علامات التبويب (Tabs)
+           ============================================================ */
+        .tabs-container {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+        .tabs-header {
+            display: flex;
+            background: var(--bg-primary);
+            border-bottom: 1px solid var(--border-color);
+            overflow-x: auto;
+            padding: 0.3rem 0.5rem;
+            gap: 0.2rem;
+        }
+        .tab-btn {
+            padding: 0.6rem 1.2rem;
+            border: none;
+            background: transparent;
+            font-weight: 600;
+            color: var(--text-secondary);
+            border-radius: var(--radius-xs);
+            cursor: pointer;
+            transition: var(--transition);
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.9rem;
+        }
+        .tab-btn:hover {
+            background: rgba(59,130,246,0.08);
+            color: var(--text-primary);
+        }
+        .tab-btn.active {
+            background: white;
+            color: var(--primary);
+            box-shadow: var(--shadow-sm);
+        }
+        .tab-pane {
+            display: none;
+            padding: 1.5rem;
+            animation: fadeIn 0.3s ease;
+        }
+        .tab-pane.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ============================================================
+           الجداول والقوائم
+           ============================================================ */
+        .table-wrap {
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+        th, td {
+            padding: 0.8rem 0.6rem;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+        th {
+            background: var(--bg-primary);
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+        tr:hover td {
+            background: #f8fafc;
+        }
+
+        /* ============================================================
+           النماذج والمودالات
+           ============================================================ */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(15,23,42,0.6);
+            backdrop-filter: blur(4px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            padding: 1rem;
+        }
+        .modal-overlay.show {
+            display: flex;
+        }
+        .modal-box {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            max-width: 700px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: var(--shadow-lg);
+            padding: 1.8rem;
+            animation: modalIn 0.3s ease;
+        }
+        @keyframes modalIn {
+            from { opacity: 0; transform: scale(0.96) translateY(20px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .modal-header h3 {
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 1.4rem;
+            cursor: pointer;
+            color: var(--text-muted);
+            transition: var(--transition);
+        }
+        .modal-close:hover {
+            color: var(--danger);
+            transform: rotate(90deg);
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+            color: var(--text-secondary);
+        }
+        .form-control {
+            width: 100%;
+            padding: 0.7rem 1rem;
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius-xs);
+            font-size: 0.95rem;
+            transition: var(--transition);
+            background: var(--bg-primary);
+        }
+        .form-control:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(59,130,246,0.12);
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 0.8rem;
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* ============================================================
+           الإشعارات
+           ============================================================ */
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%) translateY(80px);
+            background: var(--bg-card);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            z-index: 3000;
+            opacity: 0;
+            transition: all 0.4s ease;
+            pointer-events: none;
+            font-weight: 500;
+        }
+        .toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+            pointer-events: auto;
+        }
+        .toast.success { border-right: 4px solid var(--success); }
+        .toast.error { border-right: 4px solid var(--danger); }
+        .toast.warning { border-right: 4px solid var(--warning); }
+        .toast.info { border-right: 4px solid var(--info); }
+
+        /* ============================================================
+           تأكيد الحذف
+           ============================================================ */
+        .confirm-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(3px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 4000;
+            padding: 1rem;
+        }
+        .confirm-box {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 2rem;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+        }
+        .confirm-box .icon {
+            font-size: 3rem;
+            color: var(--danger);
+            margin-bottom: 0.5rem;
+        }
+        .confirm-box p {
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+        }
+        .confirm-actions {
+            display: flex;
+            gap: 0.8rem;
+            justify-content: center;
+        }
+
+        /* ============================================================
+           تحسينات إضافية
+           ============================================================ */
+        .empty-state {
+            text-align: center;
+            padding: 3rem 1rem;
+            color: var(--text-muted);
+        }
+        .empty-state i {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: var(--border-color);
+        }
+        .badge {
+            display: inline-block;
+            padding: 0.2rem 0.7rem;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        .badge-success { background: #dcfce7; color: #166534; }
+        .badge-warning { background: #fef3c7; color: #92400e; }
+        .badge-danger { background: #fee2e2; color: #991b1b; }
+        .badge-info { background: #dbeafe; color: #1e40af; }
+
+        /* ============================================================
+           التجاوب
+           ============================================================ */
+        @media (max-width: 1024px) {
+            .app-sidebar {
+                width: 70px;
+                padding: 1rem 0;
+            }
+            .app-sidebar .menu-item span {
+                display: none;
+            }
+            .app-sidebar .menu-item {
+                justify-content: center;
+                padding: 0.7rem;
+            }
+            .app-sidebar .menu-item i {
+                font-size: 1.3rem;
+            }
+        }
+        @media (max-width: 768px) {
+            .app-layout {
+                flex-direction: column;
+            }
+            .app-sidebar {
+                width: 100%;
+                height: auto;
+                position: static;
+                padding: 0.5rem 0;
+                border-left: none;
+                border-bottom: 1px solid rgba(255,255,255,0.05);
+                overflow-x: auto;
+                display: flex;
+                flex-wrap: nowrap;
+            }
+            .app-sidebar .sidebar-menu {
+                display: flex;
+                gap: 0.2rem;
+                padding: 0 0.5rem;
+                flex-wrap: nowrap;
+            }
+            .app-sidebar .menu-item {
+                flex-shrink: 0;
+                padding: 0.5rem 0.8rem;
+                border-radius: var(--radius-xs);
+            }
+            .app-sidebar .menu-item span {
+                display: inline;
+                font-size: 0.8rem;
+            }
+            .app-sidebar .sidebar-divider {
+                display: none;
+            }
+            .app-content {
+                padding: 1rem;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .actions-grid {
+                grid-template-columns: 1fr;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            .app-header {
+                padding: 0.6rem 1rem;
+            }
+            .header-actions .sync-status {
+                display: none;
+            }
+        }
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            .login-card {
+                padding: 1.8rem 1.2rem;
+            }
+        }
+
+        /* ============================================================
+           دعم وضع ملء الشاشة
+           ============================================================ */
+        :fullscreen .app-header,
+        :-webkit-full-screen .app-header,
+        :-moz-full-screen .app-header {
+            padding-top: 0.8rem;
+        }
+
+        /* ============================================================
+           تخصيص شريط التمرير
+           ============================================================ */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-dark);
+        }
+
+        /* ============================================================
+           زر تثبيت PWA
+           ============================================================ */
+        .pwa-install-banner {
+            position: fixed;
+            bottom: 1rem;
+            left: 1rem;
+            right: 1rem;
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 1rem 1.5rem;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-color);
+            display: none;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            z-index: 5000;
+            flex-wrap: wrap;
+        }
+        .pwa-install-banner.show {
+            display: flex;
+        }
+        .pwa-install-banner .pwa-text {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        .pwa-install-banner .pwa-text i {
+            font-size: 1.8rem;
+            color: var(--primary);
+        }
+        .pwa-install-banner .pwa-buttons {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        /* ============================================================
+           نظام صور الألوان
+           ============================================================ */
+        .color-images-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 0.8rem;
+            margin-top: 0.5rem;
+        }
+        .color-image-item {
+            position: relative;
+            border-radius: var(--radius-xs);
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            background: var(--bg-primary);
+        }
+        .color-image-item img {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+        }
+        .color-image-item .delete-btn {
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            background: var(--danger);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            font-size: 0.7rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* ============================================================
+           دليل المقاسات
+           ============================================================ */
+        .size-guide-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+        .size-guide-table th,
+        .size-guide-table td {
+            padding: 0.5rem;
+            border: 1px solid var(--border-color);
+            text-align: center;
+        }
+        .size-guide-table th {
+            background: var(--bg-primary);
+            font-weight: 600;
+        }
+        .size-guide-table input[type="number"] {
+            width: 70px;
+            padding: 0.2rem;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-xs);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================================
+         شاشة التحميل
+         ============================================================ -->
+    <div id="splash" class="splash-screen">
+        <div class="splash-icon"><i class="fas fa-store-alt"></i></div>
+        <div class="splash-text">جاري تجهيز لوحة التحكم...</div>
+    </div>
+
+    <!-- ============================================================
+         شاشة تسجيل الدخول
+         ============================================================ -->
+    <div id="loginScreen" class="login-screen">
+        <div class="login-card">
+            <div class="login-logo">
+                <i class="fas fa-store-alt"></i>
+                <h1>مدير المتجر</h1>
+            </div>
+            <div class="login-form">
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="adminPass" placeholder="كلمة المرور" autocomplete="off">
+                </div>
+                <div id="loginError" class="login-error">
+                    <i class="fas fa-exclamation-circle"></i> كلمة مرور غير صحيحة
+                </div>
+                <button class="btn-primary" onclick="handleLogin()">
+                    <i class="fas fa-sign-in-alt"></i> دخول
+                </button>
+            </div>
+            <div class="login-footer">
+                كلمة المرور الافتراضية: <strong>4*45D6A8</strong>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================
+         تطبيق لوحة التحكم
+         ============================================================ -->
+    <div id="app" class="app-wrapper">
+
+        <!-- الشريط العلوي -->
+        <header class="app-header">
+            <div class="brand">
+                <i class="fas fa-store-alt"></i>
+                <span>مدير المتجر</span>
+            </div>
+            <div class="header-actions">
+                <div class="sync-status" id="syncStatus">
+                    <i class="fas fa-sync-alt fa-fw"></i> جاهز
+                </div>
+                <button class="btn-sm btn-info" onclick="toggleFullscreen()" title="ملء الشاشة">
+                    <i class="fas fa-expand"></i>
+                </button>
+                <div class="user-badge" onclick="switchTab('security')">
+                    <div class="user-avatar">م</div>
+                    <span style="font-weight:500;">المدير</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- التخطيط -->
+        <div class="app-layout">
+
+            <!-- الشريط الجانبي -->
+            <aside class="app-sidebar" id="sidebar">
+                <ul class="sidebar-menu">
+                    <li class="menu-item active" data-tab="dashboard" onclick="switchTab('dashboard')">
+                        <i class="fas fa-chart-pie"></i><span>الرئيسية</span>
+                    </li>
+                    <li class="menu-item" data-tab="products" onclick="switchTab('products')">
+                        <i class="fas fa-boxes"></i><span>المنتجات</span>
+                    </li>
+                    <li class="menu-item" data-tab="delivery" onclick="switchTab('delivery')">
+                        <i class="fas fa-truck"></i><span>التوصيل</span>
+                    </li>
+                    <li class="menu-item" data-tab="settings" onclick="switchTab('settings')">
+                        <i class="fas fa-sliders-h"></i><span>الإعدادات</span>
+                    </li>
+                    <li class="menu-item" data-tab="storage" onclick="switchTab('storage')">
+                        <i class="fas fa-key"></i><span>المفاتيح</span>
+                    </li>
+                    <li class="menu-item" data-tab="security" onclick="switchTab('security')">
+                        <i class="fas fa-shield-alt"></i><span>الأمان</span>
+                    </li>
+                    <li class="menu-item" data-tab="tools" onclick="switchTab('tools')">
+                        <i class="fas fa-tools"></i><span>الأدوات</span>
+                    </li>
+                    <li class="sidebar-divider"></li>
+                    <li class="menu-item" onclick="logout()">
+                        <i class="fas fa-sign-out-alt"></i><span>خروج</span>
+                    </li>
+                </ul>
+            </aside>
+
+            <!-- المحتوى -->
+            <main class="app-content">
+
+                <!-- ============================================================
+                     علامة التبويب: الرئيسية
+                     ============================================================ -->
+                <section id="tab-dashboard" class="tab-pane active">
+
+                    <div style="margin-bottom:1.5rem;">
+                        <h2 style="font-size:1.6rem; display:flex; align-items:center; gap:0.5rem;">
+                            <i class="fas fa-chart-line" style="color:var(--primary);"></i> 
+                            لوحة القيادة
+                        </h2>
+                        <p style="color:var(--text-secondary);">نظرة عامة على نشاط متجرك وإحصائياته</p>
+                    </div>
+
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-info">
+                                <div class="stat-value" id="statProducts">0</div>
+                                <div class="stat-label">المنتجات</div>
+                            </div>
+                            <div class="stat-icon blue"><i class="fas fa-box"></i></div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-info">
+                                <div class="stat-value" id="statWilayas">0</div>
+                                <div class="stat-label">الولايات</div>
+                            </div>
+                            <div class="stat-icon green"><i class="fas fa-map-marker-alt"></i></div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-info">
+                                <div class="stat-value" id="statKeys">0</div>
+                                <div class="stat-label">مفاتيح التخزين</div>
+                            </div>
+                            <div class="stat-icon orange"><i class="fas fa-key"></i></div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-info">
+                                <div class="stat-value" id="statLastUpdate">-</div>
+                                <div class="stat-label">آخر تحديث</div>
+                            </div>
+                            <div class="stat-icon purple"><i class="fas fa-clock"></i></div>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom:1rem;">
+                        <h3 style="font-size:1.2rem;"><i class="fas fa-bolt" style="color:var(--primary);"></i> إجراءات سريعة</h3>
+                    </div>
+                    <div class="actions-grid">
+                        <div class="action-card">
+                            <i class="fas fa-plus-circle"></i>
+                            <h4>إضافة منتج</h4>
+                            <p>أضف منتجاً جديداً بصوره وتفاصيله</p>
+                            <button class="btn-sm btn-outline-primary" onclick="showAddProductModal()">
+                                <i class="fas fa-plus"></i> إضافة
+                            </button>
+                        </div>
+                        <div class="action-card">
+                            <i class="fas fa-sync-alt"></i>
+                            <h4>مزامنة</h4>
+                            <p>مزامنة البيانات مع السيرفر</p>
+                            <button class="btn-sm btn-success" onclick="startQuickSave()">
+                                <i class="fas fa-save"></i> مزامنة
+                            </button>
+                        </div>
+                        <div class="action-card">
+                            <i class="fas fa-truck"></i>
+                            <h4>التوصيل</h4>
+                            <p>تعديل أسعار التوصيل والمناطق</p>
+                            <button class="btn-sm btn-info" onclick="switchTab('delivery')">
+                                <i class="fas fa-edit"></i> تعديل
+                            </button>
+                        </div>
+                        <div class="action-card" id="pwaInstallCard" style="display:none;">
+                            <i class="fas fa-mobile-alt"></i>
+                            <h4>تثبيت التطبيق</h4>
+                            <p>ثبّت لوحة التحكم على جهازك</p>
+                            <button class="btn-sm btn-outline-primary" onclick="installPWA()">
+                                <i class="fas fa-download"></i> تثبيت
+                            </button>
+                        </div>
+                    </div>
+
+                    <div style="background:var(--bg-card); border-radius:var(--radius); padding:1.5rem; border:1px solid var(--border-color);">
+                        <h4 style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.5rem;">
+                            <i class="fas fa-info-circle" style="color:var(--info);"></i> 
+                            مرحباً بك في لوحة التحكم
+                        </h4>
+                        <p style="color:var(--text-secondary);">
+                            استخدم القائمة الجانبية للتنقل بين الأقسام. يمكنك إدارة المنتجات، التوصيل، الإعدادات، والمزيد.
+                        </p>
+                    </div>
+
+                </section>
+
+                <!-- ============================================================
+                     علامة التبويب: المنتجات
+                     ============================================================ -->
+                <section id="tab-products" class="tab-pane">
+                    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem; margin-bottom:1.5rem;">
+                        <div>
+                            <h2 style="font-size:1.4rem;"><i class="fas fa-boxes" style="color:var(--primary);"></i> المنتجات</h2>
+                            <p style="color:var(--text-secondary);">إدارة قائمة المنتجات وإضافتها وتعديلها</p>
+                        </div>
+                        <button class="btn-sm btn-primary" onclick="showAddProductModal()" style="background:var(--primary); color:white; border:none; padding:0.6rem 1.2rem; border-radius:var(--radius-xs);">
+                            <i class="fas fa-plus"></i> إضافة منتج
+                        </button>
+                    </div>
+
+                    <div class="tabs-container">
+                        <div class="tabs-header">
+                            <button class="tab-btn active" onclick="filterProducts('all', this)">الكل</button>
+                            <button class="tab-btn" onclick="filterProducts('active', this)">نشط</button>
+                        </div>
+                        <div class="tab-pane active" id="productsList">
+                            <!-- سيتم ملؤه بواسطة JavaScript -->
+                            <div class="empty-state">
+                                <i class="fas fa-box-open"></i>
+                                <p>لا توجد منتجات. ابدأ بإضافة منتج جديد.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ============================================================
+                     علامة التبويب: التوصيل
+                     ============================================================ -->
+                <section id="tab-delivery" class="tab-pane">
+                    <h2 style="font-size:1.4rem; margin-bottom:0.2rem;"><i class="fas fa-truck" style="color:var(--primary);"></i> التوصيل</h2>
+                    <p style="color:var(--text-secondary); margin-bottom:1.5rem;">إدارة أسعار التوصيل والتوصيل المجاني</p>
+
+                    <div class="tabs-container">
+                        <div class="tabs-header">
+                            <button class="tab-btn active" onclick="switchDeliveryTab('wilayas', this)">الولايات</button>
+                            <button class="tab-btn" onclick="switchDeliveryTab('free', this)">توصيل مجاني</button>
+                            <button class="tab-btn" onclick="switchDeliveryTab('freeProducts', this)">منتجات مجانية</button>
+                        </div>
+                        <div class="tab-pane active" id="deliveryWilayas">
+                            <!-- سيتم ملؤه -->
+                            <button class="btn-sm btn-primary" onclick="showAddWilayaModal()" style="background:var(--primary); color:white; border:none; padding:0.5rem 1rem; border-radius:var(--radius-xs); margin-bottom:1rem;">
+                                <i class="fas fa-plus"></i> إضافة ولاية
+                            </button>
+                            <div id="wilayasContainer"></div>
+                        </div>
+                        <div class="tab-pane" id="deliveryFree">
+                            <div id="freeDeliverySettings"></div>
+                        </div>
+                        <div class="tab-pane" id="deliveryFreeProducts">
+                            <div id="freeProductsContent"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ============================================================
+                     علامة التبويب: الإعدادات
+                     ============================================================ -->
+                <section id="tab-settings" class="tab-pane">
+                    <h2 style="font-size:1.4rem; margin-bottom:0.2rem;"><i class="fas fa-sliders-h" style="color:var(--primary);"></i> الإعدادات</h2>
+                    <p style="color:var(--text-secondary); margin-bottom:1.5rem;">تخصيص المتجر والإعدادات العامة</p>
+
+                    <div class="tabs-container">
+                        <div class="tabs-header">
+                            <button class="tab-btn active" onclick="switchSettingsTab('general', this)">عام</button>
+                            <button class="tab-btn" onclick="switchSettingsTab('social', this)">تواصل</button>
+                            <button class="tab-btn" onclick="switchSettingsTab('discount', this)">الخصم</button>
+                            <button class="tab-btn" onclick="switchSettingsTab('sizes', this)">المقاسات</button>
+                            <button class="tab-btn" onclick="switchSettingsTab('pixels', this)">بكسل</button>
+                            <button class="tab-btn" onclick="switchSettingsTab('advanced', this)">متقدم</button>
+                        </div>
+                        <div class="tab-pane active" id="settingsGeneral"></div>
+                        <div class="tab-pane" id="settingsSocial"></div>
+                        <div class="tab-pane" id="settingsDiscount"></div>
+                        <div class="tab-pane" id="settingsSizes"></div>
+                        <div class="tab-pane" id="settingsPixels"></div>
+                        <div class="tab-pane" id="settingsAdvanced"></div>
+                    </div>
+                </section>
+
+                <!-- ============================================================
+                     علامة التبويب: المفاتيح
+                     ============================================================ -->
+                <section id="tab-storage" class="tab-pane">
+                    <h2 style="font-size:1.4rem; margin-bottom:0.2rem;"><i class="fas fa-key" style="color:var(--primary);"></i> مفاتيح التخزين</h2>
+                    <p style="color:var(--text-secondary); margin-bottom:1.5rem;">إدارة مفاتيح الوصول إلى مستودع الصور</p>
+                    <div id="storageKeysContent"></div>
+                </section>
+
+                <!-- ============================================================
+                     علامة التبويب: الأمان
+                     ============================================================ -->
+                <section id="tab-security" class="tab-pane">
+                    <h2 style="font-size:1.4rem; margin-bottom:0.2rem;"><i class="fas fa-shield-alt" style="color:var(--primary);"></i> الأمان</h2>
+                    <p style="color:var(--text-secondary); margin-bottom:1.5rem;">تغيير كلمة المرور وإعدادات الأمان</p>
+                    <div id="securityContent"></div>
+                </section>
+
+                <!-- ============================================================
+                     علامة التبويب: الأدوات
+                     ============================================================ -->
+                <section id="tab-tools" class="tab-pane">
+                    <h2 style="font-size:1.4rem; margin-bottom:0.2rem;"><i class="fas fa-tools" style="color:var(--primary);"></i> الأدوات</h2>
+                    <p style="color:var(--text-secondary); margin-bottom:1.5rem;">أدوات مساعدة لإدارة النظام</p>
+                    <div id="toolsContent"></div>
+                </section>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- ============================================================
+         مودال: إضافة/تعديل منتج
+         ============================================================ -->
+    <div id="productModal" class="modal-overlay">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3 id="productModalTitle"><i class="fas fa-plus-circle"></i> إضافة منتج</h3>
+                <button class="modal-close" onclick="closeModal('productModal')">&times;</button>
+            </div>
+            <div id="productModalBody"></div>
+        </div>
+    </div>
+
+    <!-- ============================================================
+         مودال: إضافة/تعديل ولاية
+         ============================================================ -->
+    <div id="wilayaModal" class="modal-overlay">
+        <div class="modal-box" style="max-width:500px;">
+            <div class="modal-header">
+                <h3 id="wilayaModalTitle"><i class="fas fa-map-marker-alt"></i> إضافة ولاية</h3>
+                <button class="modal-close" onclick="closeModal('wilayaModal')">&times;</button>
+            </div>
+            <div id="wilayaModalBody"></div>
+        </div>
+    </div>
+
+    <!-- ============================================================
+         مودال: تحميل صورة
+         ============================================================ -->
+    <div id="uploadModal" class="modal-overlay">
+        <div class="modal-box" style="max-width:600px;">
+            <div class="modal-header">
+                <h3 id="uploadModalTitle"><i class="fas fa-image"></i> تحميل صورة</h3>
+                <button class="modal-close" onclick="closeModal('uploadModal')">&times;</button>
+            </div>
+            <div id="uploadModalBody"></div>
+        </div>
+    </div>
+
+    <!-- ============================================================
+         مودال: ألوان ومقاسات
+         ============================================================ -->
+    <div id="colorsSizesModal" class="modal-overlay">
+        <div class="modal-box" style="max-width:800px;">
+            <div class="modal-header">
+                <h3 id="colorsSizesModalTitle"><i class="fas fa-palette"></i> إدارة الألوان والمقاسات</h3>
+                <button class="modal-close" onclick="closeModal('colorsSizesModal')">&times;</button>
+            </div>
+            <div id="colorsSizesModalBody"></div>
+        </div>
+    </div>
+
+    <!-- ============================================================
+         مودال: دليل المقاسات
+         ============================================================ -->
+    <div id="sizeGuideModal" class="modal-overlay">
+        <div class="modal-box" style="max-width:900px;">
+            <div class="modal-header">
+                <h3><i class="fas fa-ruler-combined"></i> دليل المقاسات</h3>
+                <button class="modal-close" onclick="closeModal('sizeGuideModal')">&times;</button>
+            </div>
+            <div id="sizeGuideModalBody"></div>
+        </div>
+    </div>
+
+    <!-- ============================================================
+         مودال: دليل مقاسات المنتج
+         ============================================================ -->
+    <div id="productSizeGuideModal" class="modal-overlay">
+        <div class="modal-box" style="max-width:900px;">
+            <div class="modal-header">
+                <h3 id="productSizeGuideTitle"><i class="fas fa-ruler-combined"></i> دليل مقاسات المنتج</h3>
+                <button class="modal-close" onclick="closeModal('productSizeGuideModal')">&times;</button>
+            </div>
+            <div id="productSizeGuideModalBody"></div>
+        </div>
+    </div>
+
+    <!-- ============================================================
+         تأكيد الحذف
+         ============================================================ -->
+    <div id="confirmModal" class="confirm-overlay">
+        <div class="confirm-box">
+            <div class="icon"><i class="fas fa-exclamation-triangle"></i></div>
+            <p id="confirmMessage">هل أنت متأكد؟</p>
+            <div class="confirm-actions">
+                <button class="btn-sm btn-danger" id="confirmDeleteBtn">نعم</button>
+                <button class="btn-sm" style="background:var(--bg-primary); border:1px solid var(--border-color);" onclick="closeConfirm()">إلغاء</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================
+         الإشعارات
+         ============================================================ -->
+    <div id="toast" class="toast">
+        <i id="toastIcon" class="fas fa-check-circle"></i>
+        <span id="toastMessage"></span>
+    </div>
+
+    <!-- ============================================================
+         شريط تثبيت PWA
+         ============================================================ -->
+    <div id="pwaBanner" class="pwa-install-banner">
+        <div class="pwa-text">
+            <i class="fas fa-mobile-alt"></i>
+            <span>ثبّت التطبيق للوصول السريع</span>
+        </div>
+        <div class="pwa-buttons">
+            <button class="btn-sm btn-primary" onclick="installPWA()" style="background:var(--primary); color:white; border:none;">تثبيت</button>
+            <button class="btn-sm" style="background:transparent; border:1px solid var(--border-color);" onclick="document.getElementById('pwaBanner').classList.remove('show')">تجاهل</button>
+        </div>
+    </div>
+
+    <!-- ============================================================
+         جافا سكريبت (كل الوظائف ما عدا نظام النقاط)
+         ============================================================ -->
+    <script>
+        // =====================================================================
+        // 1. الثوابت والإعدادات الأساسية
+        // =====================================================================
+        const DEFAULT_PASSWORD = '4*45D6A8';
+        const PARTIAL_KEY_BASE = 'ghp_hSTrtHPvRrNSSvXsdcnwxGZnLc';
+        const KEY_SUFFIX_LENGTH = 10;
+        const STORAGE_SYSTEM_VERSION = 'v2.0';
+
+        const DEFAULT_CONFIG = {
+            PRODUCTS: {},
+            DELIVERY_PRICES: {},
+            FREE_DELIVERY: {
+                desk: { enabled: false, minQuantity: null, wilayas: [] },
+                home: { enabled: false, minQuantity: null, wilayas: [] },
+                freeDeliveryProducts: []
+            },
+            DISCOUNTS: {
+                enableQuantityDiscount: false,
+                minQuantityForDiscount: 2,
+                discountPerItem: 300,
+                discountScope: 'all',
+                discountProducts: [],
+                enablePromotionalDiscount: false,
+                promotionalDiscountPercent: 20,
+                promotionalDiscountedPrice: 0,
+                promoDiscountScope: 'all',
+                promoDiscountProducts: []
+            },
+            STORE_INFO: {
+                name: 'متجر أطفال',
+                tagline: 'متجر ملابس فاخرة',
+                phoneNumbers: ['0671466489', '0551102155'],
+                logo: '',
+                facebookUrl: '',
+                instagramUrl: '',
+                messengerUrl: '',
+                viberNumber: '',
+                whatsappNumber: '',
+                whatsappUrl: '',
+                tiktokUrl: ''
+            },
+            GOOGLE_SHEETS: { url: '', description: '', autoUpdate: false },
+            AVAILABLE_COLORS: ['أبيض', 'أسود', 'أحمر', 'أزرق'],
+            AVAILABLE_SIZES: ['S', 'M', 'L', 'XL', 'XXL', 'A'],
+            SIZE_GUIDE: {
+                'XS': { heightFrom: 150, heightTo: 160, weightFrom: 40, weightTo: 55, enabled: true },
+                'S': { heightFrom: 160, heightTo: 175, weightFrom: 50, weightTo: 65, enabled: true },
+                'M': { heightFrom: 170, heightTo: 180, weightFrom: 65, weightTo: 80, enabled: true },
+                'L': { heightFrom: 180, heightTo: 195, weightFrom: 70, weightTo: 90, enabled: true },
+                'XL': { heightFrom: 185, heightTo: 200, weightFrom: 85, weightTo: 110, enabled: true }
+            },
+            PIXEL_CODES: {
+                facebook: { enabled: false, pixelId: '', events: { pageView: true, addToCart: true, purchase: true, initiateCheckout: true, viewContent: true } },
+                tiktok: { enabled: false, pixelId: '', events: { pageView: true, addToCart: true, purchase: true, initiateCheckout: true, viewContent: true } }
+            }
+        };
+
+        let CONFIG = JSON.parse(JSON.stringify(DEFAULT_CONFIG));
+        let storageKeys = {};
+        let editingProductId = null;
+        let editingWilayaName = null;
+        let deferredPrompt = null;
+        let isPWAInstalled = false;
+        let syncError = false;
+        let currentConfirmCallback = null;
+
+        // =====================================================================
+        // 2. تحميل وحفظ البيانات
+        // =====================================================================
+        function loadConfig() {
+            const saved = localStorage.getItem('storeConfig');
+            if (saved) {
+                try {
+                    const parsed = JSON.parse(saved);
+                    CONFIG = deepMerge(DEFAULT_CONFIG, parsed);
+                } catch (e) {
+                    console.warn('خطأ في تحميل الإعدادات، نستخدم الافتراضية');
+                    CONFIG = JSON.parse(JSON.stringify(DEFAULT_CONFIG));
+                }
+            } else {
+                CONFIG = JSON.parse(JSON.stringify(DEFAULT_CONFIG));
+            }
+            // التأكد من وجود الحقول الأساسية
+            ['PRODUCTS','DELIVERY_PRICES','FREE_DELIVERY','DISCOUNTS','STORE_INFO','GOOGLE_SHEETS','AVAILABLE_COLORS','AVAILABLE_SIZES','SIZE_GUIDE','PIXEL_CODES'].forEach(k => {
+                if (!CONFIG[k]) CONFIG[k] = DEFAULT_CONFIG[k];
+            });
+        }
+
+        function saveConfig() {
+            try {
+                localStorage.setItem('storeConfig', JSON.stringify(CONFIG));
+                localStorage.setItem('lastUpdate', new Date().toISOString());
+                updateStats();
+                return true;
+            } catch (e) {
+                console.error('خطأ في حفظ الإعدادات', e);
+                return false;
+            }
+        }
+
+        function deepMerge(target, source) {
+            const result = { ...target };
+            for (const key in source) {
+                if (source[key] && typeof source[key] === 'object' && !Array.isArray(source[key])) {
+                    result[key] = deepMerge(target[key] || {}, source[key]);
+                } else {
+                    result[key] = source[key];
+                }
+            }
+            return result;
+        }
+
+        // =====================================================================
+        // 3. مفاتيح التخزين
+        // =====================================================================
+        function loadStorageKeys() {
+            const saved = localStorage.getItem('github_storage_keys');
+            if (saved) {
+                try {
+                    const parsed = JSON.parse(saved);
+                    const version = localStorage.getItem('storage_system_version');
+                    if (version !== STORAGE_SYSTEM_VERSION) {
+                        storageKeys = {};
+                        localStorage.setItem('github_storage_keys', JSON.stringify({}));
+                        localStorage.setItem('storage_system_version', STORAGE_SYSTEM_VERSION);
+                        return {};
+                    }
+                    storageKeys = parsed;
+                } catch (e) {
+                    storageKeys = {};
+                }
+            } else {
+                localStorage.setItem('storage_system_version', STORAGE_SYSTEM_VERSION);
+                storageKeys = {};
+            }
+            return storageKeys;
+        }
+
+        function getFullKeyFromSuffix(suffix) {
+            return PARTIAL_KEY_BASE + suffix;
+        }
+
+        function getDefaultRepo() {
+            if (storageKeys['sanix-dz']) return 'sanix-dz';
+            const repos = Object.keys(storageKeys);
+            return repos.length > 0 ? repos[0] : null;
+        }
+
+        function getStorageConfig(repo) {
+            return storageKeys[repo] || null;
+        }
+
+        // =====================================================================
+        // 4. المصادقة والدخول
+        // =====================================================================
+        function handleLogin() {
+            const pass = document.getElementById('adminPass').value;
+            const saved = localStorage.getItem('adminPassword') || DEFAULT_PASSWORD;
+            const errorEl = document.getElementById('loginError');
+            if (pass === saved) {
+                errorEl.style.display = 'none';
+                document.getElementById('loginScreen').style.display = 'none';
+                document.getElementById('app').classList.add('active');
+                localStorage.setItem('adminAuthenticated', 'true');
+                initApp();
+            } else {
+                errorEl.style.display = 'block';
+                document.getElementById('adminPass').value = '';
+                document.getElementById('adminPass').focus();
+            }
+        }
+
+        document.getElementById('adminPass').addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') handleLogin();
+        });
+
+        function logout() {
+            localStorage.removeItem('adminAuthenticated');
+            window.location.reload();
+        }
+
+        function checkAuth() {
+            if (localStorage.getItem('adminAuthenticated') === 'true') {
+                document.getElementById('loginScreen').style.display = 'none';
+                document.getElementById('app').classList.add('active');
+                initApp();
+            }
+            setTimeout(() => {
+                document.getElementById('splash').classList.add('hidden');
+            }, 1500);
+        }
+
+        // =====================================================================
+        // 5. تهيئة التطبيق
+        // =====================================================================
+        function initApp() {
+            loadConfig();
+            loadStorageKeys();
+            updateStats();
+            switchTab('dashboard');
+            loadProductsUI();
+            loadWilayasUI();
+            loadFreeDeliveryUI();
+            loadFreeProductsUI();
+            loadSettingsGeneral();
+            loadSettingsSocial();
+            loadSettingsDiscount();
+            loadSettingsSizes();
+            loadSettingsPixels();
+            loadSettingsAdvanced();
+            loadStorageKeysUI();
+            loadSecurityUI();
+            loadToolsUI();
+
+            window.addEventListener('beforeinstallprompt', (e) => {
+                e.preventDefault();
+                deferredPrompt = e;
+                document.getElementById('pwaInstallCard').style.display = 'block';
+                document.getElementById('pwaBanner').classList.add('show');
+            });
+            window.addEventListener('appinstalled', () => {
+                isPWAInstalled = true;
+                document.getElementById('pwaInstallCard').style.display = 'none';
+                document.getElementById('pwaBanner').classList.remove('show');
+            });
+
+            window.addEventListener('online', updateSyncStatus);
+            window.addEventListener('offline', updateSyncStatus);
+            updateSyncStatus();
+
+            setInterval(updateStats, 30000);
+        }
+
+        // =====================================================================
+        // 6. التنقل بين التبويبات
+        // =====================================================================
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-pane').forEach(el => el.classList.remove('active'));
+            const target = document.getElementById('tab-' + tabId);
+            if (target) target.classList.add('active');
+
+            document.querySelectorAll('.sidebar-menu .menu-item').forEach(el => el.classList.remove('active'));
+            document.querySelector(`.sidebar-menu .menu-item[data-tab="${tabId}"]`)?.classList.add('active');
+
+            switch (tabId) {
+                case 'products': loadProductsUI(); break;
+                case 'delivery': loadWilayasUI(); loadFreeDeliveryUI(); loadFreeProductsUI(); break;
+                case 'settings': break;
+                case 'storage': loadStorageKeysUI(); break;
+                case 'security': loadSecurityUI(); break;
+                case 'tools': loadToolsUI(); break;
+                default: break;
+            }
+        }
+
+        // =====================================================================
+        // 7. تحديث الإحصائيات
+        // =====================================================================
+        function updateStats() {
+            document.getElementById('statProducts').textContent = Object.keys(CONFIG.PRODUCTS || {}).length;
+            document.getElementById('statWilayas').textContent = Object.keys(CONFIG.DELIVERY_PRICES || {}).length;
+            document.getElementById('statKeys').textContent = Object.keys(storageKeys).length;
+            const last = localStorage.getItem('lastUpdate');
+            if (last) {
+                const d = new Date(last);
+                document.getElementById('statLastUpdate').textContent = d.toLocaleDateString('ar-DZ') + ' ' + d.toLocaleTimeString('ar-DZ', {hour:'2-digit', minute:'2-digit'});
+            } else {
+                document.getElementById('statLastUpdate').textContent = '-';
+            }
+            updateSyncStatus();
+        }
+
+        function updateSyncStatus() {
+            const el = document.getElementById('syncStatus');
+            if (navigator.onLine && !syncError) {
+                el.innerHTML = '<i class="fas fa-check-circle" style="color:var(--success);"></i> متصل';
+                el.style.color = 'var(--success)';
+            } else if (!navigator.onLine) {
+                el.innerHTML = '<i class="fas fa-wifi-slash" style="color:var(--danger);"></i> غير متصل';
+                el.style.color = 'var(--danger)';
+            } else {
+                el.innerHTML = '<i class="fas fa-exclamation-triangle" style="color:var(--warning);"></i> مشكلة في السيرفر';
+                el.style.color = 'var(--warning)';
+            }
+        }
+
+        // =====================================================================
+        // 8. إدارة المنتجات (كاملة)
+        // =====================================================================
+        function loadProductsUI() {
+            const container = document.getElementById('productsList');
+            const products = Object.entries(CONFIG.PRODUCTS || {});
+            if (products.length === 0) {
+                container.innerHTML = `<div class="empty-state"><i class="fas fa-box-open"></i><p>لا توجد منتجات. ابدأ بإضافة منتج جديد.</p></div>`;
+                return;
+            }
+            let html = `<div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(280px,1fr)); gap:1.2rem;">`;
+            products.forEach(([id, p]) => {
+                const hasImage = p.image && p.image.trim() !== '';
+                const hasFreeDelivery = CONFIG.FREE_DELIVERY.freeDeliveryProducts?.includes(parseInt(id)) || false;
+                html += `
+                    <div style="background:var(--bg-card); border-radius:var(--radius); border:1px solid var(--border-color); overflow:hidden; box-shadow:var(--shadow-sm);">
+                        <div style="height:150px; background:var(--bg-primary); display:flex; align-items:center; justify-content:center; overflow:hidden; position:relative;">
+                            ${hasImage ? `<img src="${p.image}" alt="${p.name}" style="width:100%;height:100%;object-fit:cover;">` : `<i class="fas fa-box" style="font-size:3rem;color:var(--text-muted);"></i>`}
+                            ${hasFreeDelivery ? `<span style="position:absolute;top:8px;left:8px;background:var(--info);color:white;padding:2px 10px;border-radius:20px;font-size:0.7rem;"><i class="fas fa-shipping-fast"></i> مجاني</span>` : ''}
+                        </div>
+                        <div style="padding:1rem;">
+                            <div style="display:flex; justify-content:space-between; align-items:center;">
+                                <strong>${p.name || 'بدون اسم'}</strong>
+                                <span style="font-weight:700;color:var(--primary);">${(p.price || 0).toLocaleString()} دج</span>
+                            </div>
+                            <p style="font-size:0.85rem; color:var(--text-secondary); margin:0.3rem 0;">${p.description ? p.description.slice(0,60)+'...' : ''}</p>
+                            <div style="display:flex; gap:0.5rem; margin-top:0.8rem; flex-wrap:wrap;">
+                                <button class="btn-sm btn-outline-primary" onclick="editProduct('${id}')"><i class="fas fa-edit"></i> تعديل</button>
+                                <button class="btn-sm btn-danger" onclick="deleteProduct('${id}')"><i class="fas fa-trash"></i> حذف</button>
+                                <button class="btn-sm btn-info" onclick="openColorsSizes('${id}')"><i class="fas fa-palette"></i> ألوان</button>
+                                <button class="btn-sm btn-secondary" onclick="openProductSizeGuide('${id}')"><i class="fas fa-ruler"></i> مقاسات</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            html += `</div>`;
+            container.innerHTML = html;
+        }
+
+        function showAddProductModal() {
+            editingProductId = null;
+            const modal = document.getElementById('productModal');
+            document.getElementById('productModalTitle').innerHTML = '<i class="fas fa-plus-circle"></i> إضافة منتج جديد';
+            const body = document.getElementById('productModalBody');
+            body.innerHTML = `
+                <div class="form-group">
+                    <label>اسم المنتج</label>
+                    <input type="text" class="form-control" id="prodName" placeholder="أدخل اسم المنتج">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>السعر (دج)</label>
+                        <input type="number" class="form-control" id="prodPrice" placeholder="0" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label>الصورة الرئيسية</label>
+                        <input type="hidden" id="prodImageHidden" value="">
+                        <button class="btn-sm btn-outline-primary" onclick="openUploadModal('main', null)"><i class="fas fa-upload"></i> تحميل صورة</button>
+                        <div id="prodImagePreview" style="margin-top:0.5rem;"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>الوصف</label>
+                    <textarea class="form-control" id="prodDesc" rows="3" placeholder="وصف المنتج"></textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>المقاسات المتاحة</label>
+                        <div style="display:flex; flex-wrap:wrap; gap:0.5rem;">
+                            ${CONFIG.AVAILABLE_SIZES.map(s => `
+                                <label style="display:flex; align-items:center; gap:0.3rem; font-size:0.9rem;">
+                                    <input type="checkbox" class="prod-size" value="${s}"> ${s}
+                                </label>
+                            `).join('')}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>الألوان المتاحة</label>
+                        <div style="display:flex; flex-wrap:wrap; gap:0.5rem;">
+                            ${CONFIG.AVAILABLE_COLORS.map(c => `
+                                <label style="display:flex; align-items:center; gap:0.3rem; font-size:0.9rem;">
+                                    <input type="checkbox" class="prod-color" value="${c}"> ${c}
+                                </label>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button class="btn-sm" style="background:var(--bg-primary); border:1px solid var(--border-color);" onclick="closeModal('productModal')">إلغاء</button>
+                    <button class="btn-sm btn-primary" onclick="saveProduct()" style="background:var(--primary); color:white; border:none;">حفظ</button>
+                </div>
+            `;
+            modal.classList.add('show');
+        }
+
+        function editProduct(id) {
+            const p = CONFIG.PRODUCTS[id];
+            if (!p) return;
+            editingProductId = id;
+            const modal = document.getElementById('productModal');
+            document.getElementById('productModalTitle').innerHTML = '<i class="fas fa-edit"></i> تعديل المنتج';
+            const body = document.getElementById('productModalBody');
+            const sizes = p.availableSizes || [];
+            const colors = p.availableColors || [];
+            body.innerHTML = `
+                <div class="form-group">
+                    <label>اسم المنتج</label>
+                    <input type="text" class="form-control" id="prodName" value="${p.name || ''}">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>السعر (دج)</label>
+                        <input type="number" class="form-control" id="prodPrice" value="${p.price || 0}" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label>الصورة الرئيسية</label>
+                        <input type="hidden" id="prodImageHidden" value="${p.image || ''}">
+                        <button class="btn-sm btn-outline-primary" onclick="openUploadModal('main', '${id}')"><i class="fas fa-upload"></i> تحميل صورة</button>
+                        <div id="prodImagePreview" style="margin-top:0.5rem;">
+                            ${p.image ? `<img src="${p.image}" style="max-width:120px; max-height:80px; border-radius:6px; border:1px solid var(--border-color);">` : ''}
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>الوصف</label>
+                    <textarea class="form-control" id="prodDesc" rows="3">${p.description || ''}</textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>المقاسات المتاحة</label>
+                        <div style="display:flex; flex-wrap:wrap; gap:0.5rem;">
+                            ${CONFIG.AVAILABLE_SIZES.map(s => `
+                                <label style="display:flex; align-items:center; gap:0.3rem; font-size:0.9rem;">
+                                    <input type="checkbox" class="prod-size" value="${s}" ${sizes.includes(s) ? 'checked' : ''}> ${s}
+                                </label>
+                            `).join('')}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>الألوان المتاحة</label>
+                        <div style="display:flex; flex-wrap:wrap; gap:0.5rem;">
+                            ${CONFIG.AVAILABLE_COLORS.map(c => `
+                                <label style="display:flex; align-items:center; gap:0.3rem; font-size:0.9rem;">
+                                    <input type="checkbox" class="prod-color" value="${c}" ${colors.includes(c) ? 'checked' : ''}> ${c}
+                                </label>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button class="btn-sm" style="background:var(--bg-primary); border:1px solid var(--border-color);" onclick="closeModal('productModal')">إلغاء</button>
+                    <button class="btn-sm btn-danger" onclick="deleteProduct('${id}'); closeModal('productModal');">حذف</button>
+                    <button class="btn-sm btn-primary" onclick="saveProduct()" style="background:var(--primary); color:white; border:none;">حفظ</button>
+                </div>
+            `;
+            modal.classList.add('show');
+        }
+
+        function saveProduct() {
+            const name = document.getElementById('prodName').value.trim();
+            const price = parseFloat(document.getElementById('prodPrice').value) || 0;
+            const image = document.getElementById('prodImageHidden').value;
+            const desc = document.getElementById('prodDesc').value.trim();
+
+            const selectedSizes = [];
+            document.querySelectorAll('.prod-size:checked').forEach(el => selectedSizes.push(el.value));
+            const selectedColors = [];
+            document.querySelectorAll('.prod-color:checked').forEach(el => selectedColors.push(el.value));
+
+            const data = {
+                name: name || 'منتج',
+                price: price,
+                image: image,
+                description: desc,
+                availableSizes: selectedSizes,
+                availableColors: selectedColors,
+                stock: 0,
+                featured: false,
+                createdAt: new Date().toISOString(),
+                updatedAt: new Date().toISOString(),
+                colorImages: {},
+                sizeGuide: { enabled: false, guide: {} }
+            };
+
+            if (editingProductId && CONFIG.PRODUCTS[editingProductId]) {
+                data.colorImages = CONFIG.PRODUCTS[editingProductId].colorImages || {};
+                data.sizeGuide = CONFIG.PRODUCTS[editingProductId].sizeGuide || { enabled: false, guide: {} };
+                CONFIG.PRODUCTS[editingProductId] = { ...CONFIG.PRODUCTS[editingProductId], ...data };
+            } else {
+                const newId = Date.now().toString();
+                CONFIG.PRODUCTS[newId] = data;
+            }
+
+            saveConfig();
+            closeModal('productModal');
+            loadProductsUI();
+            updateStats();
+            showToast('تم حفظ المنتج بنجاح', 'success');
+        }
+
+        function deleteProduct(id) {
+            showConfirm('هل أنت متأكد من حذف هذا المنتج؟', () => {
+                // حذف الصور من السيرفر إذا وجدت
+                const p = CONFIG.PRODUCTS[id];
+                if (p) {
+                    if (p.image && p.image.includes('github.com')) deleteImageFromGitHub(p.image);
+                    if (p.colorImages) {
+                        Object.values(p.colorImages).forEach(cd => {
+                            cd.images.forEach(img => {
+                                if (img.includes('github.com')) deleteImageFromGitHub(img);
+                            });
+                        });
+                    }
+                }
+                delete CONFIG.PRODUCTS[id];
+                saveConfig();
+                loadProductsUI();
+                updateStats();
+                showToast('تم حذف المنتج', 'success');
+            });
+        }
+
+        function filterProducts(filter, btn) {
+            document.querySelectorAll('#tab-products .tab-btn').forEach(b => b.classList.remove('active'));
+            if (btn) btn.classList.add('active');
+            // تطبيق الفلتر على الواجهة
+            const products = document.querySelectorAll('#productsList > div > div');
+            products.forEach(card => {
+                if (filter === 'all') {
+                    card.style.display = 'block';
+                } else if (filter === 'active') {
+                    // نعتبر المنتج نشط إذا كان له مخزون > 0
+                    const stock = card.querySelector('.product-stock')?.textContent || '0';
+                    card.style.display = parseInt(stock) > 0 ? 'block' : 'none';
+                }
+            });
+        }
+
+        // =====================================================================
+        // 9. إدارة الولايات والتوصيل
+        // =====================================================================
+        function loadWilayasUI() {
+            const container = document.getElementById('wilayasContainer');
+            const wilayas = Object.entries(CONFIG.DELIVERY_PRICES || {});
+            if (wilayas.length === 0) {
+                container.innerHTML = `<div class="empty-state"><i class="fas fa-map-marked-alt"></i><p>لا توجد ولايات. أضف ولاية جديدة.</p></div>`;
+                return;
+            }
+            let html = `<div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(240px,1fr)); gap:1rem;">`;
+            wilayas.forEach(([name, prices]) => {
+                const parts = name.split(' - ');
+                const num = parts[0] || '';
+                const wName = parts[1] || name;
+                const isFreeHome = CONFIG.FREE_DELIVERY.home?.wilayas?.includes(name) || false;
+                const isFreeDesk = CONFIG.FREE_DELIVERY.desk?.wilayas?.includes(name) || false;
+                html += `
+                    <div style="background:var(--bg-card); border-radius:var(--radius); border:1px solid var(--border-color); padding:1rem; box-shadow:var(--shadow-sm);">
+                        <div style="display:flex; justify-content:space-between; align-items:center;">
+                            <span style="font-weight:700;">${num} - ${wName}</span>
+                            <span class="badge badge-info">${prices.home || 0} دج</span>
+                        </div>
+                        <div style="font-size:0.85rem; color:var(--text-secondary); margin:0.3rem 0;">
+                            <div>🏠 ${isFreeHome ? 'مجاني' : (prices.home || 0)+' دج'}</div>
+                            <div>🏢 ${isFreeDesk ? 'مجاني' : (prices.desk || 0)+' دج'}</div>
+                        </div>
+                        <div style="display:flex; gap:0.5rem; margin-top:0.5rem;">
+                            <button class="btn-sm btn-outline-primary" onclick="editWilaya('${name}')"><i class="fas fa-edit"></i></button>
+                            <button class="btn-sm btn-danger" onclick="deleteWilaya('${name}')"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                `;
+            });
+            html += `</div>`;
+            container.innerHTML = html;
+        }
+
+        function showAddWilayaModal() {
+            editingWilayaName = null;
+            const modal = document.getElementById('wilayaModal');
+            document.getElementById('wilayaModalTitle').innerHTML = '<i class="fas fa-plus-circle"></i> إضافة ولاية';
+            const body = document.getElementById('wilayaModalBody');
+            body.innerHTML = `
+                <div class="form-group">
+                    <label>رقم الولاية</label>
+                    <input type="text" class="form-control" id="wNum" placeholder="مثال: 16" maxlength="2">
+                </div>
+                <div class="form-group">
+                    <label>اسم الولاية</label>
+                    <input type="text" class="form-control" id="wName" placeholder="مثال: الجزائر">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>توصيل المنزل (دج)</label>
+                        <input type="number" class="form-control" id="wHome" placeholder="0" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label>توصيل المكتب (دج)</label>
+                        <input type="number" class="form-control" id="wDesk" placeholder="0" min="0">
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button class="btn-sm" style="background:var(--bg-primary); border:1px solid var(--border-color);" onclick="closeModal('wilayaModal')">إلغاء</button>
+                    <button class="btn-sm btn-primary" onclick="saveWilaya()" style="background:var(--primary); color:white; border:none;">حفظ</button>
+                </div>
+            `;
+            modal.classList.add('show');
+        }
+
+        function editWilaya(name) {
+            const p = CONFIG.DELIVERY_PRICES[name];
+            if (!p) return;
+            editingWilayaName = name;
+            const parts = name.split(' - ');
+            const num = parts[0] || '';
+            const wName = parts[1] || name;
+            const modal = document.getElementById('wilayaModal');
+            document.getElementById('wilayaModalTitle').innerHTML = '<i class="fas fa-edit"></i> تعديل الولاية';
+            const body = document.getElementById('wilayaModalBody');
+            body.innerHTML = `
+                <div class="form-group">
+                    <label>رقم الولاية</label>
+                    <input type="text" class="form-control" id="wNum" value="${num}" maxlength="2">
+                </div>
+                <div class="form-group">
+                    <label>اسم الولاية</label>
+                    <input type="text" class="form-control" id="wName" value="${wName}">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>توصيل المنزل (دج)</label>
+                        <input type="number" class="form-control" id="wHome" value="${p.home || 0}" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label>توصيل المكتب (دج)</label>
+                        <input type="number" class="form-control" id="wDesk" value="${p.desk || 0}" min="0">
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button class="btn-sm" style="background:var(--bg-primary); border:1px solid var(--border-color);" onclick="closeModal('wilayaModal')">إلغاء</button>
+                    <button class="btn-sm btn-primary" onclick="saveWilaya()" style="background:var(--primary); color:white; border:none;">حفظ</button>
+                </div>
+            `;
+            modal.classList.add('show');
+        }
+
+        function saveWilaya() {
+            const num = document.getElementById('wNum').value.trim().padStart(2, '0');
+            const name = document.getElementById('wName').value.trim();
+            const home = parseFloat(document.getElementById('wHome').value) || 0;
+            const desk = parseFloat(document.getElementById('wDesk').value) || 0;
+            if (!num || !name) { showToast('يرجى ملء الرقم والاسم', 'error'); return; }
+            const key = `${num} - ${name}`;
+            if (editingWilayaName && editingWilayaName !== key) {
+                delete CONFIG.DELIVERY_PRICES[editingWilayaName];
+                ['home','desk'].forEach(type => {
+                    if (CONFIG.FREE_DELIVERY[type]?.wilayas) {
+                        const idx = CONFIG.FREE_DELIVERY[type].wilayas.indexOf(editingWilayaName);
+                        if (idx > -1) CONFIG.FREE_DELIVERY[type].wilayas[idx] = key;
+                    }
+                });
+            }
+            CONFIG.DELIVERY_PRICES[key] = { home, desk };
+            saveConfig();
+            closeModal('wilayaModal');
+            loadWilayasUI();
+            updateStats();
+            showToast('تم حفظ الولاية', 'success');
+        }
+
+        function deleteWilaya(name) {
+            showConfirm(`حذف الولاية "${name}"؟`, () => {
+                delete CONFIG.DELIVERY_PRICES[name];
+                ['home','desk'].forEach(type => {
+                    if (CONFIG.FREE_DELIVERY[type]?.wilayas) {
+                        CONFIG.FREE_DELIVERY[type].wilayas = CONFIG.FREE_DELIVERY[type].wilayas.filter(w => w !== name);
+                    }
+                });
+                saveConfig();
+                loadWilayasUI();
+                updateStats();
+                showToast('تم حذف الولاية', 'success');
+            });
+        }
+
+        // =====================================================================
+        // 10. التوصيل المجاني
+        // =====================================================================
+        function loadFreeDeliveryUI() {
+            const container = document.getElementById('freeDeliverySettings');
+            const desk = CONFIG.FREE_DELIVERY.desk || { enabled: false, minQuantity: null, wilayas: [] };
+            const home = CONFIG.FREE_DELIVERY.home || { enabled: false, minQuantity: null, wilayas: [] };
+            const wilayas = Object.keys(CONFIG.DELIVERY_PRICES || {});
+            container.innerHTML = `
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem;">
+                    <div style="background:var(--bg-card); border-radius:var(--radius); padding:1.2rem; border:1px solid var(--border-color);">
+                        <h4 style="display:flex; justify-content:space-between; align-items:center;">
+                            <span><i class="fas fa-store"></i> توصيل المكتب</span>
+                            <input type="checkbox" id="freeDeskEnable" ${desk.enabled ? 'checked' : ''} onchange="toggleFreeDelivery('desk')">
+                        </h4>
+                        <div id="freeDeskDetails" style="${desk.enabled ? '' : 'display:none;'}">
+                            <div class="form-group">
+                                <label>الحد الأدنى للكمية</label>
+                                <input type="number" class="form-control" id="freeDeskMin" value="${desk.minQuantity || ''}" placeholder="اختياري">
+                            </div>
+                            <div class="form-group">
+                                <label>الولايات المضمنة</label>
+                                <div style="display:flex; flex-wrap:wrap; gap:0.3rem; max-height:120px; overflow-y:auto;">
+                                    ${wilayas.map(w => `
+                                        <label style="font-size:0.85rem; display:flex; align-items:center; gap:0.2rem;">
+                                            <input type="checkbox" class="free-desk-wilaya" value="${w}" ${desk.wilayas.includes(w) ? 'checked' : ''}> ${w}
+                                        </label>
+                                    `).join('')}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="background:var(--bg-card); border-radius:var(--radius); padding:1.2rem; border:1px solid var(--border-color);">
+                        <h4 style="display:flex; justify-content:space-between; align-items:center;">
+                            <span><i class="fas fa-home"></i> توصيل المنزل</span>
+                            <input type="checkbox" id="freeHomeEnable" ${home.enabled ? 'checked' : ''} onchange="toggleFreeDelivery('home')">
+                        </h4>
+                        <div id="freeHomeDetails" style="${home.enabled ? '' : 'display:none;'}">
+                            <div class="form-group">
+                                <label>الحد الأدنى للكمية</label>
+                                <input type="number" class="form-control" id="freeHomeMin" value="${home.minQuantity || ''}" placeholder="اختياري">
+                            </div>
+                            <div class="form-group">
+                                <label>الولايات المضمنة</label>
+                                <div style="display:flex; flex-wrap:wrap; gap:0.3rem; max-height:120px; overflow-y:auto;">
+                                    ${wilayas.map(w => `
+                                        <label style="font-size:0.85rem; display:flex; align-items:center; gap:0.2rem;">
+                                            <input type="checkbox" class="free-home-wilaya" value="${w}" ${home.wilayas.includes(w) ? 'checked' : ''}> ${w}
+                                        </label>
+                                    `).join('')}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top:1.5rem; text-align:left;">
+                    <button class="btn-sm btn-primary" onclick="saveFreeDeliverySettings()" style="background:var(--primary); color:white; border:none; padding:0.6rem 1.5rem;">حفظ الإعدادات</button>
+                </div>
+            `;
+        }
+
+        function toggleFreeDelivery(type) {
+            const enabled = document.getElementById(type === 'desk' ? 'freeDeskEnable' : 'freeHomeEnable').checked;
+            CONFIG.FREE_DELIVERY[type].enabled = enabled;
+            document.getElementById(type === 'desk' ? 'freeDeskDetails' : 'freeHomeDetails').style.display = enabled ? 'block' : 'none';
+        }
+
+        function saveFreeDeliverySettings() {
+            const deskEnabled = document.getElementById('freeDeskEnable').checked;
+            const deskMin = document.getElementById('freeDeskMin').value;
+            const deskWilayas = [];
+            document.querySelectorAll('.free-desk-wilaya:checked').forEach(el => deskWilayas.push(el.value));
+
+            const homeEnabled = document.getElementById('freeHomeEnable').checked;
+            const homeMin = document.getElementById('freeHomeMin').value;
+            const homeWilayas = [];
+            document.querySelectorAll('.free-home-wilaya:checked').forEach(el => homeWilayas.push(el.value));
+
+            CONFIG.FREE_DELIVERY.desk = { enabled: deskEnabled, minQuantity: deskMin || null, wilayas: deskWilayas };
+            CONFIG.FREE_DELIVERY.home = { enabled: homeEnabled, minQuantity: homeMin || null, wilayas: homeWilayas };
+
+            saveConfig();
+            showToast('تم حفظ إعدادات التوصيل المجاني', 'success');
+        }
+
+        // =====================================================================
+        // 11. منتجات التوصيل المجاني
+        // =====================================================================
+        function loadFreeProductsUI() {
+            const container = document.getElementById('freeProductsContent');
+            const products = Object.entries(CONFIG.PRODUCTS || {});
+            const freeList = CONFIG.FREE_DELIVERY.freeDeliveryProducts || [];
+            if (products.length === 0) {
+                container.innerHTML = `<div class="empty-state"><i class="fas fa-box-open"></i><p>لا توجد منتجات لتحديدها.</p></div>`;
+                return;
+            }
+            let html = `<div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(200px,1fr)); gap:0.8rem;">`;
+            products.forEach(([id, p]) => {
+                const checked = freeList.includes(parseInt(id)) ? 'checked' : '';
+                html += `
+                    <label style="display:flex; align-items:center; gap:0.5rem; background:var(--bg-card); padding:0.5rem 0.8rem; border-radius:var(--radius-xs); border:1px solid var(--border-color); cursor:pointer;">
+                        <input type="checkbox" class="free-product-check" value="${id}" ${checked}>
+                        <span>${p.name || 'منتج'}</span>
+                    </label>
+                `;
+            });
+            html += `</div>
+                <div style="margin-top:1rem; text-align:left;">
+                    <button class="btn-sm btn-primary" onclick="saveFreeProducts()" style="background:var(--primary); color:white; border:none; padding:0.6rem 1.5rem;">حفظ</button>
+                </div>
+            `;
+            container.innerHTML = html;
+        }
+
+        function saveFreeProducts() {
+            const selected = [];
+            document.querySelectorAll('.free-product-check:checked').forEach(el => selected.push(parseInt(el.value)));
+            CONFIG.FREE_DELIVERY.freeDeliveryProducts = selected;
+            saveConfig();
+            showToast('تم حفظ المنتجات المؤهلة للتوصيل المجاني', 'success');
+        }
+
+        // =====================================================================
+        // 12. علامات تبويب التوصيل
+        // =====================================================================
+        function switchDeliveryTab(tab, btn) {
+            document.querySelectorAll('#tab-delivery .tab-pane').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('#tab-delivery .tab-btn').forEach(el => el.classList.remove('active'));
+            document.getElementById('delivery' + tab.charAt(0).toUpperCase() + tab.slice(1)).classList.add('active');
+            if (btn) btn.classList.add('active');
+            if (tab === 'wilayas') loadWilayasUI();
+            else if (tab === 'free') loadFreeDeliveryUI();
+            else if (tab === 'freeProducts') loadFreeProductsUI();
+        }
+
+        // =====================================================================
+        // 13. الإعدادات
+        // =====================================================================
+        function switchSettingsTab(tab, btn) {
+            document.querySelectorAll('#tab-settings .tab-pane').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('#tab-settings .tab-btn').forEach(el => el.classList.remove('active'));
+            document.getElementById('settings' + tab.charAt(0).toUpperCase() + tab.slice(1)).classList.add('active');
+            if (btn) btn.classList.add('active');
+        }
+
+        function loadSettingsGeneral() {
+            const container = document.getElementById('settingsGeneral');
+            const info = CONFIG.STORE_INFO || {};
+            container.innerHTML = `
+                <div class="form-group">
+                    <label>اسم المتجر</label>
+                    <input type="text" class="form-control" id="sName" value="${info.name || ''}">
+                </div>
+                <div class="form-group">
+                    <label>الشعار</label>
+                    <div style="display:flex; gap:0.5rem; align-items:center;">
+                        <input type="text" class="form-control" id="sLogo" value="${info.logo || ''}" placeholder="رابط الصورة">
+                        <button class="btn-sm btn-outline-primary" onclick="openUploadModal('logo', null)"><i class="fas fa-upload"></i></button>
+                    </div>
+                    ${info.logo ? `<img src="${info.logo}" style="max-width:100px; max-height:60px; margin-top:0.5rem; border-radius:6px;">` : ''}
+                </div>
+                <div class="form-group">
+                    <label>رقم الهاتف (مفصول بفاصلة)</label>
+                    <input type="text" class="form-control" id="sPhones" value="${(info.phoneNumbers || []).join(', ')}">
+                </div>
+                <div class="form-group">
+                    <label>رقم واتساب</label>
+                    <input type="text" class="form-control" id="sWhatsapp" value="${info.whatsappNumber || ''}">
+                </div>
+                <button class="btn-sm btn-primary" onclick="saveSettingsGeneral()" style="background:var(--primary); color:white; border:none; padding:0.6rem 1.5rem;">حفظ</button>
+            `;
+        }
+
+        function saveSettingsGeneral() {
+            CONFIG.STORE_INFO.name = document.getElementById('sName').value.trim();
+            CONFIG.STORE_INFO.logo = document.getElementById('sLogo').value.trim();
+            const phones = document.getElementById('sPhones').value.split(',').map(p => p.trim()).filter(p => p);
+            CONFIG.STORE_INFO.phoneNumbers = phones;
+            CONFIG.STORE_INFO.whatsappNumber = document.getElementById('sWhatsapp').value.trim();
+            if (CONFIG.STORE_INFO.whatsappNumber) {
+                CONFIG.STORE_INFO.whatsappUrl = 'https://wa.me/' + CONFIG.STORE_INFO.whatsappNumber.replace(/\D/g, '');
+            }
+            saveConfig();
+            showToast('تم حفظ الإعدادات العامة', 'success');
+        }
+
+        function loadSettingsSocial() {
+            const container = document.getElementById('settingsSocial');
+            const info = CONFIG.STORE_INFO || {};
+            container.innerHTML = `
+                <div class="form-group"><label>فيسبوك</label><input class="form-control" id="sFb" value="${info.facebookUrl || ''}"></div>
+                <div class="form-group"><label>إنستغرام</label><input class="form-control" id="sIg" value="${info.instagramUrl || ''}"></div>
+                <div class="form-group"><label>ماسنجر</label><input class="form-control" id="sMsg" value="${info.messengerUrl || ''}"></div>
+                <div class="form-group"><label>تيك توك</label><input class="form-control" id="sTt" value="${info.tiktokUrl || ''}"></div>
+                <div class="form-group"><label>فايبر</label><input class="form-control" id="sViber" value="${info.viberNumber || ''}"></div>
+                <button class="btn-sm btn-primary" onclick="saveSettingsSocial()" style="background:var(--primary); color:white; border:none; padding:0.6rem 1.5rem;">حفظ</button>
+            `;
+        }
+
+        function saveSettingsSocial() {
+            CONFIG.STORE_INFO.facebookUrl = document.getElementById('sFb').value.trim();
+            CONFIG.STORE_INFO.instagramUrl = document.getElementById('sIg').value.trim();
+            CONFIG.STORE_INFO.messengerUrl = document.getElementById('sMsg').value.trim();
+            CONFIG.STORE_INFO.tiktokUrl = document.getElementById('sTt').value.trim();
+            CONFIG.STORE_INFO.viberNumber = document.getElementById('sViber').value.trim();
+            saveConfig();
+            showToast('تم حفظ روابط التواصل', 'success');
+        }
+
+        function loadSettingsDiscount() {
+            const container = document.getElementById('settingsDiscount');
+            const d = CONFIG.DISCOUNTS || {};
+            container.innerHTML = `
+                <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:1rem;">
+                    <input type="checkbox" id="dQtyEnable" ${d.enableQuantityDiscount ? 'checked' : ''}>
+                    <label>تفعيل خصم الكمية</label>
+                </div>
+                <div id="dQtyDetails" style="${d.enableQuantityDiscount ? '' : 'display:none;'}">
+                    <div class="form-row">
+                        <div class="form-group"><label>الحد الأدنى للكمية</label><input type="number" class="form-control" id="dQtyMin" value="${d.minQuantityForDiscount || 2}" min="2"></div>
+                        <div class="form-group"><label>الخصم لكل قطعة (دج)</label><input type="number" class="form-control" id="dQtyAmount" value="${d.discountPerItem || 300}"></div>
+                    </div>
+                    <div class="form-group">
+                        <label>تطبيق على:</label>
+                        <div style="display:flex; gap:1rem;">
+                            <label><input type="radio" name="discountScope" value="all" ${d.discountScope === 'all' || !d.discountScope ? 'checked' : ''}> كل المنتجات</label>
+                            <label><input type="radio" name="discountScope" value="selected" ${d.discountScope === 'selected' ? 'checked' : ''}> منتجات مختارة</label>
+                        </div>
+                    </div>
+                    ${d.discountScope === 'selected' ? `
+                        <div class="form-group">
+                            <label>اختر المنتجات:</label>
+                            <div style="display:flex; flex-wrap:wrap; gap:0.3rem; max-height:150px; overflow-y:auto;">
+                                ${Object.entries(CONFIG.PRODUCTS || {}).map(([id, p]) => `
+                                    <label style="font-size:0.85rem;"><input type="checkbox" class="discount-product" value="${id}" ${d.discountProducts?.includes(parseInt(id)) ? 'checked' : ''}> ${p.name || id}</label>
+                                `).join('')}
+                            </div>
+                        </div>
+                    ` : ''}
+                </div>
+                <hr style="margin:1rem 0;">
+                <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:1rem;">
+                    <input type="checkbox" id="dPromoEnable" ${d.enablePromotionalDiscount ? 'checked' : ''}>
+                    <label>تفعيل الخصم الترويجي</label>
+                </div>
+                <div id="dPromoDetails" style="${d.enablePromotionalDiscount ? '' : 'display:none;'}">
+                    <div class="form-row">
+                        <div class="form-group"><label>نسبة الخصم (%)</label><input type="number" class="form-control" id="dPromoPercent" value="${d.promotionalDiscountPercent || 20}" min="1" max="100"></div>
+                        <div class="form-group"><label>السعر بعد الخصم (دج)</label><input type="number" class="form-control" id="dPromoPrice" value="${d.promotionalDiscountedPrice || ''}"></div>
+                    </div>
+                    <div class="form-group">
+                        <label>تطبيق على:</label>
+                        <div style="display:flex; gap:1rem;">
+                            <label><input type="radio" name="promoScope" value="all" ${d.promoDiscountScope === 'all' || !d.promoDiscountScope ? 'checked' : ''}> كل المنتجات</label>
+                            <label><input type="radio" name="promoScope" value="selected" ${d.promoDiscountScope === 'selected' ? 'checked' : ''}> منتجات مختارة</label>
+                        </div>
+                    </div>
+                    ${d.promoDiscountScope === 'selected' ? `
+                        <div class="form-group">
+                            <label>اختر المنتجات:</label>
+                            <div style="display:flex; flex-wrap:wrap; gap:0.3rem; max-height:150px; overflow-y:auto;">
+                                ${Object.entries(CONFIG.PRODUCTS || {}).map(([id, p]) => `
+                                    <label style="font-size:0.85rem;"><input type="checkbox" class="promo-product" value="${id}" ${d.promoDiscountProducts?.includes(parseInt(id)) ? 'checked' : ''}> ${p.name || id}</label>
+                                `).join('')}
+                            </div>
+                        </div>
+                    ` : ''}
+                </div>
+                <button class="btn-sm btn-primary" onclick="saveSettingsDiscount()" style="background:var(--primary); color:white; border:none; padding:0.6rem 1.5rem; margin-top:1rem;">حفظ</button>
+            `;
+            // الأحداث
+            document.getElementById('dQtyEnable').addEventListener('change', function() {
+                document.getElementById('dQtyDetails').style.display = this.checked ? 'block' : 'none';
+            });
+            document.getElementById('dPromoEnable').addEventListener('change', function() {
+                document.getElementById('dPromoDetails').style.display = this.checked ? 'block' : 'none';
+            });
+            document.querySelectorAll('input[name="discountScope"]').forEach(el => {
+                el.addEventListener('change', function() {
+                    if (this.value === 'selected') {
+                        document.querySelector('.discount-products-select').style.display = 'block';
+                    } else {
+                        document.querySelector('.discount-products-select').style.display = 'none';
+                    }
+                });
+            });
+            document.querySelectorAll('input[name="promoScope"]').forEach(el => {
+                el.addEventListener('change', function() {
+                    if (this.value === 'selected') {
+                        document.querySelector('.promo-products-select').style.display = 'block';
+                    } else {
+                        document.querySelector('.promo-products-select').style.display = 'none';
+                    }
+                });
+            });
+        }
+
+        function saveSettingsDiscount() {
+            CONFIG.DISCOUNTS.enableQuantityDiscount = document.getElementById('dQtyEnable').checked;
+            CONFIG.DISCOUNTS.minQuantityForDiscount = parseInt(document.getElementById('dQtyMin').value) || 2;
+            CONFIG.DISCOUNTS.discountPerItem = parseInt(document.getElementById('dQtyAmount').value) || 0;
+            CONFIG.DISCOUNTS.discountScope = document.querySelector('input[name="discountScope"]:checked')?.value || 'all';
+            CONFIG.DISCOUNTS.discountProducts = [];
+            document.querySelectorAll('.discount-product:checked').forEach(el => CONFIG.DISCOUNTS.discountProducts.push(parseInt(el.value)));
+
+            CONFIG.DISCOUNTS.enablePromotionalDiscount = document.getElementById('dPromoEnable').checked;
+            CONFIG.DISCOUNTS.promotionalDiscountPercent = parseInt(document.getElementById('dPromoPercent').value) || 0;
+            CONFIG.DISCOUNTS.promotionalDiscountedPrice = parseInt(document.getElementById('dPromoPrice').value) || 0;
+            CONFIG.DISCOUNTS.promoDiscountScope = document.querySelector('input[name="promoScope"]:checked')?.value || 'all';
+            CONFIG.DISCOUNTS.promoDiscountProducts = [];
+            document.querySelectorAll('.promo-product:checked').forEach(el => CONFIG.DISCOUNTS.promoDiscountProducts.push(parseInt(el.value)));
+
+            saveConfig();
+            showToast('تم حفظ إعدادات الخصم', 'success');
+        }
+
+        function loadSettingsSizes() {
+            const container = document.getElementById('settingsSizes');
+            const colors = CONFIG.AVAILABLE_COLORS || [];
+            const sizes = CONFIG.AVAILABLE_SIZES || [];
+            container.innerHTML = `
+                <div style="margin-bottom:1.5rem;">
+                    <h4>المقاسات المتاحة</h4>
+                    <div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin:0.5rem 0;">
+                        ${sizes.map(s => `<span class="badge badge-info" style="padding:0.4rem 0.8rem;">${s} <i class="fas fa-times" style="cursor:pointer; margin-right:0.3rem; color:var(--danger);" onclick="removeSize('${s}')"></i></span>`).join('')}
+                    </div>
+                    <div style="display:flex; gap:0.5rem;">
+                        <input type="text" class="form-control" id="newSize" placeholder="مقاس جديد" style="width:auto; flex:1;">
+                        <button class="btn-sm btn-primary" onclick="addSize()" style="background:var(--primary); color:white; border:none;">إضافة</button>
+                    </div>
+                </div>
+                <div>
+                    <h4>الألوان المتاحة</h4>
+                    <div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin:0.5rem 0;">
+                        ${colors.map(c => `<span class="badge badge-info" style="padding:0.4rem 0.8rem;">${c} <i class="fas fa-times" style="cursor:pointer; margin-right:0.3rem; color:var(--danger);" onclick="removeColor('${c}')"></i></span>`).join('')}
+                    </div>
+                    <div style="display:flex; gap:0.5rem;">
+                        <input type="text" class="form-control" id="newColor" placeholder="لون جديد" style="width:auto; flex:1;">
+                        <button class="btn-sm btn-primary" onclick="addColor()" style="background:var(--primary); color:white; border:none;">إضافة</button>
+                    </div>
+                </div>
+                <div style="margin-top:1.5rem;">
+                    <button class="btn-sm btn-outline-primary" onclick="openSizeGuide()"><i class="fas fa-ruler-combined"></i> دليل المقاسات العام</button>
+                </div>
+                <button class="btn-sm btn-primary" onclick="saveSizesSettings()" style="background:var(--primary); color:white; border:none; padding:0.6rem 1.5rem; margin-top:1rem;">حفظ</button>
+            `;
+        }
+
+        function addSize() {
+            const val = document.getElementById('newSize').value.trim();
+            if (val && !CONFIG.AVAILABLE_SIZES.includes(val)) {
+                CONFIG.AVAILABLE_SIZES.push(val);
+                document.getElementById('newSize').value = '';
+                loadSettingsSizes();
+                saveConfig();
+            }
+        }
+        function removeSize(s) {
+            CONFIG.AVAILABLE_SIZES = CONFIG.AVAILABLE_SIZES.filter(x => x !== s);
+            loadSettingsSizes();
+            saveConfig();
+        }
+        function addColor() {
+            const val = document.getElementById('newColor').value.trim();
+            if (val && !CONFIG.AVAILABLE_COLORS.includes(val)) {
+                CONFIG.AVAILABLE_COLORS.push(val);
+                document.getElementById('newColor').value = '';
+                loadSettingsSizes();
+                saveConfig();
+            }
+        }
+        function removeColor(c) {
+            CONFIG.AVAILABLE_COLORS = CONFIG.AVAILABLE_COLORS.filter(x => x !== c);
+            loadSettingsSizes();
+            saveConfig();
+        }
+        function saveSizesSettings() {
+            saveConfig();
+            showToast('تم حفظ المقاسات والألوان', 'success');
+        }
+
+        // =====================================================================
+        // 14. دليل المقاسات
+        // =====================================================================
+        function openSizeGuide() {
+            const modal = document.getElementById('sizeGuideModal');
+            const body = document.getElementById('sizeGuideModalBody');
+            const guide = CONFIG.SIZE_GUIDE || {};
+            let html = `<table class="size-guide-table"><thead><tr><th>المقاس</th><th>الطول من</th><th>الطول إلى</th><th>الوزن من</th><th>الوزن إلى</th><th>حالة</th><th></th></tr></thead><tbody>`;
+            Object.entries(guide).forEach(([size, data]) => {
+                html += `
+                    <tr>
+                        <td>${size}</td>
+                        <td><input type="number" value="${data.heightFrom}" onchange="updateSizeGuide('${size}','heightFrom',this.value)"></td>
+                        <td><input type="number" value="${data.heightTo}" onchange="updateSizeGuide('${size}','heightTo',this.value)"></td>
+                        <td><input type="number" value="${data.weightFrom}" onchange="updateSizeGuide('${size}','weightFrom',this.value)"></td>
+                        <td><input type="number" value="${data.weightTo}" onchange="updateSizeGuide('${size}','weightTo',this.value)"></td>
+                        <td><input type="checkbox" ${data.enabled ? 'checked' : ''} onchange="updateSizeGuide('${size}','enabled',this.checked)"></td>
+                        <td><button class="btn-sm btn-danger" onclick="deleteSizeGuide('${size}')"><i class="fas fa-trash"></i></button></td>
+                    </tr>
+                `;
+            });
+            html += `</tbody></table>
+                <div style="margin-top:1rem; display:flex; gap:0.5rem; flex-wrap:wrap;">
+                    <input type="text" class="form-control" id="newSizeGuideName" placeholder="مقاس جديد" style="width:120px;">
+                    <input type="number" class="form-control" id="newSizeGuideHf" placeholder="الطول من" style="width:90px;">
+                    <input type="number" class="form-control" id="newSizeGuideHt" placeholder="الطول إلى" style="width:90px;">
+                    <input type="number" class="form-control" id="newSizeGuideWf" placeholder="الوزن من" style="width:90px;">
+                    <input type="number" class="form-control" id="newSizeGuideWt" placeholder="الوزن إلى" style="width:90px;">
+                    <button class="btn-sm btn-primary" onclick="addSizeGuideEntry()" style="background:var(--primary); color:white; border:none;">إضافة</button>
+                </div>
+                <div class="form-actions" style="margin-top:1.5rem;">
+                    <button class="btn-sm" style="background:var(--bg-primary); border:1px solid var(--border-color);" onclick="closeModal('sizeGuideModal')">إغلاق</button>
+                    <button class="btn-sm btn-primary" onclick="saveSizeGuide()" style="background:var(--primary); color:white; border:none;">حفظ</button>
+                </div>
+            `;
+            modal.classList.add('show');
+        }
+
+        function updateSizeGuide(size, field, value) {
+            if (!CONFIG.SIZE_GUIDE[size]) CONFIG.SIZE_GUIDE[size] = { heightFrom: 150, heightTo: 160, weightFrom: 40, weightTo: 55, enabled: true };
+            if (field === 'enabled') CONFIG.SIZE_GUIDE[size][field] = !!value;
+            else CONFIG.SIZE_GUIDE[size][field] = parseFloat(value) || 0;
+        }
+
+        function deleteSizeGuide(size) {
+            delete CONFIG.SIZE_GUIDE[size];
+            openSizeGuide();
+        }
+
+        function addSizeGuideEntry() {
+            const name = document.getElementById('newSizeGuideName').value.trim();
+            const hf = parseFloat(document.getElementById('newSizeGuideHf').value) || 0;
+            const ht = parseFloat(document.getElementById('newSizeGuideHt').value) || 0;
+            const wf = parseFloat(document.getElementById('newSizeGuideWf').value) || 0;
+            const wt = parseFloat(document.getElementById('newSizeGuideWt').value) || 0;
+            if (name && !CONFIG.SIZE_GUIDE[name]) {
+                CONFIG.SIZE_GUIDE[name] = { heightFrom: hf, heightTo: ht, weightFrom: wf, weightTo: wt, enabled: true };
+                openSizeGuide();
+            }
+        }
+
+        function saveSizeGuide() {
+            saveConfig();
+            closeModal('sizeGuideModal');
+            showToast('تم حفظ دليل المقاسات', 'success');
+        }
+
+        // =====================================================================
+        // 15. دليل مقاسات المنتج
+        // =====================================================================
+        function openProductSizeGuide(productId) {
+            const p = CONFIG.PRODUCTS[productId];
+            if (!p) return;
+            const modal = document.getElementById('productSizeGuideModal');
+            document.getElementById('productSizeGuideTitle').innerHTML = `<i class="fas fa-ruler-combined"></i> دليل مقاسات - ${p.name}`;
+            const body = document.getElementById('productSizeGuideModalBody');
+            const guide = p.sizeGuide || { enabled: false, guide: {} };
+            const availableSizes = p.availableSizes || [];
+            let html = `
+                <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:1rem;">
+                    <input type="checkbox" id="prodSizeGuideEnable" ${guide.enabled ? 'checked' : ''}>
+                    <label>تفعيل دليل المقاسات لهذا المنتج</label>
+                </div>
+                <div id="prodSizeGuideContent" style="${guide.enabled ? '' : 'display:none;'}">
+                    <table class="size-guide-table">
+                        <thead><tr><th>المقاس</th><th>الطول من</th><th>الطول إلى</th><th>الوزن من</th><th>الوزن إلى</th><th></th></tr></thead>
+                        <tbody>
+                            ${Object.entries(guide.guide || {}).map(([size, data]) => `
+                                <tr>
+                                    <td>${size}</td>
+                                    <td><input type="number" value="${data.heightFrom}" onchange="updateProductSizeGuide('${productId}','${size}','heightFrom',this.value)"></td>
+                                    <td><input type="number" value="${data.heightTo}" onchange="updateProductSizeGuide('${productId}','${size}','heightTo',this.value)"></td>
+                                    <td><input type="number" value="${data.weightFrom}" onchange="updateProductSizeGuide('${productId}','${size}','weightFrom',this.value)"></td>
+                                    <td><input type="number" value="${data.weightTo}" onchange="updateProductSizeGuide('${productId}','${size}','weightTo',this.value)"></td>
+                                    <td><button class="btn-sm btn-danger" onclick="deleteProductSizeGuide('${productId}','${size}')"><i class="fas fa-trash"></i></button></td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                    <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-top:0.5rem;">
+                        <select class="form-control" id="newProdSizeGuideSize" style="width:100px;">
+                            <option value="">اختر مقاس</option>
+                            ${availableSizes.map(s => `<option value="${s}">${s}</option>`).join('')}
+                        </select>
+                        <input type="number" class="form-control" id="newProdSizeGuideHf" placeholder="الطول من" style="width:90px;">
+                        <input type="number" class="form-control" id="newProdSizeGuideHt" placeholder="الطول إلى" style="width:90px;">
+                        <input type="number" class="form-control" id="newProdSizeGuideWf" placeholder="الوزن من" style="width:90px;">
+                        <input type="number" class="form-control" id="newProdSizeGuideWt" placeholder="الوزن إلى" style="width:90px;">
+                        <button class="btn-sm btn-primary" onclick="addProductSizeGuideEntry('${productId}')" style="background:var(--primary); color:white; border:none;">إضافة</button>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button class="btn-sm" style="background:var(--bg-primary); border:1px solid var(--border-color);" onclick="closeModal('productSizeGuideModal')">إغلاق</button>
+                    <button class="btn-sm btn-primary" onclick="saveProductSizeGuide('${productId}')" style="background:var(--primary); color:white; border:none;">حفظ</button>
+                </div>
+            `;
+            body.innerHTML = html;
+            modal.classList.add('show');
+
+            // أحداث
+            document.getElementById('prodSizeGuideEnable').addEventListener('change', function() {
+                document.getElementById('prodSizeGuideContent').style.display = this.checked ? 'block' : 'none';
+            });
+        }
+
+        function updateProductSizeGuide(productId, size, field, value) {
+            if (!CONFIG.PRODUCTS[productId].sizeGuide) CONFIG.PRODUCTS[productId].sizeGuide = { enabled: false, guide: {} };
+            if (!CONFIG.PRODUCTS[productId].sizeGuide.guide[size]) CONFIG.PRODUCTS[productId].sizeGuide.guide[size] = { heightFrom: 0, heightTo: 0, weightFrom: 0, weightTo: 0 };
+            CONFIG.PRODUCTS[productId].sizeGuide.guide[size][field] = parseFloat(value) || 0;
+        }
+
+        function deleteProductSizeGuide(productId, size) {
+            if (CONFIG.PRODUCTS[productId].sizeGuide && CONFIG.PRODUCTS[productId].sizeGuide.guide) {
+                delete CONFIG.PRODUCTS[productId].sizeGuide.guide[size];
+                openProductSizeGuide(productId);
+            }
+        }
+
+        function addProductSizeGuideEntry(productId) {
+            const size = document.getElementById('newProdSizeGuideSize').value;
+            const hf = parseFloat(document.getElementById('newProdSizeGuideHf').value) || 0;
+            const ht = parseFloat(document.getElementById('newProdSizeGuideHt').value) || 0;
+            const wf = parseFloat(document.getElementById('newProdSizeGuideWf').value) || 0;
+            const wt = parseFloat(document.getElementById('newProdSizeGuideWt').value) || 0;
+            if (size) {
+                if (!CONFIG.PRODUCTS[productId].sizeGuide) CONFIG.PRODUCTS[productId].sizeGuide = { enabled: false, guide: {} };
+                CONFIG.PRODUCTS[productId].sizeGuide.guide[size] = { heightFrom: hf, heightTo: ht, weightFrom: wf, weightTo: wt };
+                openProductSizeGuide(productId);
+            }
+        }
+
+        function saveProductSizeGuide(productId) {
+            const enabled = document.getElementById('prodSizeGuideEnable').checked;
+            CONFIG.PRODUCTS[productId].sizeGuide.enabled = enabled;
+            saveConfig();
+            closeModal('productSizeGuideModal');
+            showToast('تم حفظ دليل مقاسات المنتج', 'success');
+        }
+
+        // =====================================================================
+        // 16. إعدادات البكسل
+        // =====================================================================
+        function loadSettingsPixels() {
+            const container = document.getElementById('settingsPixels');
+            const fb = CONFIG.PIXEL_CODES.facebook || {};
+            const tt = CONFIG.PIXEL_CODES.tiktok || {};
+            container.innerHTML = `
+                <div style="margin-bottom:1.5rem;">
+                    <h4><i class="fab fa-facebook"></i> فيسبوك بكسل</h4>
+                    <div style="display:flex; align-items:center; gap:0.5rem;">
+                        <input type="checkbox" id="fbPixelEnable" ${fb.enabled ? 'checked' : ''}>
+                        <label>تفعيل</label>
+                    </div>
+                    <div id="fbPixelDetails" style="${fb.enabled ? '' : 'display:none;'}">
+                        <div class="form-group"><label>معرف البكسل</label><input class="form-control" id="fbPixelId" value="${fb.pixelId || ''}"></div>
+                        <div style="display:flex; flex-wrap:wrap; gap:0.5rem;">
+                            ${['pageView','addToCart','purchase','initiateCheckout','viewContent'].map(ev => `
+                                <label style="font-size:0.85rem;"><input type="checkbox" class="fb-event" value="${ev}" ${fb.events && fb.events[ev] ? 'checked' : ''}> ${ev}</label>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-bottom:1.5rem;">
+                    <h4><i class="fab fa-tiktok"></i> تيك توك بكسل</h4>
+                    <div style="display:flex; align-items:center; gap:0.5rem;">
+                        <input type="checkbox" id="ttPixelEnable" ${tt.enabled ? 'checked' : ''}>
+                        <label>تفعيل</label>
+                    </div>
+                    <div id="ttPixelDetails" style="${tt.enabled ? '' : 'display:none;'}">
+                        <div class="form-group"><label>معرف البكسل</label><input class="form-control" id="ttPixelId" value="${tt.pixelId || ''}"></div>
+                        <div style="display:flex; flex-wrap:wrap; gap:0.5rem;">
+                            ${['pageView','addToCart','purchase','initiateCheckout','viewContent'].map(ev => `
+                                <label style="font-size:0.85rem;"><input type="checkbox" class="tt-event" value="${ev}" ${tt.events && tt.events[ev] ? 'checked' : ''}> ${ev}</label>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+                <button class="btn-sm btn-primary" onclick="savePixelSettings()" style="background:var(--primary); color:white; border:none; padding:0.6rem 1.5rem;">حفظ</button>
+            `;
+            document.getElementById('fbPixelEnable').addEventListener('change', function() {
+                document.getElementById('fbPixelDetails').style.display = this.checked ? 'block' : 'none';
+            });
+            document.getElementById('ttPixelEnable').addEventListener('change', function() {
+                document.getElementById('ttPixelDetails').style.display = this.checked ? 'block' : 'none';
+            });
+        }
+
+        function savePixelSettings() {
+            const fbEvents = {};
+            document.querySelectorAll('.fb-event:checked').forEach(el => fbEvents[el.value] = true);
+            document.querySelectorAll('.fb-event:not(:checked)').forEach(el => fbEvents[el.value] = false);
+            CONFIG.PIXEL_CODES.facebook = {
+                enabled: document.getElementById('fbPixelEnable').checked,
+                pixelId: document.getElementById('fbPixelId').value.trim(),
+                events: fbEvents
+            };
+            const ttEvents = {};
+            document.querySelectorAll('.tt-event:checked').forEach(el => ttEvents[el.value] = true);
+            document.querySelectorAll('.tt-event:not(:checked)').forEach(el => ttEvents[el.value] = false);
+            CONFIG.PIXEL_CODES.tiktok = {
+                enabled: document.getElementById('ttPixelEnable').checked,
+                pixelId: document.getElementById('ttPixelId').value.trim(),
+                events: ttEvents
+            };
+            saveConfig();
+            showToast('تم حفظ إعدادات البكسل', 'success');
+        }
+
+        // =====================================================================
+        // 17. الإعدادات المتقدمة (جداول جوجل)
+        // =====================================================================
+        function loadSettingsAdvanced() {
+            const container = document.getElementById('settingsAdvanced');
+            const gs = CONFIG.GOOGLE_SHEETS || {};
+            container.innerHTML = `
+                <div class="form-group">
+                    <label>رابط جدول جوجل</label>
+                    <input type="url" class="form-control" id="gsUrl" value="${gs.url || ''}">
+                </div>
+                <div class="form-group">
+                    <label>وصف الجدول</label>
+                    <input type="text" class="form-control" id="gsDesc" value="${gs.description || ''}">
+                </div>
+                <div style="display:flex; align-items:center; gap:0.5rem; margin:0.5rem 0;">
+                    <input type="checkbox" id="gsAutoUpdate" ${gs.autoUpdate ? 'checked' : ''}>
+                    <label>تفعيل التحديث التلقائي</label>
+                </div>
+                ${gs.url ? `<div style="margin:0.5rem 0;"><a href="${gs.url}" target="_blank" class="btn-sm btn-outline-primary"><i class="fab fa-google"></i> فتح الجدول</a></div>` : ''}
+                <button class="btn-sm btn-primary" onclick="saveAdvancedSettings()" style="background:var(--primary); color:white; border:none; padding:0.6rem 1.5rem;">حفظ</button>
+            `;
+        }
+
+        function saveAdvancedSettings() {
+            CONFIG.GOOGLE_SHEETS.url = document.getElementById('gsUrl').value.trim();
+            CONFIG.GOOGLE_SHEETS.description = document.getElementById('gsDesc').value.trim();
+            CONFIG.GOOGLE_SHEETS.autoUpdate = document.getElementById('gsAutoUpdate').checked;
+            saveConfig();
+            showToast('تم حفظ الإعدادات المتقدمة', 'success');
+        }
+
+        // =====================================================================
+        // 18. المفاتيح (Storage Keys)
+        // =====================================================================
+        function loadStorageKeysUI() {
+            const container = document.getElementById('storageKeysContent');
+            const keys = storageKeys || {};
+            let html = `
+                <div style="background:var(--bg-card); border-radius:var(--radius); padding:1.2rem; border:1px solid var(--border-color); margin-bottom:1.5rem;">
+                    <div class="form-group">
+                        <label>أدخل المفتاح (اللاحقة فقط، 10 أحرف)</label>
+                        <div style="display:flex; gap:0.5rem;">
+                            <input type="text" class="form-control" id="newKeySuffix" maxlength="10" placeholder="مثال: abc123xyz" style="flex:1;">
+                            <button class="btn-sm btn-primary" onclick="saveNewKey()" style="background:var(--primary); color:white; border:none;">حفظ</button>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h4>المفاتيح المحفوظة</h4>
+                    ${Object.keys(keys).length === 0 ? '<div class="empty-state"><i class="fas fa-key"></i><p>لا توجد مفاتيح محفوظة</p></div>' :
+                        Object.entries(keys).map(([repo, data]) => `
+                            <div style="display:flex; justify-content:space-between; align-items:center; background:var(--bg-card); padding:0.8rem 1rem; border-radius:var(--radius-xs); border:1px solid var(--border-color); margin-bottom:0.5rem;">
+                                <span><strong>${repo}</strong> - ${data.suffix ? '****' + data.suffix.slice(-4) : ''}</span>
+                                <button class="btn-sm btn-danger" onclick="deleteKey('${repo}')"><i class="fas fa-trash"></i></button>
+                            </div>
+                        `).join('')
+                    }
+                </div>
+            `;
+            container.innerHTML = html;
+        }
+
+        function saveNewKey() {
+            const suffix = document.getElementById('newKeySuffix').value.trim();
+            if (suffix.length !== 10 || !/^[A-Za-z0-9]+$/.test(suffix)) {
+                showToast('المفتاح يجب أن يكون 10 أحرف وأرقام فقط', 'error');
+                return;
+            }
+            const fullKey = getFullKeyFromSuffix(suffix);
+            fetch('https://api.github.com/user', {
+                headers: { 'Authorization': `token ${fullKey}` }
+            }).then(res => {
+                if (res.ok) {
+                    storageKeys['sanix-dz'] = { suffix: suffix, username: 'one-wil', branch: 'main', defaultFolder: 'images' };
+                    localStorage.setItem('github_storage_keys', JSON.stringify(storageKeys));
+                    document.getElementById('newKeySuffix').value = '';
+                    loadStorageKeysUI();
+                    updateStats();
+                    showToast('تم حفظ المفتاح بنجاح', 'success');
+                } else {
+                    showToast('المفتاح غير صالح', 'error');
+                }
+            }).catch(() => showToast('خطأ في التحقق من المفتاح', 'error'));
+        }
+
+        function deleteKey(repo) {
+            showConfirm(`حذف المفتاح "${repo}"؟`, () => {
+                delete storageKeys[repo];
+                localStorage.setItem('github_storage_keys', JSON.stringify(storageKeys));
+                loadStorageKeysUI();
+                updateStats();
+                showToast('تم حذف المفتاح', 'success');
+            });
+        }
+
+        // =====================================================================
+        // 19. الأمان
+        // =====================================================================
+        function loadSecurityUI() {
+            const container = document.getElementById('securityContent');
+            container.innerHTML = `
+                <div style="background:var(--bg-card); border-radius:var(--radius); padding:1.5rem; border:1px solid var(--border-color); max-width:500px;">
+                    <div class="form-group">
+                        <label>كلمة المرور الحالية</label>
+                        <input type="password" class="form-control" id="oldPass">
+                    </div>
+                    <div class="form-group">
+                        <label>كلمة المرور الجديدة</label>
+                        <input type="password" class="form-control" id="newPass">
+                    </div>
+                    <div class="form-group">
+                        <label>تأكيد كلمة المرور</label>
+                        <input type="password" class="form-control" id="confirmPass">
+                    </div>
+                    <button class="btn-sm btn-primary" onclick="changePassword()" style="background:var(--primary); color:white; border:none; padding:0.6rem 1.5rem;">تغيير</button>
+                </div>
+            `;
+        }
+
+        function changePassword() {
+            const old = document.getElementById('oldPass').value;
+            const newp = document.getElementById('newPass').value;
+            const conf = document.getElementById('confirmPass').value;
+            const saved = localStorage.getItem('adminPassword') || DEFAULT_PASSWORD;
+            if (old !== saved) { showToast('كلمة المرور الحالية غير صحيحة', 'error'); return; }
+            if (newp.length < 4) { showToast('كلمة المرور الجديدة قصيرة جداً', 'error'); return; }
+            if (newp !== conf) { showToast('كلمتا المرور غير متطابقتين', 'error'); return; }
+            localStorage.setItem('adminPassword', newp);
+            document.getElementById('oldPass').value = '';
+            document.getElementById('newPass').value = '';
+            document.getElementById('confirmPass').value = '';
+            showToast('تم تغيير كلمة المرور بنجاح', 'success');
+        }
+
+        // =====================================================================
+        // 20. الأدوات
+        // =====================================================================
+        function loadToolsUI() {
+            const container = document.getElementById('toolsContent');
+            container.innerHTML = `
+                <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:1rem;">
+                    <div class="action-card">
+                        <i class="fas fa-file-import"></i>
+                        <h4>استيراد</h4>
+                        <p>استيراد الإعدادات من ملف</p>
+                        <input type="file" id="importFile" accept=".json" style="display:none;" onchange="importSettings(event)">
+                        <button class="btn-sm btn-outline-primary" onclick="document.getElementById('importFile').click()"><i class="fas fa-upload"></i> استيراد</button>
+                    </div>
+                    <div class="action-card">
+                        <i class="fas fa-file-export"></i>
+                        <h4>تصدير</h4>
+                        <p>تصدير الإعدادات الحالية</p>
+                        <button class="btn-sm btn-outline-primary" onclick="exportSettings()"><i class="fas fa-download"></i> تصدير</button>
+                    </div>
+                    <div class="action-card">
+                        <i class="fas fa-sync-alt"></i>
+                        <h4>مزامنة كاملة</h4>
+                        <p>مزامنة مع السيرفر</p>
+                        <button class="btn-sm btn-success" onclick="startFullSync()"><i class="fas fa-sync"></i> مزامنة</button>
+                    </div>
+                    <div class="action-card">
+                        <i class="fas fa-trash-alt"></i>
+                        <h4>تنظيف الصور</h4>
+                        <p>حذف الصور غير المستخدمة</p>
+                        <button class="btn-sm btn-warning" onclick="cleanImages()"><i class="fas fa-broom"></i> تنظيف</button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function importSettings(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                try {
+                    const data = JSON.parse(e.target.result);
+                    showConfirm('سيتم استبدال الإعدادات الحالية. هل تريد المتابعة؟', () => {
+                        CONFIG = deepMerge(DEFAULT_CONFIG, data);
+                        saveConfig();
+                        loadProductsUI();
+                        loadWilayasUI();
+                        updateStats();
+                        showToast('تم استيراد الإعدادات بنجاح', 'success');
+                        window.location.reload();
+                    });
+                } catch (err) {
+                    showToast('خطأ في قراءة الملف', 'error');
+                }
+            };
+            reader.readAsText(file);
+            event.target.value = '';
+        }
+
+        function exportSettings() {
+            const blob = new Blob([JSON.stringify(CONFIG, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'store-config.json';
+            a.click();
+            URL.revokeObjectURL(url);
+            showToast('تم تصدير الإعدادات', 'success');
+        }
+
+        function startQuickSave() {
+            if (!navigator.onLine) { showToast('لا يوجد اتصال بالإنترنت', 'error'); return; }
+            if (!getDefaultRepo()) { showToast('الرجاء إضافة مفتاح تخزين أولاً', 'error'); return; }
+            showToast('جاري المزامنة...', 'info');
+            setTimeout(() => {
+                if (saveConfig()) {
+                    uploadToGitHub(getDefaultRepo(), getStorageConfig(getDefaultRepo())).then(success => {
+                        if (success) {
+                            showToast('تمت المزامنة بنجاح', 'success');
+                            updateStats();
+                        } else {
+                            showToast('فشلت المزامنة', 'error');
+                        }
+                    });
+                } else {
+                    showToast('خطأ في حفظ الإعدادات', 'error');
+                }
+            }, 300);
+        }
+
+        async function startFullSync() {
+            if (!navigator.onLine) { showToast('لا يوجد اتصال بالإنترنت', 'error'); return; }
+            const repo = getDefaultRepo();
+            if (!repo) { showToast('الرجاء إضافة مفتاح تخزين أولاً', 'error'); return; }
+            const config = getStorageConfig(repo);
+            if (!config) { showToast('مفتاح التخزين غير صالح', 'error'); return; }
+            showToast('جاري المزامنة...', 'info');
+            try {
+                const success = await uploadToGitHub(repo, config);
+                if (success) {
+                    showToast('تمت المزامنة بنجاح', 'success');
+                    updateStats();
+                } else {
+                    showToast('فشلت المزامنة', 'error');
+                }
+            } catch (e) {
+                showToast('خطأ أثناء المزامنة', 'error');
+            }
+        }
+
+        async function uploadToGitHub(repo, config) {
+            const fullKey = getFullKeyFromSuffix(config.suffix);
+            const path = 'config/store-config.json';
+            const content = btoa(unescape(encodeURIComponent(JSON.stringify(CONFIG, null, 2))));
+            let sha = '';
+            try {
+                const res = await fetch(`https://api.github.com/repos/${config.username}/${repo}/contents/${path}`, {
+                    headers: { 'Authorization': `token ${fullKey}` }
+                });
+                if (res.ok) {
+                    const data = await res.json();
+                    sha = data.sha;
+                }
+            } catch (e) {}
+            const response = await fetch(`https://api.github.com/repos/${config.username}/${repo}/contents/${path}`, {
+                method: 'PUT',
+                headers: {
+                    'Authorization': `token ${fullKey}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    message: `تحديث الإعدادات - ${new Date().toISOString()}`,
+                    content: content,
+                    sha: sha || undefined,
+                    branch: config.branch || 'main'
+                })
+            });
+            if (response.ok) {
+                localStorage.setItem('lastGitHubSync', new Date().toISOString());
+                return true;
+            }
+            return false;
+        }
+
+        async function cleanImages() {
+            showConfirm('سيتم حذف الصور غير المستخدمة من السيرفر. هل تريد المتابعة؟', async () => {
+                const repo = getDefaultRepo();
+                if (!repo) { showToast('لا يوجد مفتاح تخزين', 'error'); return; }
+                const config = getStorageConfig(repo);
+                if (!config) { showToast('مفتاح غير صالح', 'error'); return; }
+                const used = new Set();
+                Object.values(CONFIG.PRODUCTS).forEach(p => {
+                    if (p.image && p.image.includes('github.com')) used.add(p.image);
+                    if (p.colorImages) {
+                        Object.values(p.colorImages).forEach(cd => {
+                            cd.images.forEach(img => { if (img.includes('github.com')) used.add(img); });
+                        });
+                    }
+                });
+                if (CONFIG.STORE_INFO.logo && CONFIG.STORE_INFO.logo.includes('github.com')) used.add(CONFIG.STORE_INFO.logo);
+                const folder = config.defaultFolder || 'images';
+                const fullKey = getFullKeyFromSuffix(config.suffix);
+                const res = await fetch(`https://api.github.com/repos/${config.username}/${repo}/contents/${folder}`, {
+                    headers: { 'Authorization': `token ${fullKey}` }
+                });
+                if (!res.ok) { showToast('فشل في جلب قائمة الصور', 'error'); return; }
+                const files = await res.json();
+                let deleted = 0;
+                for (const file of files) {
+                    if (file.type === 'file' && file.download_url && !used.has(file.download_url)) {
+                        try {
+                            const delRes = await fetch(`https://api.github.com/repos/${config.username}/${repo}/contents/${file.path}`, {
+                                method: 'DELETE',
+                                headers: { 'Authorization': `token ${fullKey}`, 'Content-Type': 'application/json' },
+                                body: JSON.stringify({ message: `حذف صورة غير مستخدمة: ${file.name}`, sha: file.sha, branch: config.branch || 'main' })
+                            });
+                            if (delRes.ok) deleted++;
+                        } catch (e) { console.warn('فشل حذف', file.name); }
+                    }
+                }
+                showToast(`تم حذف ${deleted} صورة غير مستخدمة`, 'success');
+            });
+        }
+
+        // =====================================================================
+        // 21. رفع الصور
+        // =====================================================================
+        let uploadContext = { type: '', productId: null, color: null };
+
+        function openUploadModal(type, productId, color = null) {
+            const modal = document.getElementById('uploadModal');
+            document.getElementById('uploadModalTitle').innerHTML = type === 'main' ? '<i class="fas fa-image"></i> تحميل صورة رئيسية' :
+                type === 'color' ? '<i class="fas fa-palette"></i> تحميل صورة لون' : '<i class="fas fa-image"></i> تحميل شعار';
+            uploadContext = { type, productId, color };
+            const body = document.getElementById('uploadModalBody');
+            body.innerHTML = `
+                <div style="text-align:center; padding:1rem 0;">
+                    <input type="file" id="uploadFileInput" accept="image/*" style="display:none;" onchange="previewUploadImage(event)">
+                    <button class="btn-sm btn-outline-primary" onclick="document.getElementById('uploadFileInput').click()"><i class="fas fa-cloud-upload-alt"></i> اختيار صورة</button>
+                    <div id="uploadPreview" style="margin-top:0.8rem;"></div>
+                    <div id="uploadStatus" style="margin-top:0.5rem; font-size:0.9rem;"></div>
+                    <button class="btn-sm btn-primary" id="uploadSubmitBtn" onclick="submitUpload()" style="background:var(--primary); color:white; border:none; margin-top:0.8rem; display:none;">رفع</button>
+                </div>
+                <div class="form-actions">
+                    <button class="btn-sm" style="background:var(--bg-primary); border:1px solid var(--border-color);" onclick="closeModal('uploadModal')">إلغاء</button>
+                </div>
+            `;
+            modal.classList.add('show');
+        }
+
+        let uploadedFile = null;
+
+        function previewUploadImage(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            uploadedFile = file;
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                document.getElementById('uploadPreview').innerHTML = `<img src="${e.target.result}" style="max-width:200px; max-height:150px; border-radius:6px; border:1px solid var(--border-color);">`;
+                document.getElementById('uploadSubmitBtn').style.display = 'inline-flex';
+                document.getElementById('uploadStatus').textContent = '';
+            };
+            reader.readAsDataURL(file);
+        }
+
+        async function submitUpload() {
+            if (!uploadedFile) return;
+            const btn = document.getElementById('uploadSubmitBtn');
+            btn.disabled = true;
+            btn.textContent = 'جاري الرفع...';
+            const status = document.getElementById('uploadStatus');
+
+            const repo = getDefaultRepo();
+            if (!repo) { status.textContent = '❌ لا يوجد مفتاح تخزين'; btn.disabled = false; btn.textContent = 'رفع'; return; }
+            const config = getStorageConfig(repo);
+            if (!config) { status.textContent = '❌ مفتاح غير صالح'; btn.disabled = false; btn.textContent = 'رفع'; return; }
+
+            try {
+                const base64 = await fileToBase64(uploadedFile);
+                const folder = config.defaultFolder || 'images';
+                const ext = uploadedFile.name.split('.').pop();
+                const fileName = `${Date.now()}-${Math.random().toString(36).slice(2,6)}.${ext}`;
+                const path = `${folder}/${fileName}`;
+                const fullKey = getFullKeyFromSuffix(config.suffix);
+
+                const response = await fetch(`https://api.github.com/repos/${config.username}/${repo}/contents/${path}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Authorization': `token ${fullKey}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        message: `رفع صورة: ${fileName}`,
+                        content: base64.split(',')[1],
+                        branch: config.branch || 'main'
+                    })
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    const url = data.content.download_url;
+                    if (uploadContext.type === 'main' && uploadContext.productId) {
+                        CONFIG.PRODUCTS[uploadContext.productId].image = url;
+                        document.getElementById('prodImageHidden').value = url;
+                        document.getElementById('prodImagePreview').innerHTML = `<img src="${url}" style="max-width:120px; max-height:80px; border-radius:6px;">`;
+                    } else if (uploadContext.type === 'color' && uploadContext.productId && uploadContext.color) {
+                        const pid = uploadContext.productId;
+                        const col = uploadContext.color;
+                        if (!CONFIG.PRODUCTS[pid].colorImages) CONFIG.PRODUCTS[pid].colorImages = {};
+                        if (!CONFIG.PRODUCTS[pid].colorImages[col]) CONFIG.PRODUCTS[pid].colorImages[col] = { images: [], ageRanges: [] };
+                        CONFIG.PRODUCTS[pid].colorImages[col].images.push(url);
+                    } else if (uploadContext.type === 'logo') {
+                        CONFIG.STORE_INFO.logo = url;
+                        document.getElementById('sLogo').value = url;
+                    }
+                    saveConfig();
+                    status.textContent = '✅ تم رفع الصورة بنجاح';
+                    setTimeout(() => {
+                        closeModal('uploadModal');
+                        if (uploadContext.type === 'main' && uploadContext.productId) {
+                            loadProductsUI();
+                        } else if (uploadContext.type === 'color' && uploadContext.productId) {
+                            openColorsSizes(uploadContext.productId);
+                        } else if (uploadContext.type === 'logo') {
+                            loadSettingsGeneral();
+                        }
+                        uploadedFile = null;
+                    }, 1200);
+                } else {
+                    const err = await response.json();
+                    status.textContent = '❌ فشل الرفع: ' + (err.message || 'خطأ غير معروف');
+                }
+            } catch (e) {
+                status.textContent = '❌ خطأ: ' + e.message;
+            }
+            btn.disabled = false;
+            btn.textContent = 'رفع';
+        }
+
+        function fileToBase64(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = () => resolve(reader.result);
+                reader.onerror = reject;
+                reader.readAsDataURL(file);
+            });
+        }
+
+        async function deleteImageFromGitHub(url) {
+            const repo = getDefaultRepo();
+            if (!repo) return;
+            const config = getStorageConfig(repo);
+            if (!config) return;
+            const parts = url.split('/');
+            const idx = parts.indexOf(repo);
+            if (idx === -1) return;
+            const path = parts.slice(idx + 1).join('/');
+            const fullKey = getFullKeyFromSuffix(config.suffix);
+            try {
+                const res = await fetch(`https://api.github.com/repos/${config.username}/${repo}/contents/${path}`, {
+                    headers: { 'Authorization': `token ${fullKey}` }
+                });
+                if (!res.ok) return;
+                const data = await res.json();
+                await fetch(`https://api.github.com/repos/${config.username}/${repo}/contents/${path}`, {
+                    method: 'DELETE',
+                    headers: { 'Authorization': `token ${fullKey}`, 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message: `حذف صورة`, sha: data.sha, branch: config.branch || 'main' })
+                });
+            } catch (e) { console.warn('فشل حذف الصورة من السيرفر', e); }
+        }
+
+        // =====================================================================
+        // 22. إدارة الألوان والمقاسات للمنتج
+        // =====================================================================
+        function openColorsSizes(productId) {
+            const p = CONFIG.PRODUCTS[productId];
+            if (!p) return;
+            const modal = document.getElementById('colorsSizesModal');
+            document.getElementById('colorsSizesModalTitle').innerHTML = `<i class="fas fa-palette"></i> ألوان ومقاسات - ${p.name}`;
+            const body = document.getElementById('colorsSizesModalBody');
+            const colors = p.availableColors || [];
+            const colorData = p.colorImages || {};
+            let html = '';
+            if (colors.length === 0) {
+                html = `<div class="empty-state"><i class="fas fa-palette"></i><p>لا توجد ألوان مضافة لهذا المنتج</p></div>`;
+            } else {
+                colors.forEach(col => {
+                    const images = colorData[col]?.images || [];
+                    const ageRanges = colorData[col]?.ageRanges || [];
+                    html += `
+                        <div style="background:var(--bg-primary); border-radius:var(--radius); padding:1rem; margin-bottom:1rem; border:1px solid var(--border-color);">
+                            <div style="display:flex; justify-content:space-between; align-items:center;">
+                                <h4>${col}</h4>
+                                <button class="btn-sm btn-outline-primary" onclick="openUploadModal('color','${productId}','${col}')"><i class="fas fa-plus"></i> صورة</button>
+                            </div>
+                            <div class="color-images-list">
+                                ${images.map((img, idx) => `
+                                    <div class="color-image-item">
+                                        <img src="${img}" alt="${col}">
+                                        <button class="delete-btn" onclick="deleteColorImage('${productId}','${col}',${idx})"><i class="fas fa-times"></i></button>
+                                    </div>
+                                `).join('')}
+                                ${images.length === 0 ? '<span style="color:var(--text-muted);">لا توجد صور</span>' : ''}
+                            </div>
+                            <div style="margin-top:0.5rem;">
+                                <h5>نطاقات الأعمار</h5>
+                                ${ageRanges.length ? `
+                                    <table style="width:100%; font-size:0.85rem;">
+                                        <thead><tr><th>من عمر</th><th>إلى عمر</th><th>المقاس</th><th></th></tr></thead>
+                                        <tbody>
+                                            ${ageRanges.map((r, i) => `
+                                                <tr>
+                                                    <td>${r.ageFrom}</td>
+                                                    <td>${r.ageTo}</td>
+                                                    <td>${r.size}</td>
+                                                    <td><button class="btn-sm btn-danger" onclick="deleteAgeRange('${productId}','${col}',${i})"><i class="fas fa-trash"></i></button></td>
+                                                </tr>
+                                            `).join('')}
+                                        </tbody>
+                                    </table>
+                                ` : '<p style="color:var(--text-muted);">لا توجد نطاقات عمرية</p>'}
+                                <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-top:0.5rem;">
+                                    <input type="text" class="form-control" id="ageFrom_${col}" placeholder="من" style="width:70px;">
+                                    <input type="text" class="form-control" id="ageTo_${col}" placeholder="إلى" style="width:70px;">
+                                    <select class="form-control" id="ageSize_${col}" style="width:80px;">
+                                        <option value="">المقاس</option>
+                                        ${(p.availableSizes || []).map(s => `<option value="${s}">${s}</option>`).join('')}
+                                    </select>
+                                    <button class="btn-sm btn-primary" onclick="addAgeRange('${productId}','${col}')" style="background:var(--primary); color:white; border:none;">إضافة</button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+            html += `<div class="form-actions"><button class="btn-sm" style="background:var(--bg-primary); border:1px solid var(--border-color);" onclick="closeModal('colorsSizesModal')">إغلاق</button></div>`;
+            body.innerHTML = html;
+            modal.classList.add('show');
+        }
+
+        async function deleteColorImage(productId, color, index) {
+            const p = CONFIG.PRODUCTS[productId];
+            if (!p.colorImages || !p.colorImages[color]) return;
+            const url = p.colorImages[color].images[index];
+            if (url && url.includes('github.com')) {
+                await deleteImageFromGitHub(url);
+            }
+            p.colorImages[color].images.splice(index, 1);
+            if (p.colorImages[color].images.length === 0 && p.colorImages[color].ageRanges.length === 0) {
+                delete p.colorImages[color];
+            }
+            saveConfig();
+            openColorsSizes(productId);
+            showToast('تم حذف الصورة', 'success');
+        }
+
+        function addAgeRange(productId, color) {
+            const ageFrom = document.getElementById(`ageFrom_${color}`).value.trim();
+            const ageTo = document.getElementById(`ageTo_${color}`).value.trim();
+            const size = document.getElementById(`ageSize_${color}`).value;
+            if (!ageFrom || !ageTo || !size) { showToast('يرجى ملء جميع الحقول', 'error'); return; }
+            if (!CONFIG.PRODUCTS[productId].colorImages) CONFIG.PRODUCTS[productId].colorImages = {};
+            if (!CONFIG.PRODUCTS[productId].colorImages[color]) CONFIG.PRODUCTS[productId].colorImages[color] = { images: [], ageRanges: [] };
+            CONFIG.PRODUCTS[productId].colorImages[color].ageRanges.push({ ageFrom, ageTo, size });
+            saveConfig();
+            openColorsSizes(productId);
+            showToast('تم إضافة النطاق العمري', 'success');
+        }
+
+        function deleteAgeRange(productId, color, index) {
+            if (CONFIG.PRODUCTS[productId].colorImages && CONFIG.PRODUCTS[productId].colorImages[color]) {
+                CONFIG.PRODUCTS[productId].colorImages[color].ageRanges.splice(index, 1);
+                saveConfig();
+                openColorsSizes(productId);
+                showToast('تم حذف النطاق العمري', 'success');
+            }
+        }
+
+        // =====================================================================
+        // 23. دوال مساعدة (مودالات، إشعارات، تأكيد)
+        // =====================================================================
+        function closeModal(id) {
+            document.getElementById(id).classList.remove('show');
+        }
+
+        function showToast(msg, type = 'success') {
+            const toast = document.getElementById('toast');
+            const icon = document.getElementById('toastIcon');
+            const text = document.getElementById('toastMessage');
+            text.textContent = msg;
+            toast.className = 'toast ' + type;
+            if (type === 'success') icon.className = 'fas fa-check-circle';
+            else if (type === 'error') icon.className = 'fas fa-exclamation-circle';
+            else if (type === 'warning') icon.className = 'fas fa-exclamation-triangle';
+            else icon.className = 'fas fa-info-circle';
+            toast.classList.add('show');
+            clearTimeout(toast._timeout);
+            toast._timeout = setTimeout(() => toast.classList.remove('show'), 4000);
+        }
+
+        function showConfirm(msg, callback) {
+            document.getElementById('confirmMessage').textContent = msg;
+            currentConfirmCallback = callback;
+            document.getElementById('confirmModal').style.display = 'flex';
+            document.getElementById('confirmDeleteBtn').onclick = function() {
+                closeConfirm();
+                if (currentConfirmCallback) currentConfirmCallback();
+            };
+        }
+
+        function closeConfirm() {
+            document.getElementById('confirmModal').style.display = 'none';
+            currentConfirmCallback = null;
+        }
+
+        // =====================================================================
+        // 24. PWA وتثبيت
+        // =====================================================================
+        function installPWA() {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then(() => {
+                    deferredPrompt = null;
+                    document.getElementById('pwaBanner').classList.remove('show');
+                    document.getElementById('pwaInstallCard').style.display = 'none';
+                });
+            } else {
+                showToast('يمكنك تثبيت التطبيق من خيارات المتصفح', 'info');
+            }
+        }
+
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(e => {});
+            } else {
+                if (document.exitFullscreen) document.exitFullscreen();
+            }
+        }
+
+        // =====================================================================
+        // 25. بدء التطبيق
+        // =====================================================================
+        document.addEventListener('DOMContentLoaded', () => {
+            checkAuth();
+            document.getElementById('adminPass').addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') handleLogin();
+            });
+            document.querySelectorAll('.modal-overlay').forEach(el => {
+                el.addEventListener('click', (e) => {
+                    if (e.target === el) el.classList.remove('show');
+                });
+            });
+            document.getElementById('confirmModal').addEventListener('click', (e) => {
+                if (e.target === e.currentTarget) closeConfirm();
+            });
+        });
+
+        window.switchTab = switchTab;
+        window.closeModal = closeModal;
+        window.showToast = showToast;
+        window.showConfirm = showConfirm;
+        window.closeConfirm = closeConfirm;
+        window.installPWA = installPWA;
+        window.toggleFullscreen = toggleFullscreen;
+        window.logout = logout;
+        window.filterProducts = filterProducts;
+        window.editProduct = editProduct;
+        window.deleteProduct = deleteProduct;
+        window.showAddProductModal = showAddProductModal;
+        window.showAddWilayaModal = showAddWilayaModal;
+        window.editWilaya = editWilaya;
+        window.deleteWilaya = deleteWilaya;
+        window.openColorsSizes = openColorsSizes;
+        window.openProductSizeGuide = openProductSizeGuide;
+        window.openSizeGuide = openSizeGuide;
+        window.openUploadModal = openUploadModal;
+        window.saveProduct = saveProduct;
+        window.saveWilaya = saveWilaya;
+        window.saveFreeDeliverySettings = saveFreeDeliverySettings;
+        window.saveFreeProducts = saveFreeProducts;
+        window.saveSettingsGeneral = saveSettingsGeneral;
+        window.saveSettingsSocial = saveSettingsSocial;
+        window.saveSettingsDiscount = saveSettingsDiscount;
+        window.saveSizesSettings = saveSizesSettings;
+        window.savePixelSettings = savePixelSettings;
+        window.saveAdvancedSettings = saveAdvancedSettings;
+        window.saveNewKey = saveNewKey;
+        window.deleteKey = deleteKey;
+        window.changePassword = changePassword;
+        window.startQuickSave = startQuickSave;
+        window.startFullSync = startFullSync;
+        window.cleanImages = cleanImages;
+        window.exportSettings = exportSettings;
+        window.importSettings = importSettings;
+    </script>
+
+</body>
+</html>
