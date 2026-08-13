@@ -161,7 +161,7 @@
     },
     "1778238518007": {
       "name": "Ensemble Polo (t-shirt-short)",
-      "price": 5300,
+      "price": 4900,
       "description": "",
       "category": "",
       "stock": 0,
@@ -247,10 +247,10 @@
       },
       "createdAt": "2026-05-08T11:08:38.007Z",
       "image": "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1778238518007-1778238752545-Messenger-creation-37FFDF3B-1672-4523-9137-8D369929585F.jpeg",
-      "updatedAt": "2026-05-08T11:32:02.679Z"
+      "updatedAt": "2026-06-13T21:13:14.478Z"
     },
-    "1778239126878": {
-      "name": "T-shirt ",
+    "1778244770962": {
+      "name": "T-shirt sanix",
       "price": 2300,
       "description": "",
       "category": "",
@@ -262,14 +262,74 @@
       ],
       "availableSizes": [
         "S",
-        "M",
-        "L"
+        "M"
       ],
       "ageRanges": [],
       "colorImages": {
         "أبيض": {
           "images": [
-            "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1778239126878-أبيض-1778239631074-Messenger-creation-408051E2-5D87-46C2-96F2-DBAC792167FB.jpeg"
+            "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1778244770962-أبيض-1778244898209-Messenger-creation-DBC61123-8E41-4C75-933B-A5397461B678.jpeg"
+          ],
+          "ageRanges": [
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "S"
+            },
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "M"
+            }
+          ]
+        },
+        "أسود": {
+          "images": [
+            "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1778244770962-أسود-1778244929756-Messenger-creation-DBC61123-8E41-4C75-933B-A5397461B678.jpeg"
+          ],
+          "ageRanges": [
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "S"
+            },
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "M"
+            }
+          ]
+        }
+      },
+      "sizeGuide": {
+        "enabled": false,
+        "guide": {}
+      },
+      "createdAt": "2026-05-08T12:52:50.962Z",
+      "image": "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1778244770962-1778244812749-Messenger-creation-DBC61123-8E41-4C75-933B-A5397461B678.jpeg",
+      "updatedAt": "2026-05-08T12:54:45.269Z"
+    },
+    "1781384545523": {
+      "name": "Ensemble SU  (short+t-shirt)",
+      "price": 4900,
+      "description": "",
+      "category": "",
+      "stock": 0,
+      "featured": false,
+      "availableColors": [
+        "أسود",
+        "رمادي"
+      ],
+      "availableSizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "ageRanges": [],
+      "colorImages": {
+        "أسود": {
+          "images": [
+            "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1781384545523-أسود-1781384879351-Messenger-creation-F4CE475B-2921-4253-96CC-6F820D07519A.jpeg"
           ],
           "ageRanges": [
             {
@@ -289,9 +349,9 @@
             }
           ]
         },
-        "أسود": {
+        "رمادي": {
           "images": [
-            "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1778239126878-أسود-1778239655886-Messenger-creation-2437459D-A810-4853-B647-DB2C2D0BD6EC.jpeg"
+            "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1781384545523-رمادي-1781384943903-Messenger-creation-20AF9E8C-5DE2-438B-919D-091B1D04C13A.jpeg"
           ],
           "ageRanges": [
             {
@@ -316,9 +376,9 @@
         "enabled": false,
         "guide": {}
       },
-      "createdAt": "2026-05-08T11:18:46.878Z",
-      "image": "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1778239126878-1778239561305-Messenger-creation-2437459D-A810-4853-B647-DB2C2D0BD6EC.jpeg",
-      "updatedAt": "2026-05-08T11:29:42.336Z"
+      "createdAt": "2026-06-13T21:02:25.523Z",
+      "image": "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1781384545523-1781384803484-Messenger-creation-20AF9E8C-5DE2-438B-919D-091B1D04C13A.jpeg",
+      "updatedAt": "2026-06-13T21:13:47.939Z"
     }
   },
   "DELIVERY_PRICES": {
@@ -558,21 +618,24 @@
   "FREE_DELIVERY": {
     "desk": {
       "enabled": true,
-      "minQuantity": 1,
+      "minAmount": 0,
       "wilayas": [],
-      "minAmount": 0
+      "minQuantity": 1
     },
     "home": {
       "enabled": false,
-      "minQuantity": 1,
+      "minAmount": 0,
       "wilayas": [],
-      "minAmount": 0
+      "minQuantity": 1
     },
     "freeDeliveryProducts": [
       1765137505304,
       1765145035052,
       1765145814607,
-      1778182443274
+      1778182443274,
+      1778238518007,
+      1778244770962,
+      1781384545523
     ]
   },
   "DISCOUNTS": {
@@ -589,21 +652,20 @@
   },
   "STORE_INFO": {
     "name": "SANIX-DZ",
+    "storeIcon": "-",
+    "storeTitle": "-",
     "tagline": "أحدث الموديلات لسنة 2026",
     "phoneNumbers": [
       "0778506974",
-      "0551102155"
+      "0792946548"
     ],
-    "logo": "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/store-logo-1778238506230-Screenshot-20260508-111538-Samsung-Internet.jpg",
+    "logo": "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/store-logo-1778244567755-file-00000000f55c722fa6802d1544ea54d1.png",
     "facebookUrl": "",
     "instagramUrl": "https://www.instagram.com/sanix_dz?igsh=MXY1a2w4am0yems5cA%3D%3D&utm_source=qr",
     "messengerUrl": "",
     "viberNumber": "",
     "whatsappNumber": "213778506974",
-    "whatsappUrl": "https://wa.me/213778506974",
-    "tiktokUrl": "",
-    "storeIcon": "-",
-    "storeTitle": "-"
+    "whatsappUrl": "https://wa.me/213778506974"
   },
   "GOOGLE_SHEETS": {
     "url": "https://docs.google.com/spreadsheets/d/1B6um1tNw0Uh4NJvLjF5zUX6palzubXv1UeH5gSIt_Go/edit?gid=774585379#gid=774585379",
@@ -740,13 +802,6 @@
       "weightTo": 114,
       "enabled": false
     },
-    "XS": {
-      "heightFrom": 150,
-      "heightTo": 160,
-      "weightFrom": 40,
-      "weightTo": 55,
-      "enabled": true
-    },
     "S": {
       "heightFrom": 120,
       "heightTo": 130,
@@ -832,34 +887,10 @@
       "enabled": false
     }
   },
-  "PIXEL_CODES": {
-    "facebook": {
-      "enabled": true,
-      "pixelId": "",
-      "events": {
-        "pageView": true,
-        "addToCart": true,
-        "purchase": true,
-        "initiateCheckout": true,
-        "viewContent": true
-      }
-    },
-    "tiktok": {
-      "enabled": true,
-      "pixelId": "",
-      "events": {
-        "pageView": true,
-        "addToCart": true,
-        "purchase": true,
-        "initiateCheckout": true,
-        "viewContent": true
-      }
-    }
-  },
   "POINTS_SYSTEM": {
-    "currentPoints": 943,
-    "remainingDays": 2,
-    "lastReset": "2026-04-11T07:23:02.287Z",
+    "currentPoints": 998,
+    "remainingDays": 24,
+    "lastReset": "2026-08-07T19:44:16.729Z",
     "planType": "مجاني",
     "monthlyPoints": 1000,
     "resetPeriod": 30,
@@ -937,7 +968,31 @@
         "user": "admin"
       }
     ],
-    "lastUpdated": "2026-05-09T14:17:58.262Z"
+    "lastUpdated": "2026-08-13T21:01:37.013Z"
+  },
+  "PIXEL_CODES": {
+    "facebook": {
+      "enabled": true,
+      "pixelId": "",
+      "events": {
+        "pageView": true,
+        "addToCart": true,
+        "purchase": true,
+        "initiateCheckout": true,
+        "viewContent": true
+      }
+    },
+    "tiktok": {
+      "enabled": true,
+      "pixelId": "",
+      "events": {
+        "pageView": true,
+        "addToCart": true,
+        "purchase": true,
+        "initiateCheckout": true,
+        "viewContent": true
+      }
+    }
   },
   "FREE_DELIVERY_PRODUCTS": [
     1765456782838
