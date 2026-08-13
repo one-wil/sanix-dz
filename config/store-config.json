@@ -618,15 +618,15 @@
   "FREE_DELIVERY": {
     "desk": {
       "enabled": true,
-      "minAmount": 0,
+      "minQuantity": 1,
       "wilayas": [],
-      "minQuantity": 1
+      "minAmount": 0
     },
     "home": {
       "enabled": false,
-      "minAmount": 0,
+      "minQuantity": 1,
       "wilayas": [],
-      "minQuantity": 1
+      "minAmount": 0
     },
     "freeDeliveryProducts": [
       1765137505304,
@@ -652,8 +652,6 @@
   },
   "STORE_INFO": {
     "name": "SANIX-DZ",
-    "storeIcon": "-",
-    "storeTitle": "-",
     "tagline": "أحدث الموديلات لسنة 2026",
     "phoneNumbers": [
       "0778506974",
@@ -665,7 +663,10 @@
     "messengerUrl": "",
     "viberNumber": "",
     "whatsappNumber": "213778506974",
-    "whatsappUrl": "https://wa.me/213778506974"
+    "whatsappUrl": "https://wa.me/213778506974",
+    "tiktokUrl": "",
+    "storeIcon": "-",
+    "storeTitle": "-"
   },
   "GOOGLE_SHEETS": {
     "url": "https://docs.google.com/spreadsheets/d/1B6um1tNw0Uh4NJvLjF5zUX6palzubXv1UeH5gSIt_Go/edit?gid=774585379#gid=774585379",
@@ -801,6 +802,13 @@
       "weightFrom": 83,
       "weightTo": 114,
       "enabled": false
+    },
+    "XS": {
+      "heightFrom": 150,
+      "heightTo": 160,
+      "weightFrom": 40,
+      "weightTo": 55,
+      "enabled": true
     },
     "S": {
       "heightFrom": 120,
