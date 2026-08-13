@@ -892,9 +892,33 @@ const STORE_CONFIG = {
       "enabled": false
     }
   },
+  "PIXEL_CODES": {
+    "facebook": {
+      "enabled": true,
+      "pixelId": "1399644568464007",
+      "events": {
+        "pageView": true,
+        "addToCart": true,
+        "purchase": true,
+        "initiateCheckout": true,
+        "viewContent": true
+      }
+    },
+    "tiktok": {
+      "enabled": true,
+      "pixelId": "",
+      "events": {
+        "pageView": true,
+        "addToCart": true,
+        "purchase": true,
+        "initiateCheckout": true,
+        "viewContent": true
+      }
+    }
+  },
   "POINTS_SYSTEM": {
-    "currentPoints": 998,
-    "remainingDays": 26,
+    "currentPoints": 996,
+    "remainingDays": 22,
     "lastReset": "2026-08-05T15:56:39.328Z",
     "planType": "مجاني",
     "monthlyPoints": 1000,
@@ -973,31 +997,7 @@ const STORE_CONFIG = {
         "user": "admin"
       }
     ],
-    "lastUpdated": "2026-08-09T23:00:00.598Z"
-  },
-  "PIXEL_CODES": {
-    "facebook": {
-      "enabled": true,
-      "pixelId": "1066614226063965",
-      "events": {
-        "pageView": true,
-        "addToCart": true,
-        "purchase": true,
-        "initiateCheckout": true,
-        "viewContent": true
-      }
-    },
-    "tiktok": {
-      "enabled": true,
-      "pixelId": "",
-      "events": {
-        "pageView": true,
-        "addToCart": true,
-        "purchase": true,
-        "initiateCheckout": true,
-        "viewContent": true
-      }
-    }
+    "lastUpdated": "2026-08-13T19:01:36.129Z"
   },
   "FREE_DELIVERY_PRODUCTS": [
     1765456782838
