@@ -1,0 +1,3263 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>🛒 متجر أحدث الموديلات - 👑</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== Reset and Basics ===== */
+        :root {
+            --primary: #ffffff;
+            --primary-light: #f5f7fa;
+            --secondary: #0066CC;
+            --accent: #0099FF;
+            --success: #27ae60;
+            --warning: #f39c12;
+            --danger: #e74c3c;
+            --info: #17a2b8;
+            --light: #f8fafc;
+            --lighter: #ffffff;
+            --dark: #0066CC;
+            --black: #333333;
+            --gray: #0066CC;
+            --gray-light: #e3e9f2;
+            --border: #d1d9e6;
+            --radius: 8px;
+            --shadow: 0 2px 10px rgba(0, 102, 204, 0.1);
+            --shadow-light: 0 1px 4px rgba(0, 153, 255, 0.15);
+            --transition: all 0.3s ease;
+            --tiktok-color: #000000;
+            --blue-light: #00CCFF;
+            --blue-medium: #0099FF;
+            --blue-dark: #003366;
+            --blue-glow: rgba(0, 153, 255, 0.25);
+            --white-pure: #ffffff;
+            --white-off: #f9fbfd;
+            --white-cream: #f5f9ff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Cairo", sans-serif;
+            direction: rtl;
+            background-color: var(--white-pure);
+            color: var(--dark);
+            line-height: 1.5;
+            min-height: 100vh;
+            overflow-x: hidden;
+            font-size: 14px;
+            background: linear-gradient(135deg, #ffffff 0%, #f5f9ff 50%, #e6f2ff 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 0.8rem;
+        }
+
+        /* ===== Header ===== */
+        header {
+            background-color: rgba(255, 255, 255, 0.98);
+            padding: 0.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 15px rgba(0, 102, 204, 0.15);
+            transition: all 0.3s ease;
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            padding: 0 0.5rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--secondary);
+            font-weight: 700;
+            font-size: 0.95rem;
+            position: absolute;
+            right: 50%;
+            transform: translateX(50%);
+            opacity: 0;
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            text-shadow: 0 1px 2px rgba(0, 102, 204, 0.2);
+        }
+
+        .logo.visible {
+            opacity: 1;
+            transform: translateX(50%);
+        }
+
+        /* ===== Logo Container ===== */
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0.8rem 0 1.5rem 0;
+            width: 100%;
+            overflow: visible;
+        }
+
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            width: 100%;
+            flex-wrap: nowrap;
+        }
+
+        .store-logo {
+            width: 100vw !important;
+            max-width: 100vw !important;
+            height: auto;
+            min-height: 100px;
+            max-height: 150px;
+            object-fit: contain;
+            border-radius: var(--radius);
+            background-color: var(--white-pure);
+            padding: 0.5rem;
+            box-shadow: 0 4px 20px rgba(0, 102, 204, 0.15);
+            border: 1px solid var(--border);
+            flex-shrink: 1;
+            min-width: 0;
+        }
+
+        .circle-left, .circle-right {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #0066CC, #0099FF);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-weight: 800;
+            font-size: 16px;
+            padding: 12px;
+            box-shadow: 0 0 30px rgba(0, 153, 255, 0.6), 0 0 60px rgba(0, 102, 204, 0.3);
+            flex-shrink: 0;
+            border: 4px solid white;
+            line-height: 1.3;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            animation: circlePulse 3s ease-in-out infinite;
+            position: relative;
+            z-index: 2;
+            word-break: break-word;
+        }
+
+        .circle-left {
+            margin-left: -10px;
+        }
+        .circle-right {
+            margin-right: -10px;
+        }
+
+        .circle-left:hover, .circle-right:hover {
+            transform: scale(1.08);
+            box-shadow: 0 0 50px rgba(0, 153, 255, 0.8), 0 0 80px rgba(0, 102, 204, 0.4);
+        }
+
+        @keyframes circlePulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 30px rgba(0, 153, 255, 0.6), 0 0 60px rgba(0, 102, 204, 0.3);
+            }
+            50% {
+                transform: scale(1.04);
+                box-shadow: 0 0 50px rgba(0, 153, 255, 0.8), 0 0 80px rgba(0, 102, 204, 0.4);
+            }
+        }
+
+        .circle-left::before, .circle-right::before {
+            content: '✦';
+            position: absolute;
+            top: -10px;
+            right: -5px;
+            font-size: 20px;
+            color: #00CCFF;
+            opacity: 0.8;
+            animation: sparkleRotate 4s linear infinite;
+        }
+        .circle-right::before {
+            right: auto;
+            left: -5px;
+            top: -5px;
+        }
+
+        @keyframes sparkleRotate {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.2); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+
+        /* ===== Cart Summary ===== */
+        .cart-summary {
+            background-color: rgba(0, 102, 204, 0.1);
+            padding: 0.4rem 0.6rem;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--secondary);
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 600;
+            font-size: 0.75rem;
+            min-width: 90px;
+            justify-content: center;
+            z-index: 101;
+            transform-origin: center;
+            position: relative;
+            border: 1px solid var(--border);
+            box-shadow: 0 2px 8px rgba(0, 102, 204, 0.1);
+        }
+
+        .cart-summary:hover {
+            background-color: rgba(0, 102, 204, 0.15);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 102, 204, 0.2);
+        }
+
+        .cart-icon {
+            position: relative;
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -6px;
+            left: -6px;
+            background-color: var(--accent);
+            color: white;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.65rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            transform-origin: center;
+            z-index: 102;
+            box-shadow: 0 2px 6px rgba(0, 153, 255, 0.3);
+        }
+
+        .pulse-animation {
+            animation: pulseCart 0.5s ease;
+        }
+
+        @keyframes pulseCart {
+            0% { transform: scale(1); }
+            30% { transform: scale(1.3); }
+            70% { transform: scale(0.9); }
+            100% { transform: scale(1); }
+        }
+
+        /* ===== Products Grid ===== */
+        .models-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (min-width: 1200px) {
+            .models-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .model-image-container {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 100%;
+            overflow: hidden;
+            background-color: var(--white-pure);
+            cursor: pointer;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(0, 102, 204, 0.1);
+        }
+
+        .model-image {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover !important;
+            padding: 0;
+            transition: all 0.3s ease;
+        }
+
+        .model-image-container:hover .model-image {
+            transform: scale(1.1);
+        }
+
+        .model-image-container:hover {
+            box-shadow: 0 8px 25px rgba(0, 102, 204, 0.2);
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        /* ===== Measurements Table ===== */
+        .measurements-table-container {
+            margin: 0.8rem 0;
+            display: none;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 153, 255, 0.25);
+            border: 2px solid var(--accent);
+            transition: all 0.4s ease;
+            background: linear-gradient(145deg, #ffffff, #f0f6ff);
+            position: relative;
+        }
+
+        .measurements-table-container.visible {
+            display: block;
+            animation: tableGlowPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes tableGlowPulse {
+            0%, 100% {
+                box-shadow: 0 0 15px rgba(0, 153, 255, 0.25), 0 0 30px rgba(0, 153, 255, 0.1);
+                border-color: var(--accent);
+            }
+            50% {
+                box-shadow: 0 0 30px rgba(0, 153, 255, 0.5), 0 0 60px rgba(0, 153, 255, 0.2);
+                border-color: #00CCFF;
+            }
+        }
+
+        .measurements-table-title {
+            background: linear-gradient(135deg, #0066CC, #0099FF);
+            color: white;
+            padding: 10px 16px;
+            text-align: center;
+            font-weight: 800;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            border-bottom: 3px solid #00CCFF;
+            text-shadow: 0 1px 4px rgba(0,0,0,0.2);
+        }
+
+        .measurements-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            background: transparent;
+        }
+
+        .measurements-table th {
+            background: linear-gradient(135deg, #0066CC, #0099FF);
+            color: white;
+            padding: 12px 8px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 3px solid #00CCFF;
+        }
+
+        .measurements-table td {
+            padding: 10px 8px;
+            text-align: center;
+            border-bottom: 1px solid rgba(0, 102, 204, 0.08);
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            background: rgba(255,255,255,0.7);
+        }
+
+        .measurements-table tr:nth-child(even) td {
+            background: rgba(0, 153, 255, 0.04);
+        }
+
+        .measurements-table tr:hover td {
+            background: rgba(0, 153, 255, 0.12);
+            transform: scale(1.01);
+            box-shadow: inset 0 0 15px rgba(0, 153, 255, 0.05);
+        }
+
+        .measurements-table td:first-child {
+            font-weight: 700;
+            color: var(--secondary);
+            font-size: 0.9rem;
+        }
+
+        .measurements-table-footer {
+            background: rgba(0, 153, 255, 0.06);
+            padding: 8px 12px;
+            text-align: center;
+            font-size: 0.7rem;
+            color: var(--dark);
+            border-top: 1px solid rgba(0, 102, 204, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        /* ===== Product Modal ===== */
+        .product-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: rgba(255, 255, 255, 0.98);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 0.8rem;
+        }
+
+        .product-modal.show {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .product-modal-content {
+            background-color: var(--white-pure);
+            border-radius: var(--radius);
+            max-width: 900px;
+            width: 100%;
+            max-height: 85vh;
+            overflow-y: auto;
+            position: relative;
+            animation: fadeInUp 0.4s ease;
+            border: 2px solid var(--accent);
+            box-shadow: 0 0 30px rgba(0, 153, 255, 0.2);
+        }
+
+        .product-modal-body {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            align-items: start;
+            background-color: var(--white-pure);
+        }
+
+        @media (min-width: 769px) {
+            .product-modal-body {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .product-image-left {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .product-image-container {
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            background-color: var(--white-pure);
+            border-radius: var(--radius);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+        }
+
+        .product-modal-image {
+            width: auto;
+            max-width: 90%;
+            height: auto;
+            max-height: 90%;
+            object-fit: contain !important;
+            transition: var(--transition);
+        }
+
+        .product-info-right {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .color-size-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .color-size-row {
+                grid-template-columns: 1fr 1fr;
+                gap: 0.8rem;
+            }
+        }
+
+        .color-options-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+
+        .color-options-small {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+            max-height: 200px;
+            overflow-y: auto;
+            padding: 0.5rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background-color: var(--white-pure);
+        }
+
+        .color-option-small {
+            padding: 0.4rem 0.6rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            background-color: var(--white-pure);
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.8rem;
+            text-align: center;
+            line-height: 1.2;
+            position: relative;
+            overflow: hidden;
+            color: var(--dark);
+        }
+
+        .color-option-small:hover {
+            border-color: var(--accent);
+            background-color: rgba(0, 153, 255, 0.05);
+            transform: translateY(-2px);
+            box-shadow: 0 3px 8px rgba(0, 153, 255, 0.15);
+        }
+
+        .color-option-small.selected {
+            background-color: rgba(0, 153, 255, 0.1);
+            color: var(--secondary);
+            border-color: var(--accent);
+            font-weight: 600;
+            transform: scale(1.02);
+            box-shadow: 0 4px 12px rgba(0, 153, 255, 0.2);
+        }
+
+        .size-options-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+
+        .size-options-small {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+            max-height: 200px;
+            overflow-y: auto;
+            padding: 0.5rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background-color: var(--white-pure);
+        }
+
+        .size-option-small {
+            padding: 0.4rem 0.6rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            background-color: var(--white-pure);
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.8rem;
+            text-align: center;
+            line-height: 1.2;
+            position: relative;
+            overflow: hidden;
+            color: var(--dark);
+        }
+
+        .size-option-small:hover {
+            border-color: var(--accent);
+            background-color: rgba(0, 153, 255, 0.05);
+            transform: translateY(-2px);
+            box-shadow: 0 3px 8px rgba(0, 153, 255, 0.15);
+        }
+
+        .size-option-small.selected {
+            background-color: rgba(0, 153, 255, 0.1);
+            color: var(--secondary);
+            border-color: var(--accent);
+            font-weight: 600;
+            transform: scale(1.02);
+            box-shadow: 0 4px 12px rgba(0, 153, 255, 0.2);
+        }
+
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin: 1rem 0;
+            justify-content: center;
+        }
+
+        .quantity-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            background-color: var(--white-pure);
+            cursor: pointer;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            color: var(--secondary);
+        }
+
+        .quantity-btn:hover {
+            background-color: rgba(0, 153, 255, 0.1);
+            border-color: var(--accent);
+            transform: scale(1.1);
+            box-shadow: 0 2px 8px rgba(0, 153, 255, 0.2);
+        }
+
+        .quantity-display {
+            font-size: 1.1rem;
+            font-weight: 700;
+            min-width: 36px;
+            text-align: center;
+            color: var(--secondary);
+        }
+
+        /* ===== Button Telegraph ===== */
+        .btn-telegraph {
+            background: linear-gradient(135deg, #0066CC 0%, #0099FF 50%, #003366 100%) !important;
+            color: #FFFFFF !important;
+            border: 3px solid #0099FF !important;
+            padding: 0.8rem 2rem !important;
+            border-radius: 12px !important;
+            font-weight: 900 !important;
+            font-size: 1rem !important;
+            text-transform: uppercase !important;
+            letter-spacing: 1.5px !important;
+            box-shadow: 0 6px 25px rgba(0, 102, 204, 0.6),
+                        0 0 35px rgba(0, 153, 255, 0.5),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
+            transition: all 0.3s ease !important;
+            position: relative !important;
+            overflow: hidden !important;
+            animation: telegraphBlink 1.2s infinite alternate,
+                       telegraphVibrate 3s infinite !important;
+            font-family: 'Cairo', sans-serif !important;
+            text-shadow: 0 0 20px rgba(0, 153, 255, 0.9) !important;
+            cursor: pointer !important;
+            z-index: 10 !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 12px !important;
+            margin: 0 !important;
+            flex: 1 !important;
+        }
+
+        .btn-telegraph:hover {
+            transform: translateY(-3px) scale(1.05) !important;
+            box-shadow: 0 8px 35px rgba(0, 102, 204, 0.8),
+                        0 0 50px rgba(0, 153, 255, 0.7),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
+            background: linear-gradient(135deg, #0099FF 0%, #00CCFF 50%, #0066CC 100%) !important;
+            animation-play-state: paused !important;
+        }
+
+        .btn-telegraph:active {
+            transform: translateY(-1px) scale(1.02) !important;
+            animation-play-state: paused !important;
+        }
+
+        @keyframes telegraphBlink {
+            0%, 30% {
+                background: linear-gradient(135deg, #0066CC 0%, #0099FF 50%, #003366 100%) !important;
+                box-shadow: 0 6px 25px rgba(0, 102, 204, 0.6),
+                            0 0 35px rgba(0, 153, 255, 0.5),
+                            inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
+                border-color: #0099FF !important;
+                color: #FFFFFF !important;
+                opacity: 1;
+            }
+            35%, 65% {
+                background: linear-gradient(135deg, #0099FF 0%, #00CCFF 50%, #0066CC 100%) !important;
+                box-shadow: 0 6px 30px rgba(0, 153, 255, 0.8),
+                            0 0 45px rgba(0, 204, 255, 0.7),
+                            inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
+                border-color: #00CCFF !important;
+                color: #FFFFFF !important;
+                opacity: 0.9;
+            }
+            70%, 100% {
+                background: linear-gradient(135deg, #0066CC 0%, #0099FF 50%, #003366 100%) !important;
+                box-shadow: 0 6px 25px rgba(0, 102, 204, 0.6),
+                            0 0 35px rgba(0, 153, 255, 0.5),
+                            inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
+                border-color: #0099FF !important;
+                color: #FFFFFF !important;
+                opacity: 1;
+            }
+        }
+
+        @keyframes telegraphVibrate {
+            0%, 100% { transform: translateX(0) rotate(0deg); }
+            5% { transform: translateX(1px) rotate(0.5deg); }
+            10% { transform: translateX(-1px) rotate(-0.5deg); }
+            15% { transform: translateX(1px) rotate(0.5deg); }
+            20% { transform: translateX(-1px) rotate(-0.5deg); }
+            25% { transform: translateX(1px) rotate(0.5deg); }
+            30% { transform: translateX(-1px) rotate(-0.5deg); }
+            35% { transform: translateX(1px) rotate(0.5deg); }
+            40% { transform: translateX(-1px) rotate(-0.5deg); }
+            45% { transform: translateX(1px) rotate(0.5deg); }
+            50% { transform: translateX(-1px) rotate(-0.5deg); }
+        }
+
+        .btn-telegraph::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent 30%,
+                rgba(255, 255, 255, 0.95) 50%,
+                transparent 70%
+            );
+            animation: telegraphSparkle 2.8s infinite linear;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @keyframes telegraphSparkle {
+            0% {
+                transform: translateX(200%) rotate(45deg);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(-200%) rotate(45deg);
+                opacity: 0;
+            }
+        }
+
+        .btn-telegraph::after {
+            content: '⚡';
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 18px;
+            opacity: 0.9;
+            color: #FFFFFF;
+            font-weight: bold;
+            z-index: 2;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+        }
+
+        .btn-telegraph .wave {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(0, 153, 255, 0.4) 0%, transparent 70%);
+            border-radius: 12px;
+            animation: wavePulse 2.5s infinite;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        @keyframes wavePulse {
+            0% {
+                transform: scale(0.8);
+                opacity: 0.6;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 0.3;
+            }
+            100% {
+                transform: scale(0.8);
+                opacity: 0.6;
+            }
+        }
+
+        .telegraph-dots {
+            position: absolute;
+            top: 50%;
+            right: 50%;
+            transform: translate(50%, -50%);
+            width: 350px;
+            height: 70px;
+            z-index: 9;
+            pointer-events: none;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .telegraph-dot {
+            width: 6px;
+            height: 6px;
+            background: #0099FF;
+            border-radius: 50%;
+            box-shadow: 0 0 12px #0099FF;
+            animation: dotBlink 1.5s infinite;
+            opacity: 0;
+        }
+
+        .telegraph-dot:nth-child(1) { animation-delay: 0.1s; }
+        .telegraph-dot:nth-child(2) { animation-delay: 0.2s; }
+        .telegraph-dot:nth-child(3) { animation-delay: 0.3s; }
+        .telegraph-dot:nth-child(4) { animation-delay: 0.4s; }
+        .telegraph-dot:nth-child(5) { animation-delay: 0.5s; }
+        .telegraph-dot:nth-child(6) { animation-delay: 0.6s; }
+        .telegraph-dot:nth-child(7) { animation-delay: 0.7s; }
+        .telegraph-dot:nth-child(8) { animation-delay: 0.8s; }
+        .telegraph-dot:nth-child(9) { animation-delay: 0.9s; }
+        .telegraph-dot:nth-child(10) { animation-delay: 1.0s; }
+
+        @keyframes dotBlink {
+            0%, 100% { opacity: 0; transform: scale(0.5); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        /* ===== Single Telegraph Button ===== */
+        .btn-single-telegraph {
+            background: linear-gradient(135deg, #0066CC 0%, #0099FF 50%, #003366 100%) !important;
+            color: #FFFFFF !important;
+            border: 3px solid #0099FF !important;
+            padding: 1rem 2.5rem !important;
+            border-radius: 12px !important;
+            font-weight: 900 !important;
+            font-size: 1.1rem !important;
+            text-transform: uppercase !important;
+            letter-spacing: 2px !important;
+            box-shadow: 0 6px 25px rgba(0, 102, 204, 0.6),
+                        0 0 35px rgba(0, 153, 255, 0.5),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
+            transition: all 0.3s ease !important;
+            position: relative !important;
+            overflow: hidden !important;
+            animation: telegraphBlinkSingle 1.2s infinite alternate,
+                       telegraphVibrateSingle 3s infinite !important;
+            font-family: 'Cairo', sans-serif !important;
+            text-shadow: 0 0 20px rgba(0, 153, 255, 0.9) !important;
+            cursor: pointer !important;
+            z-index: 10 !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 15px !important;
+            margin: 2rem auto 1rem !important;
+            max-width: 350px !important;
+            width: 100% !important;
+        }
+
+        .btn-single-telegraph:hover {
+            transform: translateY(-5px) scale(1.08) !important;
+            box-shadow: 0 8px 35px rgba(0, 102, 204, 0.8),
+                        0 0 50px rgba(0, 153, 255, 0.7),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
+            background: linear-gradient(135deg, #0099FF 0%, #00CCFF 50%, #0066CC 100%) !important;
+            animation-play-state: paused !important;
+        }
+
+        .btn-single-telegraph::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent 30%,
+                rgba(255, 255, 255, 0.95) 50%,
+                transparent 70%
+            );
+            animation: telegraphSparkleSingle 2.8s infinite linear;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @keyframes telegraphSparkleSingle {
+            0% {
+                transform: translateX(200%) rotate(45deg);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(-200%) rotate(45deg);
+                opacity: 0;
+            }
+        }
+
+        .btn-single-telegraph::after {
+            content: '⚡';
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 22px;
+            opacity: 0.9;
+            color: #FFFFFF;
+            font-weight: bold;
+            z-index: 2;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+        }
+
+        .btn-single-telegraph .wave-single {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(0, 153, 255, 0.4) 0%, transparent 70%);
+            border-radius: 12px;
+            animation: wavePulseSingle 2.5s infinite;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        @keyframes wavePulseSingle {
+            0% {
+                transform: scale(0.8);
+                opacity: 0.6;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 0.3;
+            }
+            100% {
+                transform: scale(0.8);
+                opacity: 0.6;
+            }
+        }
+
+        @keyframes telegraphBlinkSingle {
+            0%, 30% {
+                background: linear-gradient(135deg, #0066CC 0%, #0099FF 50%, #003366 100%) !important;
+                box-shadow: 0 6px 25px rgba(0, 102, 204, 0.6),
+                            0 0 35px rgba(0, 153, 255, 0.5),
+                            inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
+                border-color: #0099FF !important;
+                color: #FFFFFF !important;
+                opacity: 1;
+            }
+            35%, 65% {
+                background: linear-gradient(135deg, #0099FF 0%, #00CCFF 50%, #0066CC 100%) !important;
+                box-shadow: 0 6px 30px rgba(0, 153, 255, 0.8),
+                            0 0 45px rgba(0, 204, 255, 0.7),
+                            inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
+                border-color: #00CCFF !important;
+                color: #FFFFFF !important;
+                opacity: 0.9;
+            }
+            70%, 100% {
+                background: linear-gradient(135deg, #0066CC 0%, #0099FF 50%, #003366 100%) !important;
+                box-shadow: 0 6px 25px rgba(0, 102, 204, 0.6),
+                            0 0 35px rgba(0, 153, 255, 0.5),
+                            inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
+                border-color: #0099FF !important;
+                color: #FFFFFF !important;
+                opacity: 1;
+            }
+        }
+
+        @keyframes telegraphVibrateSingle {
+            0%, 100% { transform: translateX(0) rotate(0deg); }
+            5% { transform: translateX(1px) rotate(0.5deg); }
+            10% { transform: translateX(-1px) rotate(-0.5deg); }
+            15% { transform: translateX(1px) rotate(0.5deg); }
+            20% { transform: translateX(-1px) rotate(-0.5deg); }
+            25% { transform: translateX(1px) rotate(0.5deg); }
+            30% { transform: translateX(-1px) rotate(-0.5deg); }
+            35% { transform: translateX(1px) rotate(0.5deg); }
+            40% { transform: translateX(-1px) rotate(-0.5deg); }
+            45% { transform: translateX(1px) rotate(0.5deg); }
+            50% { transform: translateX(-1px) rotate(-0.5deg); }
+        }
+
+        /* ===== Confirmation Modal ===== */
+        .confirmation-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: rgba(255, 255, 255, 0.98);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 0.8rem;
+        }
+
+        .confirmation-modal.show {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .confirmation-content {
+            background-color: var(--white-pure);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 4px 30px rgba(0, 153, 255, 0.2);
+            animation: fadeInUp 0.4s ease;
+            border: 2px solid var(--accent);
+        }
+
+        .confirmation-icon {
+            font-size: 3rem;
+            color: var(--success);
+            margin-bottom: 1rem;
+            animation: bounce 0.6s ease-in-out;
+            text-shadow: 0 0 15px rgba(39, 174, 96, 0.3);
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .confirmation-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            color: var(--secondary);
+            text-shadow: 0 1px 2px rgba(0, 102, 204, 0.1);
+        }
+
+        .confirmation-message {
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+            font-size: 0.9rem;
+            padding: 0 0.5rem;
+        }
+
+        .order-summary {
+            background-color: var(--primary-light);
+            border-radius: var(--radius);
+            padding: 1rem;
+            margin: 1rem 0;
+            text-align: right;
+            border: 1px solid var(--border);
+            font-size: 0.85rem;
+        }
+
+        .order-summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px dashed var(--border);
+            color: var(--dark);
+        }
+
+        .order-summary-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .order-summary-total {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-top: 0.8rem;
+            padding-top: 0.8rem;
+            border-top: 2px solid var(--border);
+            color: var(--secondary);
+        }
+
+        /* ===== Notification ===== */
+        .notification {
+            position: fixed;
+            top: 15px;
+            right: 50%;
+            transform: translateX(50%);
+            background-color: var(--white-pure);
+            padding: 0.8rem 1rem;
+            border-radius: var(--radius);
+            box-shadow: 0 3px 15px rgba(0, 102, 204, 0.15);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-weight: 600;
+            max-width: 90%;
+            animation: slideDown 0.3s ease;
+            border-right: 3px solid var(--accent);
+            font-size: 0.85rem;
+            color: var(--secondary);
+            border: 1px solid var(--border);
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateX(50%) translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(50%) translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* ===== Guidance Message ===== */
+        .guidance-message {
+            position: fixed;
+            top: 50%;
+            right: 50%;
+            transform: translate(50%, -50%);
+            background: rgba(255, 255, 255, 0.98);
+            border: 3px solid #e74c3c;
+            border-radius: 15px;
+            padding: 0;
+            z-index: 10002;
+            animation: guidanceAppear 0.5s ease;
+            box-shadow: 0 10px 40px rgba(231, 76, 60, 0.3);
+            max-width: 400px;
+            width: 90%;
+            backdrop-filter: blur(10px);
+        }
+
+        @keyframes guidanceAppear {
+            0% {
+                opacity: 0;
+                transform: translate(50%, -50%) scale(0.8);
+            }
+            70% {
+                transform: translate(50%, -50%) scale(1.05);
+            }
+            100% {
+                opacity: 1;
+                transform: translate(50%, -50%) scale(1);
+            }
+        }
+
+        .guidance-content {
+            padding: 1.5rem;
+            position: relative;
+        }
+
+        .guidance-icon {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .guidance-icon i {
+            font-size: 3rem;
+            color: #e74c3c;
+            animation: pulseWarning 1.5s infinite;
+        }
+
+        @keyframes pulseWarning {
+            0%, 100% {
+                transform: scale(1);
+                text-shadow: 0 0 10px rgba(231, 76, 60, 0.5);
+            }
+            50% {
+                transform: scale(1.1);
+                text-shadow: 0 0 20px rgba(231, 76, 60, 0.8);
+            }
+        }
+
+        .guidance-text h3 {
+            color: #e74c3c;
+            text-align: center;
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+
+        .guidance-text p {
+            color: #333;
+            text-align: center;
+            margin-bottom: 1.2rem;
+            line-height: 1.5;
+            font-size: 0.9rem;
+        }
+
+        .guidance-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1.2rem;
+            gap: 0.5rem;
+        }
+
+        .guidance-steps .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+        }
+
+        .guidance-steps .step-number {
+            width: 30px;
+            height: 30px;
+            background: #e74c3c;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .guidance-steps .step span:last-child {
+            font-size: 0.75rem;
+            text-align: center;
+            color: #666;
+        }
+
+        .guidance-close {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: none;
+            border: none;
+            color: #666;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        .guidance-close:hover {
+            color: #e74c3c;
+        }
+
+        /* ===== Utility Classes ===== */
+        .page {
+            display: none;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 0.6rem;
+            margin-top: 1rem;
+        }
+
+        .btn-secondary {
+            background-color: var(--primary-light);
+            color: var(--secondary);
+            border: 1px solid var(--border);
+            padding: 0.6rem 1rem;
+            border-radius: var(--radius);
+            font-family: "Cairo", sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            font-size: 0.85rem;
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(0, 153, 255, 0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 2px 10px rgba(0, 153, 255, 0.2);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+            position: relative;
+            padding-bottom: 0.8rem;
+            text-shadow: 0 1px 2px rgba(0, 102, 204, 0.1);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 50%;
+            transform: translateX(50%);
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent);
+            border-radius: 2px;
+            box-shadow: 0 0 10px rgba(0, 153, 255, 0.3);
+        }
+
+        .model-card {
+            background-color: var(--white-pure);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--border);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            opacity: 0;
+            animation: fadeInUp 0.5s ease forwards;
+        }
+
+        .model-card:hover {
+            box-shadow: 0 8px 25px rgba(0, 102, 204, 0.15);
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        .model-info {
+            padding: 0.8rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .model-name {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 0.3rem;
+            line-height: 1.3;
+        }
+
+        .model-description {
+            color: var(--dark);
+            font-size: 0.7rem;
+            margin-bottom: 0.3rem;
+            line-height: 1.4;
+            flex-grow: 1;
+        }
+
+        .price-container {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            margin: 0.3rem 0;
+            flex-wrap: wrap;
+        }
+
+        .discounted-price {
+            color: var(--success);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-shadow: 0 1px 2px rgba(39, 174, 96, 0.1);
+        }
+
+        .original-price {
+            color: #000000 !important;
+            text-decoration: line-through !important;
+            text-decoration-color: #000000 !important;
+            font-size: 0.8rem !important;
+            font-weight: 500 !important;
+            opacity: 0.7 !important;
+        }
+
+        .quick-add-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: rgba(0, 153, 255, 0.9);
+            color: white;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 2px 8px rgba(0, 153, 255, 0.3);
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            z-index: 3;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quick-add-btn:hover {
+            background-color: var(--accent);
+            transform: scale(1.1);
+            box-shadow: 0 3px 12px rgba(0, 153, 255, 0.4);
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 2rem 1rem;
+            color: var(--dark);
+        }
+
+        .empty-state i {
+            font-size: 2.5rem;
+            margin-bottom: 0.8rem;
+            color: rgba(0, 153, 255, 0.2);
+        }
+
+        .contact-info {
+            background-color: var(--primary-light);
+            padding: 1rem;
+            border-radius: var(--radius);
+            text-align: center;
+            margin: 1rem 0;
+            border: 1px solid var(--border);
+            box-shadow: 0 2px 10px rgba(0, 102, 204, 0.1);
+        }
+
+        .contact-numbers {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-top: 0.8rem;
+        }
+
+        .contact-number {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            background-color: var(--white-pure);
+            padding: 0.4rem 0.8rem;
+            border-radius: var(--radius);
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 600;
+            border: 1px solid var(--border);
+            font-size: 0.8rem;
+            transition: var(--transition);
+        }
+
+        .contact-number:hover {
+            background-color: rgba(0, 153, 255, 0.1);
+            color: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 2px 8px rgba(0, 153, 255, 0.2);
+        }
+
+        .social-media {
+            display: flex;
+            justify-content: center;
+            gap: 0.6rem;
+            margin: 1rem 0;
+        }
+
+        .social-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            box-shadow: 0 2px 10px rgba(0, 102, 204, 0.2);
+        }
+
+        .social-icon:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 3px 15px rgba(0, 153, 255, 0.3);
+        }
+
+        .whatsapp { background-color: #25D366; }
+        .facebook { background-color: #3b5998; }
+        .instagram { background-color: #E1306C; }
+        .messenger { background-color: #0084FF; }
+        .viber { background-color: #7360F2; }
+        .tiktok { background-color: var(--tiktok-color); }
+
+        .discount-tag {
+            position: absolute;
+            top: 6px;
+            right: 6px;
+            background-color: rgba(231, 76, 60, 0.9);
+            color: white;
+            padding: 0.15rem 0.3rem;
+            border-radius: 3px;
+            font-size: 0.5rem;
+            font-weight: 500;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 0.1rem;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .fast-pulse {
+            animation: fast-pulse 0.8s infinite;
+        }
+
+        @keyframes fast-pulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(0, 153, 255, 0.7);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 8px rgba(0, 153, 255, 0);
+            }
+        }
+
+        footer {
+            background-color: var(--white-pure);
+            color: var(--secondary);
+            padding: 1.5rem 0;
+            margin-top: 2rem;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        .footer-social a {
+            color: var(--secondary);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .footer-social a:hover {
+            transform: translateY(-3px);
+            color: var(--accent);
+            text-shadow: 0 1px 2px rgba(0, 153, 255, 0.2);
+        }
+
+        .copyright {
+            color: rgba(0, 102, 204, 0.7);
+            font-size: 0.8rem;
+            margin-top: 0.8rem;
+        }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 768px) {
+            .logo-wrapper {
+                gap: 12px;
+                flex-wrap: nowrap;
+            }
+            .circle-left, .circle-right {
+                width: 80px;
+                height: 80px;
+                font-size: 12px;
+                padding: 8px;
+                border-width: 3px;
+            }
+            .store-logo {
+                min-height: 80px;
+                max-height: 120px;
+                padding: 0.3rem;
+            }
+            .product-modal-body {
+                grid-template-columns: 1fr;
+            }
+            .product-image-left {
+                order: 1;
+            }
+            .product-info-right {
+                order: 2;
+            }
+            .product-image-container {
+                height: 250px;
+            }
+            .btn-group {
+                flex-direction: column;
+            }
+            .btn-telegraph {
+                padding: 0.7rem 1.5rem !important;
+                font-size: 0.9rem !important;
+            }
+            .telegraph-dots {
+                width: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .circle-left, .circle-right {
+                width: 65px;
+                height: 65px;
+                font-size: 10px;
+                padding: 6px;
+                border-width: 2px;
+            }
+            .store-logo {
+                min-height: 60px;
+                max-height: 90px;
+                padding: 0.2rem;
+            }
+            .models-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.8rem;
+            }
+            .product-image-container {
+                height: 200px;
+            }
+            .color-size-row {
+                grid-template-columns: 1fr;
+            }
+            .btn-telegraph {
+                padding: 0.6rem 1.2rem !important;
+                font-size: 0.85rem !important;
+            }
+            .telegraph-dots {
+                width: 250px;
+            }
+            .btn-single-telegraph {
+                padding: 0.8rem 1.5rem !important;
+                font-size: 0.95rem !important;
+                max-width: 280px !important;
+            }
+            .guidance-message {
+                width: 95%;
+            }
+            .guidance-steps {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+            .guidance-steps .step {
+                flex-direction: row;
+                justify-content: flex-start;
+                gap: 0.8rem;
+            }
+            .guidance-steps .step-number {
+                margin-bottom: 0;
+            }
+        }
+
+        /* ===== Blinking Effects ===== */
+        .blinking-color {
+            animation: fast-blink 0.5s infinite;
+        }
+
+        .blinking-size {
+            animation: fast-blink 0.5s infinite;
+        }
+
+        .blinking-button {
+            animation: fast-blink 0.8s infinite;
+        }
+
+        @keyframes fast-blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* ===== Rocket Animation Containers ===== */
+        .floating-counters-container {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        .floating-counter {
+            position: absolute;
+            background-color: var(--accent);
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 900;
+            box-shadow: 0 0 20px rgba(0, 153, 255, 0.8);
+            z-index: 10000;
+            pointer-events: none;
+        }
+
+        @keyframes rocketToLeft {
+            0% {
+                transform: translate(0, 0) scale(1);
+                opacity: 1;
+            }
+            30% {
+                transform: translate(-112px, 0) scale(1.2);
+                opacity: 1;
+            }
+            40% {
+                transform: translate(-112px, 0) scale(1.2);
+                opacity: 1;
+            }
+            70% {
+                transform: translate(-112px, -250px) scale(1.5);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translate(-112px, -400px) scale(1.8);
+                opacity: 0;
+            }
+        }
+
+        .rocket-animation {
+            animation: rocketToLeft 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+            z-index: 10001;
+        }
+
+        .cart-shake {
+            animation: cartExplosionShake 0.8s ease;
+        }
+
+        @keyframes cartExplosionShake {
+            0%, 100% {
+                transform: translateX(0) rotate(0) scale(1);
+            }
+            10%, 30%, 50%, 70%, 90% {
+                transform: translateX(10px) rotate(15deg) scale(1.1);
+            }
+            20%, 40%, 60%, 80% {
+                transform: translateX(-10px) rotate(-15deg) scale(1.1);
+            }
+        }
+
+        .smoke-particle {
+            position: absolute;
+            background: rgba(0, 153, 255, 0.7);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 10000;
+        }
+
+        .explosion-effect {
+            position: absolute;
+            background: radial-gradient(circle, rgba(0,153,255,0.9) 0%, rgba(0,102,204,0.8) 30%, rgba(255,69,0,0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 10002;
+        }
+
+        .sparkle {
+            position: absolute;
+            background-color: #0099FF;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 10003;
+        }
+
+        .added-confirmation {
+            position: absolute;
+            top: 50%;
+            right: 50%;
+            transform: translate(50%, -50%);
+            background: rgba(39, 174, 96, 0.9);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            z-index: 100;
+            opacity: 0;
+            animation: confirmAppear 2s ease;
+            box-shadow: 0 3px 10px rgba(39, 174, 96, 0.3);
+            border: 1px solid var(--border);
+        }
+
+        @keyframes confirmAppear {
+            0% { opacity: 0; transform: translate(50%, -50%) scale(0.8); }
+            20% { opacity: 1; transform: translate(50%, -50%) scale(1.1); }
+            40% { opacity: 1; transform: translate(50%, -50%) scale(1); }
+            80% { opacity: 1; transform: translate(50%, -50%) scale(1); }
+            100% { opacity: 0; transform: translate(50%, -50%) scale(0.8); }
+        }
+
+        .hearts-container {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9998;
+            overflow: hidden;
+        }
+
+        .flying-heart {
+            position: absolute;
+            color: #0099FF;
+            font-size: 24px;
+            opacity: 0;
+            animation: heartFloat 3s ease-in-out forwards;
+            pointer-events: none;
+            z-index: 9999;
+            text-shadow: 0 0 10px rgba(0, 153, 255, 0.3);
+        }
+
+        @keyframes heartFloat {
+            0% {
+                opacity: 1;
+                transform: translateY(100vh) rotate(0deg);
+            }
+            50% {
+                opacity: 0.8;
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-100px) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Flying Hearts -->
+    <div class="hearts-container" id="heartsContainer"></div>
+    <!-- Floating Counters -->
+    <div class="floating-counters-container" id="floatingCountersContainer"></div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#page2" class="cart-summary page-nav" data-page="page2" id="cartSummary">
+                    <div class="cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-badge" id="cartBadge">0</span>
+                    </div>
+                    <span id="cartTotalPrice">0 دج</span>
+                </a>
+                <div class="logo" id="mainLogo">
+                    <span id="storeIcon"></span>
+                    <span id="storeNameHeader">متجر</span>
+                </div>
+                <div style="width: 90px; visibility: hidden;">-</div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Page 1: Products -->
+        <div id="page1" class="page active">
+            <section class="models-section">
+                <div class="logo-container">
+                    <div class="logo-wrapper">
+                        <div class="circle-left">جودة ممتازة</div>
+                        <img src="" alt="Store Logo" class="store-logo" id="storeLogoMain" style="display: none;">
+                        <div class="circle-right">أسعار تنافسية</div>
+                    </div>
+                </div>
+                <h2 class="section-title" id="storeTitleHeader">
+                    <i class="fas fa-crown"></i>
+                    <span id="storeTitleText">أحدث الموديلات</span>
+                </h2>
+                <div class="social-media">
+                    <a href="#" class="social-icon whatsapp" id="whatsappBtn" target="_blank" style="display: none;"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" class="social-icon facebook" id="facebookBtn" target="_blank" style="display: none;"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon instagram" id="instagramBtn" target="_blank" style="display: none;"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon messenger" id="messengerBtn" target="_blank" style="display: none;"><i class="fab fa-facebook-messenger"></i></a>
+                    <a href="#" class="social-icon viber" id="viberBtn" target="_blank" style="display: none;"><i class="fab fa-viber"></i></a>
+                    <a href="#" class="social-icon tiktok" id="tiktokBtn" target="_blank" style="display: none;"><i class="fab fa-tiktok"></i></a>
+                </div>
+                <div class="models-grid" id="modelsGrid"></div>
+                <div class="contact-info">
+                    <h3 style="margin-bottom: 0.4rem; font-size: 0.95rem;"><i class="fas fa-phone"></i> للإستفسار</h3>
+                    <div class="contact-numbers" id="phoneNumbersFirstPage"></div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Page 2: Order -->
+        <div id="page2" class="page">
+            <form id="orderForm" class="order-form">
+                <div class="btn-group" style="margin-bottom: 1.5rem;">
+                    <button type="button" class="btn btn-secondary" onclick="switchPage('page1')">
+                        <i class="fas fa-arrow-right"></i> العودة للمنتجات
+                    </button>
+                </div>
+                <div class="form-section">
+                    <h2 class="form-title"><i class="fas fa-shopping-cart"></i> سلة التسوق</h2>
+                    <div class="selected-products" id="selectedProducts"></div>
+                </div>
+                <div class="form-section">
+                    <h2 class="form-title"><i class="fas fa-truck"></i> معلومات التوصيل</h2>
+                    <div class="form-group">
+                        <label for="wilaya">الولاية</label>
+                        <select id="wilaya" name="wilaya" required onchange="handleWilayaChange()">
+                            <option value="">اختر الولاية</option>
+                        </select>
+                    </div>
+                    <div class="form-group" id="deliveryTypeSection" style="display: none;">
+                        <label>نوع التوصيل</label>
+                        <div class="delivery-options-horizontal">
+                            <div class="delivery-option" id="deskDelivery" onclick="selectDeliveryType('desk')">
+                                <div class="delivery-info">
+                                    <i class="fas fa-building"></i>
+                                    <div>
+                                        <div class="delivery-type">توصيل للمكتب</div>
+                                        <div style="font-size: 0.75rem; color: var(--dark);">الأسرع والأكثر اقتصاداً</div>
+                                    </div>
+                                </div>
+                                <div class="delivery-price" id="deskDeliveryPrice">0 دج</div>
+                            </div>
+                            <div class="delivery-option" id="homeDelivery" onclick="selectDeliveryType('home')">
+                                <div class="delivery-info">
+                                    <i class="fas fa-home"></i>
+                                    <div>
+                                        <div class="delivery-type">توصيل للمنزل</div>
+                                        <div style="font-size: 0.75rem; color: var(--dark);">توصيل مباشر لباب المنزل</div>
+                                    </div>
+                                </div>
+                                <div class="delivery-price" id="homeDeliveryPrice">0 دج</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-section" id="personalInfoSection" style="display: none;">
+                    <h2 class="form-title"><i class="fas fa-user"></i> معلومات التواصل</h2>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">الاسم الكامل</label>
+                            <input type="text" id="name" name="name" required oninput="handleFieldInput(this)">
+                        </div>
+                        <div class="form-group">
+                            <label for="commune">البلدية</label>
+                            <input type="text" id="commune" name="commune" required oninput="handleFieldInput(this)">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">رقم الهاتف</label>
+                            <div class="phone-input-container">
+                                <span class="phone-prefix"></span>
+                                <input type="tel" id="phone" name="phone" pattern="^(05|06|07)[0-9]{8}$" maxlength="10" required oninput="handlePhoneInput(this)">
+                            </div>
+                            <div class="phone-validation" id="phoneValidation" style="font-size: 0.7rem; color: var(--dark); margin-top: 0.2rem;">
+                                <i class="fas fa-info-circle"></i>
+                                <span>يجب أن يبدأ بـ 05 أو 06 أو 07 ويتكون من 10 أرقام</span>
+                            </div>
+                        </div>
+                        <div class="form-group" id="addressFieldGroup">
+                            <label for="address">تفاصيل العنوان</label>
+                            <textarea id="address" name="address" oninput="handleFieldInput(this)"></textarea>
+                        </div>
+                    </div>
+                    <div class="btn-group">
+                        <button type="submit" class="btn btn-success btn-full" id="confirmOrderBtn" disabled>
+                            <i class="fas fa-paper-plane"></i> إرسال الطلب
+                        </button>
+                    </div>
+                </div>
+                <div class="contact-info" style="margin-top: 1.5rem;">
+                    <h3 style="margin-bottom: 0.4rem; font-size: 0.95rem;"><i class="fas fa-headset"></i> للإستفسار</h3>
+                    <div class="contact-numbers" id="contactNumbers"></div>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- Product Modal -->
+    <div class="product-modal" id="productModal">
+        <div class="product-modal-content">
+            <button class="product-modal-close" onclick="closeProductModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="product-modal-body">
+                <div class="product-image-left">
+                    <div class="product-image-container">
+                        <img id="productModalImage" class="product-modal-image" src="" alt="">
+                    </div>
+                </div>
+                <div class="product-info-right">
+                    <div class="measurements-table-container" id="measurementsTableContainer">
+                        <div class="measurements-table-title">
+                            <i class="fas fa-ruler-combined"></i>
+                            جدول القياسات والوزن
+                            <i class="fas fa-weight-scale"></i>
+                        </div>
+                        <table class="measurements-table">
+                            <thead>
+                                <tr>
+                                    <th><i class="fas fa-tshirt"></i> المقاس</th>
+                                    <th><i class="fas fa-arrows-up-down"></i> الطول (سم)</th>
+                                    <th><i class="fas fa-weight-hanging"></i> الوزن (كلغ)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="measurementsTableBody"></tbody>
+                        </table>
+                        <div class="measurements-table-footer">
+                            <i class="fas fa-info-circle"></i>
+                            اختر المقاس المناسب حسب الطول والوزن
+                            <i class="fas fa-arrow-left"></i>
+                        </div>
+                    </div>
+                    <div class="product-modal-price-container" id="productModalPriceContainer"></div>
+                    <div id="discountMessage" class="discount-message" style="display: none;">
+                        <i class="fas fa-percentage"></i>
+                        <span id="discountText"></span>
+                    </div>
+                    <div id="freeDeliveryMessage" class="free-delivery-message" style="display: none;">
+                        <i class="fas fa-shipping-fast"></i>
+                        <span id="freeDeliveryText"></span>
+                    </div>
+                    <div class="color-size-row">
+                        <div class="color-options-container">
+                            <label style="font-size: 0.8rem; margin-bottom: 0.2rem;">اختر اللون</label>
+                            <div class="color-options-small" id="colorOptions"></div>
+                        </div>
+                        <div class="size-options-container" id="sizeOptionsContainer" style="display: none;">
+                            <label style="font-size: 0.8rem; margin-bottom: 0.2rem;">المقاسات المتاحة</label>
+                            <div class="size-options-small" id="ageOptions"></div>
+                        </div>
+                    </div>
+                    <div class="quantity-selector">
+                        <button class="quantity-btn" id="decreaseQuantity">-</button>
+                        <span class="quantity-display" id="quantityDisplay">1</span>
+                        <button class="quantity-btn" id="increaseQuantity">+</button>
+                    </div>
+                    <div class="btn-group">
+                        <button class="btn-telegraph" id="addToCartFromModal" onclick="addToCartWithTelegraphEffects(event)">
+                            <i class="fas fa-cart-plus"></i> إضافة للسلة
+                            <div class="wave"></div>
+                        </button>
+                        <button type="button" class="btn btn-secondary" onclick="closeProductModal()">
+                            <i class="fas fa-times"></i> إلغاء
+                        </button>
+                    </div>
+                    <div class="telegraph-dots">
+                        <div class="telegraph-dot"></div>
+                        <div class="telegraph-dot"></div>
+                        <div class="telegraph-dot"></div>
+                        <div class="telegraph-dot"></div>
+                        <div class="telegraph-dot"></div>
+                        <div class="telegraph-dot"></div>
+                        <div class="telegraph-dot"></div>
+                        <div class="telegraph-dot"></div>
+                        <div class="telegraph-dot"></div>
+                        <div class="telegraph-dot"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div class="confirmation-modal" id="orderConfirmationModal">
+        <div class="confirmation-content">
+            <div id="confirmationLoading" style="display: none;">
+                <div class="loading-spinner"></div>
+                <h2 class="confirmation-title">جاري معالجة طلبك</h2>
+                <p class="confirmation-message">يرجى الانتظار بينما نقوم بتأكيد تفاصيل طلبك...</p>
+            </div>
+            <div id="confirmationSuccess" style="display: none;">
+                <div class="confirmation-icon"><i class="fas fa-check-circle"></i></div>
+                <h2 class="confirmation-title">تم استلام طلبك بنجاح!</h2>
+                <div id="orderSummary" class="order-summary"></div>
+                <p class="confirmation-message">
+                    <i class="fas fa-clock" style="color: var(--accent); margin-right: 0.3rem;"></i>
+                    سنتصل بك خلال 24 ساعة لتأكيد الطلب وتفاصيل التوصيل
+                </p>
+                <div class="single-btn-container">
+                    <div class="telegraph-dots">
+                        <div class="telegraph-dot"></div>
+                        <div class="telegraph-dot"></div>
+                        <div class="telegraph-dot"></div>
+                        <div class="telegraph-dot"></div>
+                        <div class="telegraph-dot"></div>
+                        <div class="telegraph-dot"></div>
+                        <div class="telegraph-dot"></div>
+                        <div class="telegraph-dot"></div>
+                        <div class="telegraph-dot"></div>
+                        <div class="telegraph-dot"></div>
+                    </div>
+                    <button class="btn-single-telegraph" onclick="closeOrderConfirmationAndRedirectToProductsSingle()">
+                        <i class="fas fa-bolt"></i>
+                        <span>العودة لقائمة المنتجات</span>
+                        <div class="wave-single"></div>
+                    </button>
+                    <p style="color: var(--dark); font-size: 0.85rem; margin-top: 1rem; text-align: center; opacity: 0.8;">
+                        <i class="fas fa-info-circle"></i> انقر للعودة إلى معرض التسوق
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="" alt="Store Logo" class="store-logo-small" id="storeLogoFooter" style="display: none;">
+                    <span id="storeNameFooter">متجر</span>
+                </div>
+                <div class="footer-social">
+                    <a href="#" id="facebookFooter" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" id="instagramFooter" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="#" id="whatsappFooter" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" id="messengerFooter" target="_blank"><i class="fab fa-facebook-messenger"></i></a>
+                    <a href="#" id="viberFooter" target="_blank"><i class="fab fa-viber"></i></a>
+                    <a href="#" id="tiktokFooter" target="_blank"><i class="fab fa-tiktok"></i></a>
+                </div>
+                <div class="copyright">
+                    © جميع الحقوق محفوظة
+                    © الدفع عند الاستلام
+                    © الاستبدال والاسترجاع حق مضمون
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ===== STORE_CONFIG (Example Data) =====
+        const STORE_CONFIG = {
+            STORE_INFO: {
+                name: "متجر الأطفال",
+                tagline: "👑 أحدث موديلات الأطفال",
+                logo: "https://via.placeholder.com/200x80?text=Store+Logo",
+                phoneNumbers: ["0555123456", "0666123456"],
+                whatsappUrl: "#",
+                facebookUrl: "#",
+                instagramUrl: "#",
+                messengerUrl: "#",
+                viberUrl: "#",
+                tiktokUrl: "#"
+            },
+            PRODUCTS: {
+                "1": {
+                    name: "فستان أطفال",
+                    description: "فستان أنيق للأطفال",
+                    price: 2500,
+                    image: "https://via.placeholder.com/400x400?text=Fashion+1",
+                    availableColors: ["أزرق", "أبيض", "أسود"],
+                    availableSizes: ["S", "M", "L"],
+                    colorImages: {
+                        "أزرق": { images: ["https://via.placeholder.com/400x400?text=Blue"] },
+                        "أبيض": { images: ["https://via.placeholder.com/400x400?text=White"] },
+                        "أسود": { images: ["https://via.placeholder.com/400x400?text=Black"] }
+                    },
+                    ageRanges: [
+                        { ageFrom: "3", ageTo: "5", size: "S" },
+                        { ageFrom: "6", ageTo: "8", size: "M" }
+                    ]
+                },
+                "2": {
+                    name: "بدلة أطفال",
+                    description: "بدلة رسمية للأطفال",
+                    price: 3500,
+                    image: "https://via.placeholder.com/400x400?text=Fashion+2",
+                    availableColors: ["أبيض", "أسود"],
+                    availableSizes: ["M", "L"],
+                    colorImages: {
+                        "أبيض": { images: ["https://via.placeholder.com/400x400?text=White+Suit"] },
+                        "أسود": { images: ["https://via.placeholder.com/400x400?text=Black+Suit"] }
+                    },
+                    ageRanges: [
+                        { ageFrom: "6", ageTo: "8", size: "M" },
+                        { ageFrom: "9", ageTo: "12", size: "L" }
+                    ]
+                }
+            },
+            DELIVERY_PRICES: {
+                "الجزائر": { desk: 200, home: 400 },
+                "وهران": { desk: 250, home: 500 }
+            },
+            DISCOUNTS: {
+                enableQuantityDiscount: true,
+                minQuantityForDiscount: 3,
+                discountPerItem: 100,
+                discountScope: "all",
+                enablePromotionalDiscount: true,
+                promotionalDiscountPercent: 10,
+                promoDiscountScope: "selected",
+                promoDiscountProducts: [1]
+            },
+            FREE_DELIVERY: {
+                desk: { enabled: true, minQuantity: 5 },
+                home: { enabled: true, minQuantity: 3 },
+                freeDeliveryProducts: [1]
+            },
+            SIZE_GUIDE: {
+                "S": { enabled: true, heightFrom: 100, heightTo: 110, weightFrom: 15, weightTo: 20 },
+                "M": { enabled: true, heightFrom: 110, heightTo: 120, weightFrom: 20, weightTo: 25 },
+                "L": { enabled: true, heightFrom: 120, heightTo: 130, weightFrom: 25, weightTo: 30 }
+            },
+            PRODUCT_ORDER: {
+                "1": 1,
+                "2": 2
+            }
+        };
+
+        // ===== Global Variables =====
+        const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzcrPpmnfVZsUGU88ObFmvnUC7EMpOHoAifEgMi5qwcuyfsyUywlYTKaq-tL60FN5G1/exec";
+        let cartItems = [];
+        let currentProductKey = null;
+        let selectedAge = null;
+        let selectedColor = null;
+        let selectedDeliveryType = null;
+        let selectedWilaya = null;
+        let smartPulseInterval = null;
+        let isHeartsActive = false;
+        let heartsInterval = null;
+        let isAnimationRunning = false;
+
+        // ===== DOM Ready =====
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded');
+            initializeApp();
+        });
+
+        // ===== Initialize App =====
+        function initializeApp() {
+            console.log('🚀 Starting app...');
+            initStore();
+            setupEventListeners();
+            setupPageNavigation();
+            updatePrice();
+            initHeartsCycle();
+            setTimeout(() => {
+                showNotification('مرحبا بكم في متجرنا 🛍️ استمتع بتجربة تسوق فريدة', 'success');
+                document.getElementById('mainLogo').classList.add('visible');
+            }, 1000);
+        }
+
+        function initStore() {
+            updateStoreInterface();
+            initModelsGallery();
+            initContactNumbers();
+            initWilayaOptions();
+            updateCartDisplay();
+        }
+
+        // ===== Store Interface =====
+        function updateStoreInterface() {
+            const name = STORE_CONFIG.STORE_INFO.name || "متجر";
+            const tagline = STORE_CONFIG.STORE_INFO.tagline || "أحدث الموديلات";
+            document.getElementById('storeNameHeader').textContent = name;
+            document.getElementById('storeTitleText').textContent = tagline;
+            document.getElementById('storeNameFooter').textContent = name;
+            document.title = `🛒 ${name} - ${tagline}`;
+            
+            const logo = STORE_CONFIG.STORE_INFO.logo;
+            if (logo) {
+                document.getElementById('storeLogoMain').src = logo;
+                document.getElementById('storeLogoMain').style.display = 'block';
+                document.getElementById('storeLogoFooter').src = logo;
+                document.getElementById('storeLogoFooter').style.display = 'block';
+            }
+            
+            const social = STORE_CONFIG.STORE_INFO;
+            ['whatsapp', 'facebook', 'instagram', 'messenger', 'viber', 'tiktok'].forEach(p => {
+                const btn = document.getElementById(p + 'Btn');
+                if (social[p + 'Url']) { btn.href = social[p + 'Url']; btn.style.display = 'flex'; }
+                const fbtn = document.getElementById(p + 'Footer');
+                if (social[p + 'Url']) { fbtn.href = social[p + 'Url']; fbtn.style.display = 'inline-block'; }
+            });
+        }
+
+        // ===== Products Gallery =====
+        function initModelsGallery() {
+            const grid = document.getElementById('modelsGrid');
+            grid.innerHTML = '';
+            const products = STORE_CONFIG.PRODUCTS;
+            const order = STORE_CONFIG.PRODUCT_ORDER || {};
+            const keys = Object.keys(products).sort((a,b) => (order[a]||0) - (order[b]||0));
+            
+            keys.forEach((key, index) => {
+                const p = products[key];
+                const colors = p.availableColors || [];
+                const sizes = p.availableSizes || [];
+                const discount = calculateDiscountedPrice(p.price, 1, key);
+                const hasDiscount = discount.hasDiscount || discount.hasPromoDiscount;
+                const isFree = STORE_CONFIG.FREE_DELIVERY?.freeDeliveryProducts?.includes(parseInt(key));
+                
+                const card = document.createElement('div');
+                card.className = 'model-card';
+                card.style.animationDelay = `${(index%4)*0.1+0.1}s`;
+                card.innerHTML = `
+                    <div class="model-image-container" onclick="showProductDetails('${key}')">
+                        <img src="${p.image}" class="model-image" onerror="this.src='https://via.placeholder.com/400x400?text=Image+Not+Available'">
+                        ${STORE_CONFIG.DISCOUNTS?.enablePromotionalDiscount ? `<div class="discount-tag fast-pulse"><i class="fas fa-percentage"></i> خصم ${STORE_CONFIG.DISCOUNTS.promotionalDiscountPercent||0}%</div>` : ''}
+                        ${isFree ? `<div class="discount-tag fast-pulse" style="background:rgba(39,174,96,0.9);"><i class="fas fa-shipping-fast"></i> توصيل مجاني</div>` : ''}
+                        <button class="quick-add-btn" data-key="${key}" onclick="quickAddToCartWithTelegraphEffects('${key}', event)"><i class="fas fa-cart-plus"></i></button>
+                    </div>
+                    <div class="model-info">
+                        <h3 class="model-name">${p.name}</h3>
+                        <p class="model-description">${p.description}</p>
+                        <div style="font-size:0.75rem;color:var(--dark);margin-bottom:0.3rem;">
+                            <div><i class="fas fa-ruler"></i> المقاسات: ${sizes.join(', ')||'غير محدد'}</div>
+                            <div><i class="fas fa-palette"></i> الألوان: ${colors.length}</div>
+                        </div>
+                        <div class="price-container">
+                            ${hasDiscount ? `<span class="original-price">${p.price} دج</span>` : ''}
+                            <span class="discounted-price">${discount.finalPrice} دج</span>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // ===== Product Modal =====
+        function showProductDetails(key) {
+            const p = STORE_CONFIG.PRODUCTS[key];
+            if (!p) return;
+            currentProductKey = key;
+            selectedAge = null;
+            selectedColor = null;
+            
+            const addBtn = document.getElementById('addToCartFromModal');
+            addBtn.style.display = 'none';
+            addBtn.classList.remove('visible');
+            
+            document.getElementById('productModalImage').src = p.image;
+            const disc = calculateDiscountedPrice(p.price, 1, key);
+            const hasDiscount = disc.hasDiscount || disc.hasPromoDiscount;
+            const priceContainer = document.getElementById('productModalPriceContainer');
+            priceContainer.innerHTML = hasDiscount ? 
+                `<span class="original-price">${p.price} دج</span><span class="discounted-price">${disc.finalPrice} دج</span>` :
+                `<span class="discounted-price">${p.price} دج</span>`;
+            
+            // Discount message
+            const dm = document.getElementById('discountMessage');
+            const dt = document.getElementById('discountText');
+            if (hasDiscount) {
+                dt.textContent = `خصم ترويجي ${STORE_CONFIG.DISCOUNTS?.promotionalDiscountPercent||0}% - وفر ${p.price - disc.finalPrice} دج`;
+                dm.style.display = 'flex';
+                dm.classList.add('fast-pulse');
+            } else {
+                dm.style.display = 'none';
+                dm.classList.remove('fast-pulse');
+            }
+            
+            // Free delivery
+            const fd = document.getElementById('freeDeliveryMessage');
+            const ft = document.getElementById('freeDeliveryText');
+            const isFree = STORE_CONFIG.FREE_DELIVERY?.freeDeliveryProducts?.includes(parseInt(key));
+            if (isFree) {
+                ft.textContent = `اشترِ ${STORE_CONFIG.FREE_DELIVERY.desk?.minQuantity||3} قطع أو أكثر واحصل على توصيل مجاني`;
+                fd.style.display = 'flex';
+                fd.classList.add('fast-pulse');
+            } else {
+                fd.style.display = 'none';
+                fd.classList.remove('fast-pulse');
+            }
+            
+            // Measurements
+            const table = document.getElementById('measurementsTableContainer');
+            const body = document.getElementById('measurementsTableBody');
+            const guide = getEnabledSizeGuide(p);
+            if (guide.length) {
+                table.style.display = 'block';
+                table.classList.add('visible');
+                body.innerHTML = guide.map(g => `
+                    <tr><td><strong>${g.size}</strong></td><td><i class="fas fa-arrows-up-down"></i> ${g.heightFrom} - ${g.heightTo} سم</td><td><i class="fas fa-weight-hanging"></i> ${g.weightFrom} - ${g.weightTo} كلغ</td></tr>
+                `).join('');
+            } else {
+                table.style.display = 'none';
+                table.classList.remove('visible');
+            }
+            
+            // Colors
+            const colorContainer = document.getElementById('colorOptions');
+            colorContainer.innerHTML = '';
+            const colors = p.availableColors || ['أزرق', 'أبيض', 'أسود'];
+            colors.forEach(c => {
+                const el = document.createElement('div');
+                el.className = 'color-option-small';
+                el.textContent = c;
+                el.onclick = function() {
+                    document.querySelectorAll('#colorOptions .color-option-small').forEach(o => o.classList.remove('selected'));
+                    this.classList.add('selected');
+                    selectedColor = c;
+                    updateProductImageByColor(key, c);
+                    showAvailableSizesForColor(key, c);
+                    checkSelection();
+                };
+                colorContainer.appendChild(el);
+            });
+            setTimeout(() => {
+                document.querySelectorAll('#colorOptions .color-option-small').forEach(o => o.classList.add('blinking-color'));
+            }, 300);
+            
+            document.getElementById('quantityDisplay').textContent = '1';
+            document.getElementById('sizeOptionsContainer').style.display = 'none';
+            document.getElementById('productModal').classList.add('show');
+        }
+
+        function updateProductImageByColor(key, color) {
+            const p = STORE_CONFIG.PRODUCTS[key];
+            const img = document.getElementById('productModalImage');
+            img.src = p.colorImages?.[color]?.images?.[0] || p.image;
+        }
+
+        function showAvailableSizesForColor(key, color) {
+            const p = STORE_CONFIG.PRODUCTS[key];
+            const container = document.getElementById('sizeOptionsContainer');
+            const ageContainer = document.getElementById('ageOptions');
+            ageContainer.innerHTML = '';
+            selectedAge = null;
+            
+            let ranges = p.colorImages?.[color]?.ageRanges || p.ageRanges || [];
+            if (ranges.length) {
+                container.style.display = 'block';
+                ranges.forEach(r => {
+                    const el = document.createElement('div');
+                    el.className = 'size-option-small';
+                    el.textContent = `${r.ageTo} ← ${r.ageFrom} : المقاس ${r.size}`;
+                    el.onclick = function() {
+                        document.querySelectorAll('#ageOptions .size-option-small').forEach(o => o.classList.remove('selected'));
+                        this.classList.add('selected');
+                        selectedAge = `${r.ageFrom}-${r.ageTo}`;
+                        checkSelection();
+                    };
+                    ageContainer.appendChild(el);
+                });
+                setTimeout(() => {
+                    document.querySelectorAll('#ageOptions .size-option-small').forEach(o => o.classList.add('blinking-size'));
+                }, 300);
+            } else {
+                container.style.display = 'none';
+            }
+        }
+
+        function checkSelection() {
+            const addBtn = document.getElementById('addToCartFromModal');
+            if (selectedColor && selectedAge) {
+                addBtn.style.display = 'inline-flex';
+                setTimeout(() => addBtn.classList.add('visible'), 50);
+                addBtn.classList.add('blinking-button');
+            } else {
+                addBtn.style.display = 'none';
+                addBtn.classList.remove('visible');
+                addBtn.classList.remove('blinking-button');
+            }
+        }
+
+        function closeProductModal() {
+            document.getElementById('productModal').classList.remove('show');
+            currentProductKey = null;
+            selectedAge = null;
+            selectedColor = null;
+            document.getElementById('addToCartFromModal').style.display = 'none';
+            document.getElementById('addToCartFromModal').classList.remove('visible', 'blinking-button');
+        }
+
+        // ===== Cart Functions =====
+        function addToCart(key, quantity, age, color, size, event) {
+            const p = STORE_CONFIG.PRODUCTS[key];
+            const item = {
+                id: Date.now() + '_' + Math.random().toString(36).substr(2,5),
+                key: key,
+                name: p.name,
+                price: parseInt(p.price),
+                quantity: quantity,
+                image: p.colorImages?.[color]?.images?.[0] || p.image,
+                age: age,
+                color: color || 'أساسي',
+                size: size || age || 'غير محدد'
+            };
+            const existing = cartItems.find(i => i.key === key && i.age === age && i.color === color);
+            if (existing) {
+                existing.quantity += quantity;
+            } else {
+                cartItems.push(item);
+            }
+            updateCartDisplay();
+            updateSelectedProducts();
+            updatePrice();
+            if (event) {
+                const x = event.clientX || window.innerWidth/2;
+                const y = event.clientY || window.innerHeight/2;
+                createRocketAnimation(p.name, x, y, quantity);
+            }
+            showNotification(`✅ تم إضافة "${p.name}" إلى السلة`, 'success');
+        }
+
+        function updateCartDisplay() {
+            const total = cartItems.reduce((s,i) => s + i.quantity, 0);
+            const badge = document.getElementById('cartBadge');
+            badge.textContent = total;
+            const price = calculateTotalPrice();
+            document.getElementById('cartTotalPrice').textContent = `${price.total} دج`;
+        }
+
+        function updateSelectedProducts() {
+            const container = document.getElementById('selectedProducts');
+            container.innerHTML = '';
+            if (!cartItems.length) {
+                container.innerHTML = `<div class="empty-state"><i class="fas fa-shopping-cart"></i><p>سلة التسوق فارغة</p></div>`;
+                document.getElementById('wilaya').disabled = true;
+                document.getElementById('deliveryTypeSection').style.display = 'none';
+                document.getElementById('personalInfoSection').style.display = 'none';
+                return;
+            }
+            document.getElementById('wilaya').disabled = false;
+            cartItems.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'selected-product';
+                const disc = calculateDiscountedPrice(item.price, item.quantity, item.key);
+                div.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}">
+                    <div><h4>${item.name}</h4>
+                    <div style="font-size:0.75rem;">العمر: ${item.age} | المقاس: ${item.size} | اللون: ${item.color}</div>
+                    <div class="price-container">
+                        ${disc.hasDiscount||disc.hasPromoDiscount ? `<span class="original-price">${item.price} دج</span>` : ''}
+                        <span class="discounted-price">${disc.finalPrice} دج</span>
+                        <div style="display:flex;align-items:center;gap:0.5rem;margin-right:auto;">
+                            <button onclick="updateQuantity('${item.id}',-1)">-</button>
+                            <span>${item.quantity}</span>
+                            <button onclick="updateQuantity('${item.id}',1)">+</button>
+                            <button onclick="removeFromCart('${item.id}')" style="background:none;border:none;color:var(--danger);"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function updateQuantity(id, delta) {
+            const idx = cartItems.findIndex(i => i.id === id);
+            if (idx === -1) return;
+            cartItems[idx].quantity += delta;
+            if (cartItems[idx].quantity < 1) cartItems.splice(idx, 1);
+            updateCartDisplay();
+            updateSelectedProducts();
+            updatePrice();
+        }
+
+        function removeFromCart(id) {
+            cartItems = cartItems.filter(i => i.id !== id);
+            updateCartDisplay();
+            updateSelectedProducts();
+            updatePrice();
+        }
+
+        // ===== Price Calculations =====
+        function calculateTotalPrice() {
+            const subtotal = cartItems.reduce((s,i) => s + i.price * i.quantity, 0);
+            const discount = calculateTotalDiscount();
+            const afterDiscount = Math.max(subtotal - discount, 0);
+            let deliveryCost = 0;
+            if (selectedWilaya && selectedDeliveryType) {
+                const cost = STORE_CONFIG.DELIVERY_PRICES?.[selectedWilaya]?.[selectedDeliveryType] || 0;
+                const totalQ = cartItems.reduce((s,i) => s + i.quantity, 0);
+                const isFree = isFreeDeliveryEligible(selectedDeliveryType, selectedWilaya, subtotal, totalQ);
+                deliveryCost = isFree ? 0 : cost;
+            }
+            return { subtotal, discount, afterDiscount, deliveryCost, total: afterDiscount + deliveryCost, totalPieces: cartItems.reduce((s,i) => s + i.quantity, 0) };
+        }
+
+        function calculateDiscountedPrice(price, quantity, key) {
+            let final = price;
+            let hasDiscount = false, hasPromo = false;
+            const d = STORE_CONFIG.DISCOUNTS;
+            if (d?.enablePromotionalDiscount) {
+                const scope = d.promoDiscountScope || 'all';
+                const apply = scope === 'all' || (scope === 'selected' && d.promoDiscountProducts?.includes(parseInt(key)));
+                if (apply && d.promotionalDiscountPercent) {
+                    final = price - Math.round(price * d.promotionalDiscountPercent / 100);
+                    hasPromo = true;
+                    hasDiscount = true;
+                }
+            }
+            if (!hasPromo && d?.enableQuantityDiscount) {
+                const scope = d.discountScope || 'all';
+                const apply = scope === 'all' || (scope === 'selected' && d.discountProducts?.includes(parseInt(key)));
+                if (apply && quantity >= (d.minQuantityForDiscount || 1)) {
+                    final = Math.max(price - (d.discountPerItem || 0), 0);
+                    hasDiscount = true;
+                }
+            }
+            return { finalPrice: final, hasDiscount, hasPromoDiscount: hasPromo };
+        }
+
+        function calculateTotalDiscount() {
+            let total = 0;
+            const d = STORE_CONFIG.DISCOUNTS;
+            if (d?.enableQuantityDiscount) {
+                cartItems.forEach(item => {
+                    const scope = d.discountScope || 'all';
+                    const apply = scope === 'all' || (scope === 'selected' && d.discountProducts?.includes(parseInt(item.key)));
+                    if (apply && item.quantity >= (d.minQuantityForDiscount || 1)) {
+                        total += (d.discountPerItem || 0) * item.quantity;
+                    }
+                });
+            }
+            if (d?.enablePromotionalDiscount) {
+                cartItems.forEach(item => {
+                    const scope = d.promoDiscountScope || 'all';
+                    const apply = scope === 'all' || (scope === 'selected' && d.promoDiscountProducts?.includes(parseInt(item.key)));
+                    if (apply && d.promotionalDiscountPercent) {
+                        total += Math.round(item.price * item.quantity * d.promotionalDiscountPercent / 100);
+                    }
+                });
+            }
+            return total;
+        }
+
+        function isFreeDeliveryEligible(type, wilaya, subtotal, totalQ) {
+            const cfg = STORE_CONFIG.FREE_DELIVERY?.[type];
+            if (!cfg?.enabled) return false;
+            if (cfg.minQuantity && totalQ < cfg.minQuantity) return false;
+            if (cfg.wilayas && !cfg.wilayas.includes(wilaya)) return false;
+            if (STORE_CONFIG.FREE_DELIVERY?.freeDeliveryProducts) {
+                const has = cartItems.some(i => STORE_CONFIG.FREE_DELIVERY.freeDeliveryProducts.includes(parseInt(i.key)));
+                if (!has) return false;
+            }
+            return true;
+        }
+
+        function updatePrice() {
+            const details = calculateTotalPrice();
+            updateCartDisplay();
+            return details;
+        }
+
+        // ===== Delivery =====
+        function initWilayaOptions() {
+            const sel = document.getElementById('wilaya');
+            sel.innerHTML = '<option value="">اختر الولاية</option>';
+            if (STORE_CONFIG.DELIVERY_PRICES) {
+                Object.keys(STORE_CONFIG.DELIVERY_PRICES).forEach(w => {
+                    const opt = document.createElement('option');
+                    opt.value = w;
+                    opt.textContent = w;
+                    sel.appendChild(opt);
+                });
+            }
+        }
+
+        function handleWilayaChange() {
+            const sel = document.getElementById('wilaya');
+            selectedWilaya = sel.value;
+            if (selectedWilaya) {
+                document.getElementById('deliveryTypeSection').style.display = 'block';
+                updateDeliveryPricesDisplay();
+                startSmartPulse();
+            } else {
+                document.getElementById('deliveryTypeSection').style.display = 'none';
+                selectedDeliveryType = null;
+                document.getElementById('personalInfoSection').style.display = 'none';
+            }
+            updatePrice();
+        }
+
+        function updateDeliveryPricesDisplay() {
+            ['desk', 'home'].forEach(type => {
+                const el = document.getElementById(type + 'DeliveryPrice');
+                const cost = STORE_CONFIG.DELIVERY_PRICES?.[selectedWilaya]?.[type] || 0;
+                const totalQ = cartItems.reduce((s,i) => s + i.quantity, 0);
+                const sub = cartItems.reduce((s,i) => s + i.price * i.quantity, 0);
+                const free = isFreeDeliveryEligible(type, selectedWilaya, sub, totalQ);
+                el.textContent = free ? 'مجاني' : `${cost} دج`;
+                el.style.backgroundColor = free ? 'var(--success)' : 'rgba(0,153,255,0.9)';
+            });
+        }
+
+        function selectDeliveryType(type) {
+            selectedDeliveryType = type;
+            document.querySelectorAll('.delivery-option').forEach(o => {
+                o.classList.remove('selected', 'blue-field');
+                o.style.backgroundColor = 'var(--white-pure)';
+                o.style.borderColor = 'var(--border)';
+            });
+            const opt = document.getElementById(type + 'Delivery');
+            opt.classList.add('selected', 'blue-field');
+            opt.style.borderWidth = '2px';
+            document.getElementById('personalInfoSection').style.display = 'block';
+            toggleAddressField();
+            checkDeliveryFields();
+            updatePrice();
+        }
+
+        function toggleAddressField() {
+            const group = document.getElementById('addressFieldGroup');
+            const addr = document.getElementById('address');
+            if (selectedDeliveryType === 'desk') {
+                group.style.display = 'none';
+                addr.required = false;
+                addr.value = '';
+            } else {
+                group.style.display = 'block';
+                addr.required = true;
+            }
+        }
+
+        function handleFieldInput(field) {
+            field.classList.toggle('blue-field', field.value.trim() !== '');
+            checkDeliveryFields();
+        }
+
+        function handlePhoneInput(field) {
+            field.value = field.value.replace(/[^0-9]/g, '');
+            const valid = /^(05|06|07)[0-9]{8}$/.test(field.value);
+            const validation = document.getElementById('phoneValidation');
+            if (field.value.length) {
+                validation.innerHTML = valid ?
+                    `<i class="fas fa-check-circle" style="color:var(--success);"></i><span style="color:var(--success);"> رقم هاتف صحيح</span>` :
+                    `<i class="fas fa-exclamation-circle" style="color:#e74c3c;"></i><span style="color:#e74c3c;">يجب أن يبدأ بـ 05 أو 06 أو 07</span>`;
+            } else {
+                validation.innerHTML = `<i class="fas fa-info-circle"></i><span>يجب أن يبدأ بـ 05 أو 06 أو 07 ويتكون من 10 أرقام</span>`;
+            }
+            checkDeliveryFields();
+        }
+
+        function checkDeliveryFields() {
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const commune = document.getElementById('commune').value.trim();
+            const addr = document.getElementById('address').value.trim();
+            const phoneValid = /^(05|06|07)[0-9]{8}$/.test(phone);
+            let addrOk = true;
+            if (selectedDeliveryType === 'home') addrOk = addr.length > 0;
+            const all = name && phone && commune && selectedWilaya && selectedDeliveryType && cartItems.length && addrOk;
+            document.getElementById('confirmOrderBtn').disabled = !(all && phoneValid);
+        }
+
+        // ===== Smart Pulse =====
+        function startSmartPulse() {
+            if (smartPulseInterval) clearInterval(smartPulseInterval);
+            smartPulseInterval = setInterval(() => {
+                const wil = document.getElementById('wilaya');
+                if (cartItems.length && !selectedWilaya) wil.classList.add('fast-pulse');
+                else wil.classList.remove('fast-pulse');
+                if (selectedWilaya && !selectedDeliveryType) {
+                    document.querySelectorAll('.delivery-option').forEach(o => o.classList.add('fast-pulse'));
+                } else {
+                    document.querySelectorAll('.delivery-option').forEach(o => o.classList.remove('fast-pulse'));
+                }
+            }, 1000);
+        }
+
+        function stopSmartPulse() {
+            if (smartPulseInterval) { clearInterval(smartPulseInterval); smartPulseInterval = null; }
+            document.querySelectorAll('.delivery-option, #wilaya').forEach(el => el.classList.remove('fast-pulse'));
+        }
+
+        // ===== Guidance =====
+        function showColorSizeGuidance() {
+            const existing = document.querySelector('.guidance-message');
+            if (existing) existing.remove();
+            const div = document.createElement('div');
+            div.className = 'guidance-message';
+            div.innerHTML = `
+                <div class="guidance-content">
+                    <button class="guidance-close" onclick="this.parentElement.parentElement.remove()"><i class="fas fa-times"></i></button>
+                    <div class="guidance-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                    <div class="guidance-text">
+                        <h3>يرجى اختيار اللون والمقاس أولاً!</h3>
+                        <p>اختر اللون من القائمة أعلاه، ثم اختر المقاس المناسب قبل إضافة المنتج إلى السلة.</p>
+                        <div class="guidance-steps">
+                            <div class="step"><span class="step-number">1</span><span>اختر اللون</span></div>
+                            <div class="step"><span class="step-number">2</span><span>اختر المقاس</span></div>
+                            <div class="step"><span class="step-number">3</span><span>أضف إلى السلة</span></div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(div);
+            setTimeout(() => div.remove(), 5000);
+        }
+
+        // ===== Telegraph Effects =====
+        function addToCartWithTelegraphEffects(event) {
+            event.preventDefault();
+            if (!selectedColor || !selectedAge) {
+                showColorSizeGuidance();
+                return;
+            }
+            const qty = parseInt(document.getElementById('quantityDisplay').textContent);
+            const size = document.querySelector('#ageOptions .size-option-small.selected')?.dataset?.size || selectedAge;
+            createAddToCartTelegraphEffect(event);
+            setTimeout(() => {
+                addToCart(currentProductKey, qty, selectedAge, selectedColor, size, event);
+                closeProductModal();
+                setTimeout(() => switchPage('page2'), 500);
+            }, 800);
+        }
+
+        function quickAddToCartWithTelegraphEffects(key, event) {
+            if (event) event.stopPropagation();
+            const p = STORE_CONFIG.PRODUCTS[key];
+            const sizes = p.availableSizes || [];
+            const colors = p.availableColors || [];
+            if (sizes.length > 1 || colors.length > 1) {
+                showColorSizeGuidance();
+                showProductDetails(key);
+                return;
+            }
+            createAddToCartTelegraphEffect(event);
+            setTimeout(() => {
+                addToCart(key, 1, sizes[0] || 'M', colors[0] || 'أساسي', sizes[0] || 'M', event);
+            }, 800);
+        }
+
+        function createAddToCartTelegraphEffect(event) {
+            let x = window.innerWidth/2, y = window.innerHeight/2;
+            if (event) {
+                const rect = event.target?.getBoundingClientRect?.();
+                if (rect) { x = rect.left + rect.width/2; y = rect.top + rect.height/2; }
+            }
+            // Flash
+            for (let i=0; i<4; i++) {
+                setTimeout(() => {
+                    const flash = document.createElement('div');
+                    flash.style.cssText = `position:fixed;top:${y}px;right:${x}px;transform:translate(50%,-50%);width:200px;height:200px;background:radial-gradient(circle,rgba(0,${153+i*20},255,${0.4-i*0.5}) 0%,transparent 70%);border-radius:50%;z-index:99999;pointer-events:none;`;
+                    document.body.appendChild(flash);
+                    flash.animate([{transform:'translate(50%,-50%) scale(0.5)',opacity:0.7},{transform:'translate(50%,-50%) scale(1.5)',opacity:0}], {duration:400,easing:'ease-out'});
+                    setTimeout(()=>flash.remove(), 400);
+                }, i*120);
+            }
+            // Lines
+            const lines = [{deg:0,color:'#0099FF'},{deg:90,color:'#00CCFF'},{deg:45,color:'#0066CC'},{deg:135,color:'#0033FF'}];
+            lines.forEach((l,i) => {
+                setTimeout(() => {
+                    const el = document.createElement('div');
+                    el.style.cssText = `position:fixed;top:${y}px;right:${x}px;width:0;height:3px;background:linear-gradient(90deg,transparent,${l.color},transparent);transform-origin:center;transform:translate(50%,-50%) rotate(${l.deg}deg);z-index:99998;pointer-events:none;box-shadow:0 0 15px ${l.color};`;
+                    document.body.appendChild(el);
+                    el.animate([{width:'0px',opacity:0},{width:'400px',opacity:0.8},{width:'0px',opacity:0}], {duration:500,easing:'ease-in-out'});
+                    setTimeout(()=>el.remove(), 500);
+                }, i*120);
+            });
+            // Sound
+            try {
+                const ctx = new (window.AudioContext||window.webkitAudioContext)();
+                [[1200,80,0],[1000,100,100],[1400,60,200],[800,120,300]].forEach(t => {
+                    setTimeout(() => {
+                        const osc = ctx.createOscillator();
+                        const gain = ctx.createGain();
+                        osc.connect(gain); gain.connect(ctx.destination);
+                        osc.frequency.value = t[0];
+                        gain.gain.setValueAtTime(0.12, ctx.currentTime);
+                        gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + t[1]/1000);
+                        osc.start(); osc.stop(ctx.currentTime + t[1]/1000);
+                    }, t[2]);
+                });
+            } catch(e){}
+            // Sparks
+            for (let i=0; i<12; i++) {
+                setTimeout(() => {
+                    const sp = document.createElement('div');
+                    sp.style.cssText = `position:fixed;top:${y}px;right:${x}px;width:5px;height:5px;background:#fff;border-radius:50%;z-index:99999;pointer-events:none;box-shadow:0 0 10px #fff,0 0 20px #0099FF;`;
+                    document.body.appendChild(sp);
+                    const a = Math.random()*Math.PI*2, d = 80+Math.random()*120, dur = 400+Math.random()*400;
+                    sp.animate([{transform:'translate(50%,-50%) scale(1)',opacity:1},{transform:`translate(${Math.cos(a)*d+50}px,${Math.sin(a)*d-50}px) scale(0)`,opacity:0}], {duration:dur,easing:'ease-out'});
+                    setTimeout(()=>sp.remove(), dur);
+                }, i*40);
+            }
+        }
+
+        // ===== Rocket Animation =====
+        function createRocketAnimation(productName, startX, startY, quantity = 1) {
+            if (isAnimationRunning) return;
+            isAnimationRunning = true;
+            const container = document.getElementById('floatingCountersContainer');
+            const cart = document.getElementById('cartSummary');
+            const rect = cart.getBoundingClientRect();
+            const cx = rect.left + rect.width/2, cy = rect.top + rect.height/2;
+            
+            setTimeout(() => {
+                for (let i=0; i<Math.min(quantity,3); i++) {
+                    setTimeout(() => createRocketCounter(startX,startY,cx,cy,i,quantity), i*200);
+                }
+                setTimeout(() => {
+                    createExplosionAtCart(cx,cy);
+                    cart.classList.add('cart-shake');
+                    document.getElementById('cartBadge').classList.add('pulse-animation');
+                    setTimeout(() => {
+                        cart.classList.remove('cart-shake');
+                        document.getElementById('cartBadge').classList.remove('pulse-animation');
+                    }, 500);
+                    showAddConfirmation(productName);
+                    isAnimationRunning = false;
+                }, 1500);
+            }, 100);
+        }
+
+        function createRocketCounter(startX,startY,endX,endY,index,quantity) {
+            const div = document.createElement('div');
+            div.className = 'floating-counter rocket-animation';
+            div.textContent = quantity > 1 ? quantity : '+1';
+            div.style.left = startX + 'px';
+            div.style.top = startY + 'px';
+            div.style.backgroundColor = ['#0099FF','#0066CC','#00CCFF'][index%3];
+            document.getElementById('floatingCountersContainer').appendChild(div);
+            // smoke
+            for (let i=0; i<10; i++) {
+                setTimeout(() => {
+                    const s = document.createElement('div');
+                    s.className = 'smoke-particle';
+                    const size = 8+Math.random()*12;
+                    s.style.cssText = `width:${size}px;height:${size}px;left:${startX + (endX-startX)*(i/10)}px;top:${startY + (endY-startY)*(i/10)}px;background:rgba(0,153,255,${0.6-i*0.05});z-index:10000;`;
+                    document.getElementById('floatingCountersContainer').appendChild(s);
+                    s.animate([{transform:'scale(0.5)',opacity:0.6},{transform:'scale(0)',opacity:0}], {duration:800+easing:'ease-out'});
+                    setTimeout(()=>s.remove(), 800);
+                }, i*80);
+            }
+            setTimeout(()=>div.remove(), 1500);
+        }
+
+        function createExplosionAtCart(x,y) {
+            const exp = document.createElement('div');
+            exp.className = 'explosion-effect';
+            exp.style.cssText = `left:${x-60}px;top:${y-60}px;width:120px;height:120px;`;
+            document.getElementById('floatingCountersContainer').appendChild(exp);
+            exp.animate([{transform:'scale(0)',opacity:1},{transform:'scale(2)',opacity:0.8},{transform:'scale(4)',opacity:0}], {duration:600,easing:'ease-out'});
+            setTimeout(()=>exp.remove(), 600);
+            // sparks
+            for (let i=0; i<20; i++) {
+                setTimeout(() => {
+                    const sp = document.createElement('div');
+                    sp.className = 'sparkle';
+                    const s = 4+Math.random()*6;
+                    sp.style.cssText = `width:${s}px;height:${s}px;left:${x}px;top:${y}px;background:${['#0099FF','#0066CC','#00CCFF','#0033FF'][i%4]};z-index:10003;`;
+                    const a = Math.random()*Math.PI*2, d = 30+Math.random()*70, dur=400+Math.random()*600;
+                    document.getElementById('floatingCountersContainer').appendChild(sp);
+                    sp.animate([{transform:'scale(1)',opacity:1},{transform:`translate(${Math.cos(a)*d}px,${Math.sin(a)*d}px) scale(0)`,opacity:0}], {duration:dur,easing:'ease-out'});
+                    setTimeout(()=>sp.remove(), dur);
+                }, i*30);
+            }
+        }
+
+        function showAddConfirmation(name) {
+            const div = document.createElement('div');
+            div.className = 'added-confirmation';
+            div.innerHTML = `<i class="fas fa-check"></i> تمت إضافة "${name}" إلى السلة`;
+            document.body.appendChild(div);
+            setTimeout(()=>div.remove(), 2000);
+        }
+
+        // ===== Single Telegraph Effect =====
+        function closeOrderConfirmationAndRedirectToProductsSingle() {
+            createSingleTelegraphEffect();
+            setTimeout(() => {
+                document.getElementById('orderConfirmationModal').classList.remove('show');
+                switchPage('page1');
+                window.scrollTo({top:0,behavior:'smooth'});
+                showNotification('📡 تم تأكيد الإشارة البرقية: العودة إلى قائمة المنتجات!', 'success');
+            }, 1000);
+        }
+
+        function createSingleTelegraphEffect() {
+            for (let i=0; i<6; i++) {
+                setTimeout(() => {
+                    const flash = document.createElement('div');
+                    flash.style.cssText = `position:fixed;top:50%;right:50%;transform:translate(50%,-50%);width:300px;height:300px;background:radial-gradient(circle,rgba(0,${153+i*20},255,${0.4-i*0.5}) 0%,transparent 70%);border-radius:50%;z-index:99999;pointer-events:none;`;
+                    document.body.appendChild(flash);
+                    flash.animate([{transform:'translate(50%,-50%) scale(0.5)',opacity:0.7},{transform:'translate(50%,-50%) scale(1.5)',opacity:0}], {duration:400,easing:'ease-out'});
+                    setTimeout(()=>flash.remove(), 400);
+                }, i*120);
+            }
+            const lines = [{deg:0,color:'#0099FF'},{deg:90,color:'#00CCFF'},{deg:45,color:'#0066CC'},{deg:135,color:'#0033FF'}];
+            lines.forEach((l,i) => {
+                setTimeout(() => {
+                    const el = document.createElement('div');
+                    el.style.cssText = `position:fixed;top:50%;right:50%;width:0;height:4px;background:linear-gradient(90deg,transparent,${l.color},transparent);transform-origin:center;transform:translate(50%,-50%) rotate(${l.deg}deg);z-index:99998;pointer-events:none;box-shadow:0 0 20px ${l.color};`;
+                    document.body.appendChild(el);
+                    el.animate([{width:'0px',opacity:0},{width:'600px',opacity:0.8},{width:'0px',opacity:0}], {duration:600,easing:'ease-in-out'});
+                    setTimeout(()=>el.remove(), 600);
+                }, i*150);
+            });
+            try {
+                const ctx = new (window.AudioContext||window.webkitAudioContext)();
+                [[1300,100,0],[800,120,150],[1500,80,300],[600,150,450],[1200,100,600]].forEach(t => {
+                    setTimeout(() => {
+                        const osc = ctx.createOscillator();
+                        const gain = ctx.createGain();
+                        osc.connect(gain); gain.connect(ctx.destination);
+                        osc.frequency.value = t[0];
+                        gain.gain.setValueAtTime(0.15, ctx.currentTime);
+                        gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + t[1]/1000);
+                        osc.start(); osc.stop(ctx.currentTime + t[1]/1000);
+                    }, t[2]);
+                });
+            } catch(e){}
+            for (let i=0; i<15; i++) {
+                setTimeout(() => {
+                    const sp = document.createElement('div');
+                    sp.style.cssText = `position:fixed;top:50%;right:50%;width:6px;height:6px;background:#fff;border-radius:50%;z-index:99999;pointer-events:none;box-shadow:0 0 15px #fff,0 0 30px #0099FF;`;
+                    document.body.appendChild(sp);
+                    const a = Math.random()*Math.PI*2, d = 100+Math.random()*150, dur=500+Math.random()*500;
+                    sp.animate([{transform:'translate(50%,-50%) scale(1)',opacity:1},{transform:`translate(${Math.cos(a)*d+50}px,${Math.sin(a)*d-50}px) scale(0)`,opacity:0}], {duration:dur,easing:'ease-out'});
+                    setTimeout(()=>sp.remove(), dur);
+                }, i*50);
+            }
+        }
+
+        // ===== Hearts =====
+        function initHeartsCycle() {
+            startHeartsAnimation();
+            setInterval(() => {
+                if (isHeartsActive) stopHeartsAnimation();
+                else startHeartsAnimation();
+            }, 15000);
+        }
+
+        function startHeartsAnimation() {
+            if (isHeartsActive) return;
+            isHeartsActive = true;
+            heartsInterval = setInterval(() => {
+                for (let i=0; i<3; i++) setTimeout(createFlyingHeart, i*500);
+            }, 8000);
+        }
+
+        function stopHeartsAnimation() {
+            clearInterval(heartsInterval);
+            isHeartsActive = false;
+        }
+
+        function createFlyingHeart() {
+            const container = document.getElementById('heartsContainer');
+            const heart = document.createElement('div');
+            heart.className = 'flying-heart';
+            heart.innerHTML = '💙';
+            heart.style.left = Math.random() * window.innerWidth + 'px';
+            heart.style.fontSize = (18 + Math.random() * 14) + 'px';
+            heart.style.color = ['#0066CC','#0099FF','#00CCFF','#003366'][Math.floor(Math.random()*4)];
+            container.appendChild(heart);
+            setTimeout(()=>heart.remove(), 3000);
+        }
+
+        // ===== Page Navigation =====
+        function setupPageNavigation() {
+            document.querySelectorAll('.page-nav').forEach(el => {
+                el.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const page = this.getAttribute('data-page');
+                    if (page) switchPage(page);
+                });
+            });
+        }
+
+        function switchPage(pageId) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+            if (pageId === 'page2') { updateSelectedProducts(); updatePrice(); startSmartPulse(); }
+            else stopSmartPulse();
+        }
+
+        // ===== Notifications =====
+        function showNotification(message, type = 'info') {
+            const existing = document.querySelector('.notification');
+            if (existing) existing.remove();
+            const div = document.createElement('div');
+            div.className = 'notification';
+            const icon = type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle';
+            const color = type === 'success' ? 'var(--success)' : type === 'error' ? '#e74c3c' : 'var(--accent)';
+            div.innerHTML = `<i class="fas fa-${icon}" style="color:${color};"></i><span>${message}</span>`;
+            document.body.appendChild(div);
+            setTimeout(() => { div.style.opacity = '0'; setTimeout(()=>div.remove(), 300); }, 3000);
+        }
+
+        // ===== Contact Numbers =====
+        function initContactNumbers() {
+            const nums = STORE_CONFIG.STORE_INFO?.phoneNumbers || [];
+            const containers = [document.getElementById('phoneNumbersFirstPage'), document.getElementById('contactNumbers')];
+            containers.forEach(container => {
+                container.innerHTML = '';
+                nums.slice(0,2).forEach(num => {
+                    const a = document.createElement('a');
+                    a.className = 'contact-number';
+                    a.href = `tel:${num}`;
+                    a.innerHTML = `<i class="fas fa-phone"></i> ${num}`;
+                    container.appendChild(a);
+                });
+            });
+        }
+
+        // ===== Measurements =====
+        function getEnabledSizeGuide(product) {
+            if (product.sizeGuide?.enabled && product.sizeGuide.guide) {
+                return Object.entries(product.sizeGuide.guide).map(([size, data]) => ({
+                    size, heightFrom: data.heightFrom, heightTo: data.heightTo,
+                    weightFrom: data.weightFrom, weightTo: data.weightTo
+                }));
+            }
+            if (STORE_CONFIG.SIZE_GUIDE) {
+                return Object.entries(STORE_CONFIG.SIZE_GUIDE)
+                    .filter(([_,d]) => d.enabled)
+                    .map(([size, data]) => ({
+                        size, heightFrom: data.heightFrom, heightTo: data.heightTo,
+                        weightFrom: data.weightFrom, weightTo: data.weightTo
+                    }));
+            }
+            return [];
+        }
+
+        // ===== Order Submission =====
+        document.getElementById('orderForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const commune = document.getElementById('commune').value.trim();
+            const address = document.getElementById('address').value.trim();
+            if (!name || !phone || !commune) { showNotification('يرجى ملء جميع الحقول المطلوبة', 'error'); return; }
+            if (selectedDeliveryType === 'home' && !address) { showNotification('يرجى إدخال عنوان التوصيل', 'error'); return; }
+            if (!/^(05|06|07)[0-9]{8}$/.test(phone)) { showNotification('رقم الهاتف غير صحيح', 'error'); return; }
+            
+            const price = calculateTotalPrice();
+            const orderData = {
+                timestamp: new Date().toLocaleString('fr-FR'),
+                customerName: name,
+                customerPhone: phone,
+                customerAddress: address,
+                customerCommune: commune,
+                wilaya: selectedWilaya,
+                deliveryType: selectedDeliveryType,
+                items: cartItems.map(i => ({
+                    name: i.name, quantity: i.quantity, price: i.price,
+                    finalPrice: calculateDiscountedPrice(i.price, i.quantity, i.key).finalPrice,
+                    size: i.size, color: i.color, image: i.image
+                })),
+                subtotal: price.subtotal,
+                discount: price.discount,
+                deliveryCost: price.deliveryCost,
+                total: price.total,
+                totalPieces: price.totalPieces,
+                isFreeDelivery: price.deliveryCost === 0,
+                status: 'New'
+            };
+            
+            document.getElementById('confirmOrderBtn').style.display = 'none';
+            showOrderConfirmation();
+            
+            // Save locally
+            try {
+                const orders = JSON.parse(localStorage.getItem('storeOrders') || '[]');
+                orders.unshift({ id: 'ORD-' + Date.now(), ...orderData });
+                localStorage.setItem('storeOrders', JSON.stringify(orders));
+            } catch(e){}
+            
+            // Send to Google
+            try {
+                await fetch(GOOGLE_SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(orderData) });
+            } catch(e){}
+            
+            setTimeout(() => {
+                showOrderSuccessAndRedirect(orderData);
+            }, 1500);
+        });
+
+        function showOrderConfirmation() {
+            document.getElementById('confirmationLoading').style.display = 'block';
+            document.getElementById('confirmationSuccess').style.display = 'none';
+            document.getElementById('orderConfirmationModal').classList.add('show');
+        }
+
+        function showOrderSuccessAndRedirect(data) {
+            document.getElementById('confirmationLoading').style.display = 'none';
+            document.getElementById('confirmationSuccess').style.display = 'block';
+            const summary = document.getElementById('orderSummary');
+            summary.innerHTML = `
+                <div class="order-summary-item"><span>الزبون:</span><span>${data.customerName}</span></div>
+                <div class="order-summary-item"><span>الهاتف:</span><span>${data.customerPhone}</span></div>
+                <div class="order-summary-item"><span>العنوان:</span><span>${data.customerAddress || 'التوصيل للمكتب'}, ${data.customerCommune}, ${data.wilaya}</span></div>
+                <div class="order-summary-item"><span>نوع التوصيل:</span><span>${data.deliveryType === 'desk' ? 'للمكتب' : 'للمنزل'}</span></div>
+                <div class="order-summary-item"><span>عدد المنتجات:</span><span>${data.totalPieces} قطعة</span></div>
+                <div class="order-summary-item"><span>المجموع الفرعي:</span><span>${data.subtotal} دج</span></div>
+                ${data.discount ? `<div class="order-summary-item"><span>الخصم:</span><span>-${data.discount} دج</span></div>` : ''}
+                <div class="order-summary-item"><span>التوصيل:</span><span>${data.isFreeDelivery ? 'مجاني' : data.deliveryCost + ' دج'}</span></div>
+                <div class="order-summary-total"><span>المبلغ الإجمالي:</span><span>${data.total} دج</span></div>
+            `;
+        }
+
+        // ===== Setup Event Listeners =====
+        function setupEventListeners() {
+            document.getElementById('decreaseQuantity').addEventListener('click', function() {
+                const q = document.getElementById('quantityDisplay');
+                let val = parseInt(q.textContent);
+                if (val > 1) q.textContent = val - 1;
+            });
+            document.getElementById('increaseQuantity').addEventListener('click', function() {
+                const q = document.getElementById('quantityDisplay');
+                q.textContent = parseInt(q.textContent) + 1;
+            });
+            document.addEventListener('keydown', e => { if (e.key === 'Escape') closeProductModal(); });
+            document.getElementById('productModal').addEventListener('click', function(e) {
+                if (e.target === this) closeProductModal();
+            });
+        }
+
+        // ===== Update delivery cost on change =====
+        function updateDeliveryCost() {
+            updatePrice();
+        }
+    </script>
+</body>
+</html>
