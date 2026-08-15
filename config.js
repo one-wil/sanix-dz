@@ -384,6 +384,74 @@ const STORE_CONFIG = {
       "createdAt": "2026-05-08T12:52:50.962Z",
       "image": "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1778244770962-1778244812749-Messenger-creation-DBC61123-8E41-4C75-933B-A5397461B678.jpeg",
       "updatedAt": "2026-05-08T12:54:45.269Z"
+    },
+    "1786827316479": {
+      "name": "منتج جديد",
+      "price": 500000,
+      "description": "منتج تركي دو جودة عالية",
+      "category": "",
+      "stock": 0,
+      "featured": false,
+      "availableColors": [
+        "أحمر",
+        "أزرق"
+      ],
+      "availableSizes": [
+        "S",
+        "M"
+      ],
+      "ageRanges": [],
+      "colorImages": {
+        "أحمر": {
+          "images": [
+            "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1786827316479-أحمر-1786827405784-modal3.jpg"
+          ],
+          "ageRanges": [
+            {
+              "ageFrom": "8",
+              "ageTo": "6",
+              "size": "S"
+            },
+            {
+              "ageFrom": "12",
+              "ageTo": "9",
+              "size": "M"
+            }
+          ]
+        },
+        "أزرق": {
+          "images": [
+            "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1786827316479-أزرق-1786827468355-modal4.jpg"
+          ],
+          "ageRanges": [
+            {
+              "ageFrom": "8",
+              "ageTo": "6",
+              "size": "S"
+            }
+          ]
+        }
+      },
+      "sizeGuide": {
+        "enabled": true,
+        "guide": {
+          "S": {
+            "heightFrom": 80,
+            "heightTo": 100,
+            "weightFrom": 12,
+            "weightTo": 15
+          },
+          "M": {
+            "heightFrom": 100,
+            "heightTo": 120,
+            "weightFrom": 15,
+            "weightTo": 18
+          }
+        }
+      },
+      "createdAt": "2026-08-15T20:55:16.479Z",
+      "image": "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1786827316479-1786827336545-modal3.jpg",
+      "updatedAt": "2026-08-15T20:56:27.819Z"
     }
   },
   "PRODUCT_ORDER": {
