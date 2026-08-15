@@ -1,6 +1,6 @@
 
 // =============================================================================
-// ⚙️ ملف الإعدادات الرئيسي للمتجر - تم إنشاؤه تلقائياً
+// ⚙️ ملف الإعدادات الرئيسي للمتجر
 // =============================================================================
 
 const STORE_CONFIG = {
@@ -1626,11 +1626,79 @@ const STORE_CONFIG = {
   ]
 };
 
-function loadProductsConfig() { return STORE_CONFIG.PRODUCTS; }
-function loadDeliveryConfig() { return { deliveryPrices: STORE_CONFIG.DELIVERY_PRICES || {}, freeDelivery: STORE_CONFIG.FREE_DELIVERY || {}, freeDeliveryProducts: STORE_CONFIG.FREE_DELIVERY.freeDeliveryProducts || [] }; }
-function loadDiscountConfig() { return STORE_CONFIG.DISCOUNTS || {}; }
-function loadStoreInfo() { return STORE_CONFIG.STORE_INFO || {}; }
-function loadSizesColorsConfig() { return { availableColors: STORE_CONFIG.AVAILABLE_COLORS || [], availableSizes: STORE_CONFIG.AVAILABLE_SIZES || [], sizeGuide: STORE_CONFIG.SIZE_GUIDE || {} }; }
-function loadPixelConfig() { return STORE_CONFIG.PIXEL_CODES || {}; }
-function loadAllConfig() { return STORE_CONFIG; }
-function updateConfig(newConfig) { for (const key in newConfig) { if (newConfig.hasOwnProperty(key)) { STORE_CONFIG[key] = newConfig[key]; } } return STORE_CONFIG; }
+// =============================================================================
+// 🛍️ دالة تحميل المنتجات
+// =============================================================================
+
+function loadProductsConfig() {
+    return STORE_CONFIG.PRODUCTS;
+}
+
+// =============================================================================
+// 🚚 دالة تحميل أسعار التوصيل
+// =============================================================================
+
+function loadDeliveryConfig() {
+    return {
+        deliveryPrices: STORE_CONFIG.DELIVERY_PRICES || {},
+        freeDelivery: STORE_CONFIG.FREE_DELIVERY || {},
+        freeDeliveryProducts: STORE_CONFIG.FREE_DELIVERY.freeDeliveryProducts || []
+    };
+}
+
+// =============================================================================
+// 💰 دالة تحميل إعدادات الخصم
+// =============================================================================
+
+function loadDiscountConfig() {
+    return STORE_CONFIG.DISCOUNTS || {};
+}
+
+// =============================================================================
+// 🏪 دالة تحميل معلومات المتجر
+// =============================================================================
+
+function loadStoreInfo() {
+    return STORE_CONFIG.STORE_INFO || {};
+}
+
+// =============================================================================
+// 🎨 دالة تحميل الألوان والمقاسات
+// =============================================================================
+
+function loadSizesColorsConfig() {
+    return {
+        availableColors: STORE_CONFIG.AVAILABLE_COLORS || [],
+        availableSizes: STORE_CONFIG.AVAILABLE_SIZES || [],
+        sizeGuide: STORE_CONFIG.SIZE_GUIDE || {}
+    };
+}
+
+// =============================================================================
+// 📊 دالة تحميل إعدادات البكسل
+// =============================================================================
+
+function loadPixelConfig() {
+    return STORE_CONFIG.PIXEL_CODES || {};
+}
+
+// =============================================================================
+// 📊 دالة تحميل جميع الإعدادات
+// =============================================================================
+
+function loadAllConfig() {
+    return STORE_CONFIG;
+}
+
+// =============================================================================
+// 🔄 دالة تحديث الإعدادات
+// =============================================================================
+
+function updateConfig(newConfig) {
+    for (const key in newConfig) {
+        if (newConfig.hasOwnProperty(key)) {
+            STORE_CONFIG[key] = newConfig[key];
+        }
+    }
+    return STORE_CONFIG;
+}
