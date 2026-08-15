@@ -814,13 +814,6 @@ const STORE_CONFIG = {
       "weightTo": 114,
       "enabled": false
     },
-    "XS": {
-      "heightFrom": 150,
-      "heightTo": 160,
-      "weightFrom": 40,
-      "weightTo": 55,
-      "enabled": true
-    },
     "S": {
       "heightFrom": 120,
       "heightTo": 130,
