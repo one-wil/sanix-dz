@@ -626,6 +626,7 @@ const STORE_CONFIG = {
       "desk": 400
     }
   },
+  "ORDERS": [],
   "FREE_DELIVERY": {
     "desk": {
       "enabled": true,
@@ -1679,6 +1680,14 @@ function loadSizesColorsConfig() {
 
 function loadPixelConfig() {
     return STORE_CONFIG.PIXEL_CODES || {};
+}
+
+// =============================================================================
+// 📋 دالة تحميل الطلبيات
+// =============================================================================
+
+function loadOrdersConfig() {
+    return STORE_CONFIG.ORDERS || [];
 }
 
 // =============================================================================
