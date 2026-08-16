@@ -621,6 +621,7 @@
       "desk": 400
     }
   },
+  "ORDERS": [],
   "FREE_DELIVERY": {
     "desk": {
       "enabled": true,
