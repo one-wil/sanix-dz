@@ -386,12 +386,7 @@ const STORE_CONFIG = {
       "updatedAt": "2026-05-08T12:54:45.269Z"
     }
   },
-  "PRODUCT_ORDER": {
-    "1778182443274": 4,
-    "1778238518007": 2,
-    "1778239126878": 3,
-    "1778244770962": 1
-  },
+  "PRODUCT_ORDER": {},
   "DELIVERY_PRICES": {
     "01 - أدرار": {
       "home": 1100,
@@ -626,7 +621,6 @@ const STORE_CONFIG = {
       "desk": 400
     }
   },
-  "ORDERS": [],
   "FREE_DELIVERY": {
     "desk": {
       "enabled": true,
@@ -814,6 +808,13 @@ const STORE_CONFIG = {
       "weightFrom": 83,
       "weightTo": 114,
       "enabled": false
+    },
+    "XS": {
+      "heightFrom": 150,
+      "heightTo": 160,
+      "weightFrom": 40,
+      "weightTo": 55,
+      "enabled": true
     },
     "S": {
       "heightFrom": 120,
@@ -1005,7 +1006,7 @@ const STORE_CONFIG = {
         "user": "admin"
       }
     ],
-    "lastUpdated": "2026-08-13T22:20:17.212Z"
+    "lastUpdated": "2026-08-13T21:01:57.192Z"
   },
   "FREE_DELIVERY_PRODUCTS": [
     1765456782838
@@ -1680,14 +1681,6 @@ function loadSizesColorsConfig() {
 
 function loadPixelConfig() {
     return STORE_CONFIG.PIXEL_CODES || {};
-}
-
-// =============================================================================
-// 📋 دالة تحميل الطلبيات
-// =============================================================================
-
-function loadOrdersConfig() {
-    return STORE_CONFIG.ORDERS || [];
 }
 
 // =============================================================================
