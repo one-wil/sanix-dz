@@ -386,7 +386,12 @@ const STORE_CONFIG = {
       "updatedAt": "2026-05-08T12:54:45.269Z"
     }
   },
-  "PRODUCT_ORDER": {},
+  "PRODUCT_ORDER": {
+    "1778182443274": 4,
+    "1778238518007": 2,
+    "1778239126878": 3,
+    "1778244770962": 1
+  },
   "DELIVERY_PRICES": {
     "01 - أدرار": {
       "home": 1100,
@@ -809,13 +814,6 @@ const STORE_CONFIG = {
       "weightTo": 114,
       "enabled": false
     },
-    "XS": {
-      "heightFrom": 150,
-      "heightTo": 160,
-      "weightFrom": 40,
-      "weightTo": 55,
-      "enabled": true
-    },
     "S": {
       "heightFrom": 120,
       "heightTo": 130,
@@ -925,6 +923,7 @@ const STORE_CONFIG = {
       }
     }
   },
+  "ORDERS": [],
   "POINTS_SYSTEM": {
     "currentPoints": 996,
     "remainingDays": 22,
@@ -1006,7 +1005,7 @@ const STORE_CONFIG = {
         "user": "admin"
       }
     ],
-    "lastUpdated": "2026-08-13T21:01:57.192Z"
+    "lastUpdated": "2026-08-13T22:20:17.212Z"
   },
   "FREE_DELIVERY_PRODUCTS": [
     1765456782838
