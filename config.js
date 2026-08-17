@@ -923,10 +923,9 @@ const STORE_CONFIG = {
       }
     }
   },
-  "ORDERS": [],
   "POINTS_SYSTEM": {
     "currentPoints": 996,
-    "remainingDays": 22,
+    "remainingDays": 18,
     "lastReset": "2026-08-05T15:56:39.328Z",
     "planType": "مجاني",
     "monthlyPoints": 1000,
@@ -1005,8 +1004,9 @@ const STORE_CONFIG = {
         "user": "admin"
       }
     ],
-    "lastUpdated": "2026-08-13T22:20:17.212Z"
+    "lastUpdated": "2026-08-17T18:17:49.491Z"
   },
+  "ORDERS": [],
   "FREE_DELIVERY_PRODUCTS": [
     1765456782838
   ],
