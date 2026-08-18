@@ -8,7 +8,7 @@ const STORE_CONFIG = {
     "1778182443274": {
       "name": "Ensemble POLO",
       "price": 5500,
-      "description": "",
+      "description": " جودة عالية ، أناقة مع ألوان مدروسة وتلبي رغباتكم",
       "category": "",
       "stock": 0,
       "featured": false,
@@ -162,7 +162,7 @@ const STORE_CONFIG = {
       },
       "createdAt": "2026-05-07T19:34:03.274Z",
       "image": "https://raw.githubusercontent.com/one-wil/suifrab/main/images/product-1778182443274-1778182589626-Messenger-creation-810CA979-D104-4003-AC53-8D1BA722871C.jpeg",
-      "updatedAt": "2026-05-07T19:50:58.095Z"
+      "updatedAt": "2026-08-18T19:01:10.081Z"
     },
     "1778238518007": {
       "name": "Ensemble Polo (t-shirt-short)",
@@ -280,6 +280,11 @@ const STORE_CONFIG = {
             {
               "ageFrom": " ",
               "ageTo": " ",
+              "size": "S"
+            },
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
               "size": "M"
             },
             {
@@ -382,9 +387,9 @@ const STORE_CONFIG = {
     }
   },
   "PRODUCT_ORDER": {
-    "1778182443274": 4,
+    "1778182443274": 3,
     "1778238518007": 2,
-    "1778239126878": 3,
+    "1778239126878": 4,
     "1778244770962": 1
   },
   "DELIVERY_PRICES": {
@@ -624,15 +629,15 @@ const STORE_CONFIG = {
   "FREE_DELIVERY": {
     "desk": {
       "enabled": true,
-      "minQuantity": 1,
+      "minAmount": 0,
       "wilayas": [],
-      "minAmount": 0
+      "minQuantity": 1
     },
     "home": {
       "enabled": false,
-      "minQuantity": 1,
+      "minAmount": 0,
       "wilayas": [],
-      "minAmount": 0
+      "minQuantity": 1
     },
     "freeDeliveryProducts": [
       1765137505304,
@@ -658,6 +663,8 @@ const STORE_CONFIG = {
   },
   "STORE_INFO": {
     "name": "SANIX-DZ",
+    "storeIcon": "-",
+    "storeTitle": "-",
     "tagline": "أحدث الموديلات لسنة 2026",
     "phoneNumbers": [
       "0778506974",
@@ -669,10 +676,7 @@ const STORE_CONFIG = {
     "messengerUrl": "",
     "viberNumber": "",
     "whatsappNumber": "213778506974",
-    "whatsappUrl": "https://wa.me/213778506974",
-    "tiktokUrl": "",
-    "storeIcon": "-",
-    "storeTitle": "-"
+    "whatsappUrl": "https://wa.me/213778506974"
   },
   "GOOGLE_SHEETS": {
     "url": "https://docs.google.com/spreadsheets/d/1B6um1tNw0Uh4NJvLjF5zUX6palzubXv1UeH5gSIt_Go/edit?gid=774585379#gid=774585379",
@@ -897,7 +901,7 @@ const STORE_CONFIG = {
   "PIXEL_CODES": {
     "facebook": {
       "enabled": true,
-      "pixelId": "1399644568464007",
+      "pixelId": "",
       "events": {
         "pageView": true,
         "addToCart": true,
@@ -919,9 +923,9 @@ const STORE_CONFIG = {
     }
   },
   "POINTS_SYSTEM": {
-    "currentPoints": 996,
-    "remainingDays": 18,
-    "lastReset": "2026-08-05T15:56:39.328Z",
+    "currentPoints": 1000,
+    "remainingDays": 30,
+    "lastReset": "2026-08-16T19:42:57.897Z",
     "planType": "مجاني",
     "monthlyPoints": 1000,
     "resetPeriod": 30,
@@ -999,9 +1003,8 @@ const STORE_CONFIG = {
         "user": "admin"
       }
     ],
-    "lastUpdated": "2026-08-17T18:17:49.491Z"
+    "lastUpdated": "2026-08-16T19:43:20.536Z"
   },
-  "ORDERS": [],
   "FREE_DELIVERY_PRODUCTS": [
     1765456782838
   ],
