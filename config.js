@@ -280,11 +280,6 @@ const STORE_CONFIG = {
             {
               "ageFrom": " ",
               "ageTo": " ",
-              "size": "S"
-            },
-            {
-              "ageFrom": " ",
-              "ageTo": " ",
               "size": "M"
             },
             {
@@ -387,10 +382,10 @@ const STORE_CONFIG = {
     }
   },
   "PRODUCT_ORDER": {
-    "1778182443274": 3,
-    "1778238518007": 1,
-    "1778239126878": 4,
-    "1778244770962": 2
+    "1778182443274": 4,
+    "1778238518007": 2,
+    "1778239126878": 3,
+    "1778244770962": 1
   },
   "DELIVERY_PRICES": {
     "01 - أدرار": {
@@ -814,13 +809,6 @@ const STORE_CONFIG = {
       "weightTo": 114,
       "enabled": false
     },
-    "XS": {
-      "heightFrom": 150,
-      "heightTo": 160,
-      "weightFrom": 40,
-      "weightTo": 55,
-      "enabled": true
-    },
     "S": {
       "heightFrom": 120,
       "heightTo": 130,
@@ -932,7 +920,7 @@ const STORE_CONFIG = {
   },
   "POINTS_SYSTEM": {
     "currentPoints": 996,
-    "remainingDays": 22,
+    "remainingDays": 18,
     "lastReset": "2026-08-05T15:56:39.328Z",
     "planType": "مجاني",
     "monthlyPoints": 1000,
@@ -1011,8 +999,9 @@ const STORE_CONFIG = {
         "user": "admin"
       }
     ],
-    "lastUpdated": "2026-08-13T21:01:57.192Z"
+    "lastUpdated": "2026-08-17T18:17:49.491Z"
   },
+  "ORDERS": [],
   "FREE_DELIVERY_PRODUCTS": [
     1765456782838
   ],
