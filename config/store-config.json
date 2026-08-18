@@ -379,74 +379,13 @@
       "createdAt": "2026-05-08T12:52:50.962Z",
       "image": "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1778244770962-1778244812749-Messenger-creation-DBC61123-8E41-4C75-933B-A5397461B678.jpeg",
       "updatedAt": "2026-05-08T12:54:45.269Z"
-    },
-    "1787087940043": {
-      "name": "منتج جديد",
-      "price": 5000,
-      "description": "Ensemble bagui",
-      "category": "",
-      "stock": 0,
-      "featured": false,
-      "availableColors": [
-        "أسود",
-        "رمادي"
-      ],
-      "availableSizes": [
-        "S",
-        "M"
-      ],
-      "ageRanges": [],
-      "colorImages": {
-        "أسود": {
-          "images": [
-            "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1787087940043-أسود-1787088118564-modal1.jpeg"
-          ],
-          "ageRanges": [
-            {
-              "ageFrom": " ",
-              "ageTo": " ",
-              "size": "S"
-            },
-            {
-              "ageFrom": " ",
-              "ageTo": " ",
-              "size": "M"
-            }
-          ]
-        },
-        "رمادي": {
-          "images": [
-            "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1787087940043-رمادي-1787088152534-modal2.jpeg"
-          ],
-          "ageRanges": [
-            {
-              "ageFrom": " ",
-              "ageTo": " ",
-              "size": "S"
-            },
-            {
-              "ageFrom": " ",
-              "ageTo": " ",
-              "size": "M"
-            }
-          ]
-        }
-      },
-      "sizeGuide": {
-        "enabled": false,
-        "guide": {}
-      },
-      "createdAt": "2026-08-18T21:19:00.043Z",
-      "image": "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1787087940043-1787088020669-modal2.jpeg",
-      "updatedAt": "2026-08-18T21:21:45.774Z"
     }
   },
   "PRODUCT_ORDER": {
     "1778182443274": 3,
     "1778238518007": 2,
     "1778239126878": 4,
-    "1778244770962": 1,
-    "1787087940043": 5
+    "1778244770962": 1
   },
   "DELIVERY_PRICES": {
     "01 - أدرار": {
