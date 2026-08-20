@@ -655,11 +655,13 @@ const STORE_CONFIG = {
     "discountPerItem": 500,
     "discountScope": "selected",
     "discountProducts": [],
-    "enablePromotionalDiscount": false,
+    "enablePromotionalDiscount": true,
     "promotionalDiscountPercent": 20,
     "promotionalDiscountedPrice": null,
     "promoDiscountScope": "selected",
-    "promoDiscountProducts": []
+    "promoDiscountProducts": [
+      1778182443274
+    ]
   },
   "STORE_INFO": {
     "name": "SANIX-DZ",
