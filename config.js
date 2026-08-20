@@ -631,7 +631,7 @@ const STORE_CONFIG = {
       "enabled": true,
       "minAmount": 0,
       "wilayas": [],
-      "minQuantity": null
+      "minQuantity": 1
     },
     "home": {
       "enabled": false,
@@ -655,13 +655,11 @@ const STORE_CONFIG = {
     "discountPerItem": 500,
     "discountScope": "selected",
     "discountProducts": [],
-    "enablePromotionalDiscount": true,
+    "enablePromotionalDiscount": false,
     "promotionalDiscountPercent": 20,
     "promotionalDiscountedPrice": null,
     "promoDiscountScope": "selected",
-    "promoDiscountProducts": [
-      1778182443274
-    ]
+    "promoDiscountProducts": []
   },
   "STORE_INFO": {
     "name": "SANIX-DZ",
