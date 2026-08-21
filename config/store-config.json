@@ -347,14 +347,14 @@
     },
     "1787306198490": {
       "name": "Baggy joggers polo",
-      "price": 2500,
+      "price": 3000,
       "description": "",
       "category": "",
       "stock": 0,
       "featured": false,
       "availableColors": [
-        "أحمر",
-        "أصفر"
+        "أسود",
+        "رمادي"
       ],
       "availableSizes": [
         "S",
@@ -393,7 +393,7 @@
         },
         "أصفر": {
           "images": [
-            "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1787306198490-أصفر-1787306592654-IMG-1793.jpeg"
+            "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1787306198490-أصفر-1787307543937-IMG-1793.jpeg"
           ],
           "ageRanges": [
             {
@@ -417,6 +417,60 @@
               "size": "XL"
             }
           ]
+        },
+        "أسود": {
+          "images": [
+            "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1787306198490-أسود-1787307427845-IMG-1795.jpeg"
+          ],
+          "ageRanges": [
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "S"
+            },
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "M"
+            },
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "L"
+            },
+            {
+              "ageFrom": " ",
+              "ageTo": "  ",
+              "size": "XL"
+            }
+          ]
+        },
+        "رمادي": {
+          "images": [
+            "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1787306198490-رمادي-1787307645441-IMG-1793.jpeg"
+          ],
+          "ageRanges": [
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "S"
+            },
+            {
+              "ageFrom": " ",
+              "ageTo": "  ",
+              "size": "M"
+            },
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "L"
+            },
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "XL"
+            }
+          ]
         }
       },
       "sizeGuide": {
@@ -425,7 +479,7 @@
       },
       "createdAt": "2026-08-21T09:56:38.490Z",
       "image": "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1787306198490-1787306427064-IMG-1791.jpeg",
-      "updatedAt": "2026-08-21T10:04:13.021Z"
+      "updatedAt": "2026-08-21T10:21:22.962Z"
     }
   },
   "PRODUCT_ORDER": {
@@ -696,11 +750,13 @@
     "discountProducts": [
       1778239126878
     ],
-    "enablePromotionalDiscount": false,
-    "promotionalDiscountPercent": 20,
+    "enablePromotionalDiscount": true,
+    "promotionalDiscountPercent": 16,
     "promotionalDiscountedPrice": null,
     "promoDiscountScope": "selected",
-    "promoDiscountProducts": []
+    "promoDiscountProducts": [
+      1787306198490
+    ]
   },
   "STORE_INFO": {
     "name": "SANIX-DZ",
