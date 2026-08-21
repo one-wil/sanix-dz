@@ -160,11 +160,6 @@ const STORE_CONFIG = {
             {
               "ageFrom": " ",
               "ageTo": " ",
-              "size": "S"
-            },
-            {
-              "ageFrom": " ",
-              "ageTo": " ",
               "size": "M"
             },
             {
@@ -222,7 +217,7 @@ const STORE_CONFIG = {
       },
       "createdAt": "2026-05-08T11:08:38.007Z",
       "image": "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1778238518007-1778238752545-Messenger-creation-37FFDF3B-1672-4523-9137-8D369929585F.jpeg",
-      "updatedAt": "2026-08-21T09:36:55.850Z"
+      "updatedAt": "2026-08-21T09:42:36.522Z"
     },
     "1778239126878": {
       "name": "T-shirt ",
@@ -612,17 +607,13 @@ const STORE_CONFIG = {
     "freeDeliveryProducts": [
       1765137505304,
       1765145035052,
-      1765145814607,
-      1778182443274,
-      1778238518007,
-      1778239126878,
-      1778244770962
+      1765145814607
     ]
   },
   "DISCOUNTS": {
     "enableQuantityDiscount": true,
     "minQuantityForDiscount": 2,
-    "discountPerItem": 500,
+    "discountPerItem": 250,
     "discountScope": "selected",
     "discountProducts": [
       1778239126878
