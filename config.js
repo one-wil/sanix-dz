@@ -7,7 +7,7 @@ const STORE_CONFIG = {
   "PRODUCTS": {
     "1778182443274": {
       "name": "Ensemble POLO",
-      "price": 5500,
+      "price": 3900,
       "description": " جودة عالية ، أناقة مع ألوان مدروسة وتلبي رغباتكم",
       "category": "",
       "stock": 0,
@@ -99,16 +99,6 @@ const STORE_CONFIG = {
             {
               "ageFrom": " ",
               "ageTo": " ",
-              "size": "S"
-            },
-            {
-              "ageFrom": " ",
-              "ageTo": " ",
-              "size": "M"
-            },
-            {
-              "ageFrom": " ",
-              "ageTo": " ",
               "size": "L"
             },
             {
@@ -132,26 +122,6 @@ const STORE_CONFIG = {
               "ageFrom": " ",
               "ageTo": " ",
               "size": "S"
-            },
-            {
-              "ageFrom": " ",
-              "ageTo": " ",
-              "size": "M"
-            },
-            {
-              "ageFrom": " ",
-              "ageTo": " ",
-              "size": "L"
-            },
-            {
-              "ageFrom": " ",
-              "ageTo": " ",
-              "size": "XL"
-            },
-            {
-              "ageFrom": " ",
-              "ageTo": " ",
-              "size": "XXL"
             }
           ]
         }
@@ -162,11 +132,11 @@ const STORE_CONFIG = {
       },
       "createdAt": "2026-05-07T19:34:03.274Z",
       "image": "https://raw.githubusercontent.com/one-wil/suifrab/main/images/product-1778182443274-1778182589626-Messenger-creation-810CA979-D104-4003-AC53-8D1BA722871C.jpeg",
-      "updatedAt": "2026-08-18T19:01:10.081Z"
+      "updatedAt": "2026-08-21T09:40:24.031Z"
     },
     "1778238518007": {
       "name": "Polo (t-shirt-short)",
-      "price": 5300,
+      "price": 4000,
       "description": "",
       "category": "",
       "stock": 0,
@@ -252,7 +222,7 @@ const STORE_CONFIG = {
       },
       "createdAt": "2026-05-08T11:08:38.007Z",
       "image": "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1778238518007-1778238752545-Messenger-creation-37FFDF3B-1672-4523-9137-8D369929585F.jpeg",
-      "updatedAt": "2026-08-21T07:59:05.986Z"
+      "updatedAt": "2026-08-21T09:36:55.850Z"
     },
     "1778239126878": {
       "name": "T-shirt ",
@@ -628,7 +598,7 @@ const STORE_CONFIG = {
   },
   "FREE_DELIVERY": {
     "desk": {
-      "enabled": true,
+      "enabled": false,
       "minAmount": 0,
       "wilayas": [],
       "minQuantity": 1
