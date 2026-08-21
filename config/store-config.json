@@ -344,13 +344,96 @@
       "createdAt": "2026-05-08T12:52:50.962Z",
       "image": "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1778244770962-1778244812749-Messenger-creation-DBC61123-8E41-4C75-933B-A5397461B678.jpeg",
       "updatedAt": "2026-05-08T12:54:45.269Z"
+    },
+    "1787306198490": {
+      "name": "Baggy joggers polo",
+      "price": 2500,
+      "description": "",
+      "category": "",
+      "stock": 0,
+      "featured": false,
+      "availableColors": [
+        "أحمر",
+        "أصفر"
+      ],
+      "availableSizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "ageRanges": [],
+      "colorImages": {
+        "أحمر": {
+          "images": [
+            "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1787306198490-أحمر-1787306488014-IMG-1795.jpeg"
+          ],
+          "ageRanges": [
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "S"
+            },
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "M"
+            },
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "L"
+            },
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "XL"
+            }
+          ]
+        },
+        "أصفر": {
+          "images": [
+            "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1787306198490-أصفر-1787306592654-IMG-1793.jpeg"
+          ],
+          "ageRanges": [
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "S"
+            },
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "M"
+            },
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "L"
+            },
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "XL"
+            }
+          ]
+        }
+      },
+      "sizeGuide": {
+        "enabled": false,
+        "guide": {}
+      },
+      "createdAt": "2026-08-21T09:56:38.490Z",
+      "image": "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1787306198490-1787306427064-IMG-1791.jpeg",
+      "updatedAt": "2026-08-21T10:04:13.021Z"
     }
   },
   "PRODUCT_ORDER": {
     "1778182443274": 3,
-    "1778238518007": 1,
+    "1778238518007": 5,
     "1778239126878": 4,
-    "1778244770962": 2
+    "1778244770962": 2,
+    "1787306198490": 1
   },
   "DELIVERY_PRICES": {
     "01 - أدرار": {
