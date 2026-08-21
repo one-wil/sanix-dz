@@ -165,7 +165,7 @@ const STORE_CONFIG = {
       "updatedAt": "2026-08-18T19:01:10.081Z"
     },
     "1778238518007": {
-      "name": "Ensemble Polo (t-shirt-short)",
+      "name": "Polo (t-shirt-short)",
       "price": 5300,
       "description": "",
       "category": "",
@@ -252,7 +252,7 @@ const STORE_CONFIG = {
       },
       "createdAt": "2026-05-08T11:08:38.007Z",
       "image": "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1778238518007-1778238752545-Messenger-creation-37FFDF3B-1672-4523-9137-8D369929585F.jpeg",
-      "updatedAt": "2026-05-08T11:32:02.679Z"
+      "updatedAt": "2026-08-21T06:57:24.977Z"
     },
     "1778239126878": {
       "name": "T-shirt ",
