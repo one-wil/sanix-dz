@@ -256,7 +256,7 @@ const STORE_CONFIG = {
     },
     "1778239126878": {
       "name": "T-shirt ",
-      "price": 2300,
+      "price": 1500,
       "description": "",
       "category": "",
       "stock": 0,
@@ -323,7 +323,7 @@ const STORE_CONFIG = {
       },
       "createdAt": "2026-05-08T11:18:46.878Z",
       "image": "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1778239126878-1778239561305-Messenger-creation-2437459D-A810-4853-B647-DB2C2D0BD6EC.jpeg",
-      "updatedAt": "2026-05-08T11:29:42.336Z"
+      "updatedAt": "2026-08-21T09:31:36.950Z"
     },
     "1778244770962": {
       "name": "T-shirt sanix",
@@ -650,11 +650,13 @@ const STORE_CONFIG = {
     ]
   },
   "DISCOUNTS": {
-    "enableQuantityDiscount": false,
-    "minQuantityForDiscount": 1,
+    "enableQuantityDiscount": true,
+    "minQuantityForDiscount": 2,
     "discountPerItem": 500,
     "discountScope": "selected",
-    "discountProducts": [],
+    "discountProducts": [
+      1778239126878
+    ],
     "enablePromotionalDiscount": false,
     "promotionalDiscountPercent": 20,
     "promotionalDiscountedPrice": null,
