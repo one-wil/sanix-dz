@@ -29,7 +29,8 @@ const STORE_CONFIG = {
       "colorImages": {
         "Olive Green-black": {
           "images": [
-            "https://raw.githubusercontent.com/one-wil/suifrab/main/images/product-1778182443274-Olive%20Green-black-1778183913806-Messenger-creation-DA7E8AFE-784D-48C2-821E-C16D8C29DECF.jpeg"
+            "https://raw.githubusercontent.com/one-wil/suifrab/main/images/product-1778182443274-Olive%20Green-black-1778183913806-Messenger-creation-DA7E8AFE-784D-48C2-821E-C16D8C29DECF.jpeg",
+            "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1778182443274-Olive%20Green-black-1787439224969-Messenger-creation-DA7E8AFE-784D-48C2-821E-C16D8C29DECF.jpeg"
           ],
           "ageRanges": [
             {
@@ -61,7 +62,8 @@ const STORE_CONFIG = {
         },
         "Black-olive Geen": {
           "images": [
-            "https://raw.githubusercontent.com/one-wil/suifrab/main/images/product-1778182443274-Black-olive%20Geen-1778183941777-Messenger-creation-BFECA40B-57E0-4596-BD25-4F9D45BA3562.jpeg"
+            "https://raw.githubusercontent.com/one-wil/suifrab/main/images/product-1778182443274-Black-olive%20Geen-1778183941777-Messenger-creation-BFECA40B-57E0-4596-BD25-4F9D45BA3562.jpeg",
+            "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1778182443274-Black-olive%20Geen-1787439249729-Messenger-creation-BFECA40B-57E0-4596-BD25-4F9D45BA3562.jpeg"
           ],
           "ageRanges": [
             {
@@ -93,7 +95,8 @@ const STORE_CONFIG = {
         },
         "Beige - Black": {
           "images": [
-            "https://raw.githubusercontent.com/one-wil/suifrab/main/images/product-1778182443274-Beige%20-%20Black-1778184041964-Messenger-creation-810CA979-D104-4003-AC53-8D1BA722871C.jpeg"
+            "https://raw.githubusercontent.com/one-wil/suifrab/main/images/product-1778182443274-Beige%20-%20Black-1778184041964-Messenger-creation-810CA979-D104-4003-AC53-8D1BA722871C.jpeg",
+            "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1778182443274-Beige%20-%20Black-1787439285468-Messenger-creation-810CA979-D104-4003-AC53-8D1BA722871C.jpeg"
           ],
           "ageRanges": [
             {
@@ -115,7 +118,8 @@ const STORE_CONFIG = {
         },
         "Gray-black": {
           "images": [
-            "https://raw.githubusercontent.com/one-wil/suifrab/main/images/product-1778182443274-Gray-black-1778184152098-Messenger-creation-25516B0A-A522-42F1-9AB6-57299C553605.jpeg"
+            "https://raw.githubusercontent.com/one-wil/suifrab/main/images/product-1778182443274-Gray-black-1778184152098-Messenger-creation-25516B0A-A522-42F1-9AB6-57299C553605.jpeg",
+            "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1778182443274-Gray-black-1787439319941-Messenger-creation-25516B0A-A522-42F1-9AB6-57299C553605.jpeg"
           ],
           "ageRanges": [
             {
@@ -131,8 +135,8 @@ const STORE_CONFIG = {
         "guide": {}
       },
       "createdAt": "2026-05-07T19:34:03.274Z",
-      "image": "https://raw.githubusercontent.com/one-wil/suifrab/main/images/product-1778182443274-1778182589626-Messenger-creation-810CA979-D104-4003-AC53-8D1BA722871C.jpeg",
-      "updatedAt": "2026-08-21T09:40:24.031Z"
+      "image": "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1778182443274-1787438910016-Messenger-creation-25516B0A-A522-42F1-9AB6-57299C553605.jpeg",
+      "updatedAt": "2026-08-22T22:55:36.053Z"
     },
     "1778238518007": {
       "name": "Polo (t-shirt-short)",
@@ -1723,7 +1727,8 @@ const STORE_CONFIG = {
     "فواكه",
     "مسك",
     "عنبر"
-  ]
+  ],
+  "ORDERS": []
 };
 
 // =============================================================================
