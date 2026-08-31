@@ -358,8 +358,8 @@ const STORE_CONFIG = {
       "updatedAt": "2026-08-21T10:21:22.962Z"
     },
     "1788191973388": {
-      "name": "",
-      "price": 0,
+      "name": "Ensemble Polo",
+      "price": 3900,
       "description": "",
       "category": "",
       "stock": 0,
@@ -484,7 +484,7 @@ const STORE_CONFIG = {
       },
       "createdAt": "2026-08-31T15:59:33.388Z",
       "image": "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1788191973388-1788192241023-Messenger-creation-810CA979-D104-4003-AC53-8D1BA722871C.jpeg",
-      "updatedAt": "2026-08-31T16:04:39.449Z"
+      "updatedAt": "2026-08-31T16:28:00.083Z"
     }
   },
   "PRODUCT_ORDER": {
