@@ -5,6 +5,135 @@
 
 const STORE_CONFIG = {
   "PRODUCTS": {
+    "1778182443274": {
+      "name": "Ensemble POLO",
+      "price": 3900,
+      "description": " جودة عالية ، أناقة مع ألوان مدروسة وتلبي رغباتكم",
+      "category": "",
+      "stock": 0,
+      "featured": false,
+      "availableColors": [
+        "Olive Green-black",
+        "Black-olive Geen",
+        "Beige - Black",
+        "Gray-black"
+      ],
+      "availableSizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "ageRanges": [],
+      "colorImages": {
+        "Olive Green-black": {
+          "images": [
+            "https://raw.githubusercontent.com/one-wil/suifrab/main/images/product-1778182443274-Olive%20Green-black-1778183913806-Messenger-creation-DA7E8AFE-784D-48C2-821E-C16D8C29DECF.jpeg"
+          ],
+          "ageRanges": [
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "S"
+            },
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "M"
+            },
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "L"
+            },
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "XL"
+            },
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "XXL"
+            }
+          ]
+        },
+        "Black-olive Geen": {
+          "images": [
+            "https://raw.githubusercontent.com/one-wil/suifrab/main/images/product-1778182443274-Black-olive%20Geen-1778183941777-Messenger-creation-BFECA40B-57E0-4596-BD25-4F9D45BA3562.jpeg"
+          ],
+          "ageRanges": [
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "S"
+            },
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "M"
+            },
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "L"
+            },
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "XL"
+            },
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "XXL"
+            }
+          ]
+        },
+        "Beige - Black": {
+          "images": [
+            "https://raw.githubusercontent.com/one-wil/suifrab/main/images/product-1778182443274-Beige%20-%20Black-1778184041964-Messenger-creation-810CA979-D104-4003-AC53-8D1BA722871C.jpeg"
+          ],
+          "ageRanges": [
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "L"
+            },
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "XL"
+            },
+            {
+              "ageFrom": "   ",
+              "ageTo": " ",
+              "size": "XXL"
+            }
+          ]
+        },
+        "Gray-black": {
+          "images": [
+            "https://raw.githubusercontent.com/one-wil/suifrab/main/images/product-1778182443274-Gray-black-1778184152098-Messenger-creation-25516B0A-A522-42F1-9AB6-57299C553605.jpeg"
+          ],
+          "ageRanges": [
+            {
+              "ageFrom": " ",
+              "ageTo": " ",
+              "size": "S"
+            }
+          ]
+        }
+      },
+      "sizeGuide": {
+        "enabled": false,
+        "guide": {}
+      },
+      "createdAt": "2026-05-07T19:34:03.274Z",
+      "image": "https://raw.githubusercontent.com/one-wil/suifrab/main/images/product-1778182443274-1778182589626-Messenger-creation-810CA979-D104-4003-AC53-8D1BA722871C.jpeg",
+      "updatedAt": "2026-08-21T09:40:24.031Z"
+    },
     "1778238518007": {
       "name": "Polo (t-shirt-short)",
       "price": 4000,
@@ -98,13 +227,10 @@ const STORE_CONFIG = {
       "stock": 0,
       "featured": false,
       "availableColors": [
-        "أبيض",
         "أسود"
       ],
       "availableSizes": [
-        "S",
-        "M",
-        "L"
+        "M"
       ],
       "ageRanges": [],
       "colorImages": {
@@ -159,18 +285,17 @@ const STORE_CONFIG = {
       },
       "createdAt": "2026-05-08T11:18:46.878Z",
       "image": "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1778239126878-1778239561305-Messenger-creation-2437459D-A810-4853-B647-DB2C2D0BD6EC.jpeg",
-      "updatedAt": "2026-08-21T09:31:36.950Z"
+      "updatedAt": "2026-09-13T20:38:21.355Z"
     },
     "1778244770962": {
       "name": "T-shirt sanix",
-      "price": 2300,
+      "price": 1500,
       "description": "",
       "category": "",
       "stock": 0,
       "featured": false,
       "availableColors": [
-        "أبيض",
-        "أسود"
+        "أبيض"
       ],
       "availableSizes": [
         "S",
@@ -219,7 +344,7 @@ const STORE_CONFIG = {
       },
       "createdAt": "2026-05-08T12:52:50.962Z",
       "image": "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1778244770962-1778244812749-Messenger-creation-DBC61123-8E41-4C75-933B-A5397461B678.jpeg",
-      "updatedAt": "2026-05-08T12:54:45.269Z"
+      "updatedAt": "2026-09-13T20:37:53.001Z"
     },
     "1787306198490": {
       "name": "Baggy joggers polo",
@@ -356,143 +481,14 @@ const STORE_CONFIG = {
       "createdAt": "2026-08-21T09:56:38.490Z",
       "image": "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1787306198490-1787306427064-IMG-1791.jpeg",
       "updatedAt": "2026-08-21T10:21:22.962Z"
-    },
-    "1788191973388": {
-      "name": "Ensemble Polo",
-      "price": 3900,
-      "description": "",
-      "category": "",
-      "stock": 0,
-      "featured": false,
-      "availableColors": [
-        "Olive Green-black",
-        "Black-olive Geen",
-        "Beige - Black",
-        "Gray-black"
-      ],
-      "availableSizes": [
-        "S",
-        "M",
-        "L",
-        "XL",
-        "XXL"
-      ],
-      "ageRanges": [],
-      "colorImages": {
-        "Olive Green-black": {
-          "images": [
-            "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1788191973388-Olive%20Green-black-1788192125273-Messenger-creation-DA7E8AFE-784D-48C2-821E-C16D8C29DECF.jpeg"
-          ],
-          "ageRanges": [
-            {
-              "ageFrom": " ",
-              "ageTo": " ",
-              "size": "S"
-            },
-            {
-              "ageFrom": " ",
-              "ageTo": " ",
-              "size": "M"
-            },
-            {
-              "ageFrom": " ",
-              "ageTo": " ",
-              "size": "L"
-            },
-            {
-              "ageFrom": " ",
-              "ageTo": " ",
-              "size": "XL"
-            },
-            {
-              "ageFrom": " ",
-              "ageTo": " ",
-              "size": "XXL"
-            }
-          ]
-        },
-        "Black-olive Geen": {
-          "images": [
-            "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1788191973388-Black-olive%20Geen-1788192356487-Messenger-creation-BFECA40B-57E0-4596-BD25-4F9D45BA3562.jpeg"
-          ],
-          "ageRanges": [
-            {
-              "ageFrom": " ",
-              "ageTo": " ",
-              "size": "S"
-            },
-            {
-              "ageFrom": " ",
-              "ageTo": " ",
-              "size": "M"
-            },
-            {
-              "ageFrom": " ",
-              "ageTo": " ",
-              "size": "L"
-            },
-            {
-              "ageFrom": " ",
-              "ageTo": " ",
-              "size": "XL"
-            },
-            {
-              "ageFrom": " ",
-              "ageTo": " ",
-              "size": "XXL"
-            }
-          ]
-        },
-        "Beige - Black": {
-          "images": [
-            "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1788191973388-Beige%20-%20Black-1788192482943-Messenger-creation-810CA979-D104-4003-AC53-8D1BA722871C.jpeg"
-          ],
-          "ageRanges": [
-            {
-              "ageFrom": " ",
-              "ageTo": " ",
-              "size": "L"
-            },
-            {
-              "ageFrom": " ",
-              "ageTo": " ",
-              "size": "XL"
-            },
-            {
-              "ageFrom": " ",
-              "ageTo": " ",
-              "size": "XXL"
-            }
-          ]
-        },
-        "Gray-black": {
-          "images": [
-            "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1788191973388-Gray-black-1788192532827-Messenger-creation-25516B0A-A522-42F1-9AB6-57299C553605.jpeg"
-          ],
-          "ageRanges": [
-            {
-              "ageFrom": " ",
-              "ageTo": " ",
-              "size": "S"
-            }
-          ]
-        }
-      },
-      "sizeGuide": {
-        "enabled": false,
-        "guide": {}
-      },
-      "createdAt": "2026-08-31T15:59:33.388Z",
-      "image": "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1788191973388-1788192241023-Messenger-creation-810CA979-D104-4003-AC53-8D1BA722871C.jpeg",
-      "updatedAt": "2026-08-31T16:28:00.083Z"
     }
   },
   "PRODUCT_ORDER": {
-    "1778238518007": 6,
+    "1778182443274": 3,
+    "1778238518007": 5,
     "1778239126878": 4,
     "1778244770962": 2,
-    "1787306198490": 1,
-    "1788191973388": 5
+    "1787306198490": 1
   },
   "DELIVERY_PRICES": {
     "01 - أدرار": {
@@ -540,192 +536,192 @@ const STORE_CONFIG = {
       "desk": 1120
     },
     "12 - تبسة": {
-      "home": 700,
-      "desk": 400
+      "home": 800,
+      "desk": 520
     },
     "13 - تلمسان": {
       "home": 800,
-      "desk": 400
+      "desk": 520
     },
     "14 - تيارت": {
       "home": 800,
-      "desk": 400
+      "desk": 520
     },
     "15 - تيزي وزو": {
-      "home": 700,
-      "desk": 400
+      "home": 750,
+      "desk": 520
     },
     "16 - الجزائر": {
-      "home": 500,
-      "desk": 250
+      "home": 600,
+      "desk": 470
     },
     "17 - الجلفة": {
-      "home": 900,
-      "desk": 500
+      "home": 950,
+      "desk": 620
     },
     "18 - جيجل": {
-      "home": 700,
-      "desk": 400
+      "home": 750,
+      "desk": 520
     },
     "19 - سطيف": {
       "home": 700,
-      "desk": 400
+      "desk": 520
     },
     "20 - سعيدة": {
       "home": 800,
-      "desk": 400
+      "desk": 570
     },
     "21 - سكيكدة": {
-      "home": 600,
-      "desk": 400
+      "home": 750,
+      "desk": 520
     },
     "22 - سيدي بلعباس": {
-      "home": 700,
-      "desk": 400
+      "home": 750,
+      "desk": 520
     },
     "23 - عنابة": {
-      "home": 700,
-      "desk": 400
+      "home": 800,
+      "desk": 520
     },
     "24 - قالمة": {
-      "home": 600,
-      "desk": 400
+      "home": 800,
+      "desk": 520
     },
     "25 - قسنطينة": {
-      "home": 600,
-      "desk": 400
+      "home": 750,
+      "desk": 520
     },
     "26 - المدية": {
-      "home": 700,
-      "desk": 400
+      "home": 750,
+      "desk": 520
     },
     "27 - مستغانم": {
-      "home": 700,
-      "desk": 400
+      "home": 750,
+      "desk": 520
     },
     "28 - المسيلة": {
-      "home": 800,
-      "desk": 400
+      "home": 850,
+      "desk": 570
     },
     "29 - معسكر": {
-      "home": 700,
-      "desk": 400
+      "home": 750,
+      "desk": 520
     },
     "30 - ورقلة": {
-      "home": 900,
-      "desk": 500
+      "home": 1000,
+      "desk": 670
     },
     "31 - وهران": {
-      "home": 800,
-      "desk": 400
+      "home": 750,
+      "desk": 520
     },
     "32 - البيض": {
-      "home": 800,
-      "desk": 500
+      "home": 1050,
+      "desk": 670
     },
     "33 - إليزي": {
       "home": 1300,
-      "desk": 600
+      "desk": 970
     },
     "34 - برج بوعريريج": {
-      "home": 700,
-      "desk": 400
+      "home": 750,
+      "desk": 520
     },
     "35 - بومرداس": {
-      "home": 700,
-      "desk": 400
+      "home": 750,
+      "desk": 520
     },
     "36 - الطارف": {
-      "home": 700,
-      "desk": 400
+      "home": 850,
+      "desk": 520
     },
     "37 - تندوف": {
       "home": 1300,
-      "desk": 600
+      "desk": 970
     },
     "38 - تيسمسيلت": {
       "home": 800,
-      "desk": 400
+      "desk": 520
     },
     "39 - الوادي": {
-      "home": 900,
-      "desk": 500
+      "home": 950,
+      "desk": 670
     },
     "40 - خنشلة": {
-      "home": 700,
-      "desk": 500
+      "home": 750,
+      "desk": 520
     },
     "41 - سوق أهراس": {
-      "home": 700,
-      "desk": 400
+      "home": 750,
+      "desk": 520
     },
     "42 - تيبازة": {
-      "home": 700,
-      "desk": 400
+      "home": 750,
+      "desk": 520
     },
     "43 - ميلة": {
-      "home": 700,
-      "desk": 450
+      "home": 500,
+      "desk": 370
     },
     "44 - عين الدفلى": {
-      "home": 700,
-      "desk": 400
+      "home": 750,
+      "desk": 520
     },
     "45 - النعامة": {
-      "home": 800,
-      "desk": 500
+      "home": 1100,
+      "desk": 670
     },
     "46 - عين تموشنت": {
       "home": 800,
-      "desk": 400
+      "desk": 520
     },
     "47 - غرداية": {
-      "home": 900,
-      "desk": 500
+      "home": 950,
+      "desk": 670
     },
     "48 - غليزان": {
-      "home": 700,
-      "desk": 400
+      "home": 800,
+      "desk": 520
     },
     "49 - تيميمون": {
-      "home": 1100,
-      "desk": 600
+      "home": 1400,
+      "desk": 870
     },
     "50 - برج باجي مختار": {
-      "home": 1200,
-      "desk": 650
+      "home": 0,
+      "desk": 0
     },
     "51 - أولاد جلال": {
-      "home": 900,
-      "desk": 500
+      "home": 950,
+      "desk": 620
     },
     "52 - بني عباس": {
-      "home": 1100,
-      "desk": 600
+      "home": 1200,
+      "desk": 970
     },
     "53 - عين صالح": {
-      "home": 1300,
-      "desk": 700
+      "home": 1600,
+      "desk": 1120
     },
     "54 - عين قزام": {
-      "home": 1300,
-      "desk": 700
+      "home": 1600,
+      "desk": 0
     },
     "55 - توقرت": {
-      "home": 900,
-      "desk": 550
+      "home": 1600,
+      "desk": 0
     },
     "56 - جانت": {
-      "home": 1100,
-      "desk": 500
+      "home": 1000,
+      "desk": 670
     },
     "57 - المغير": {
-      "home": 900,
-      "desk": 550
+      "home": 1000,
+      "desk": 0
     },
     "58 - المنيعة": {
-      "home": 1100,
-      "desk": 400
+      "home": 1000,
+      "desk": 670
     }
   },
   "FREE_DELIVERY": {
@@ -1723,8 +1719,7 @@ const STORE_CONFIG = {
     "فواكه",
     "مسك",
     "عنبر"
-  ],
-  "ORDERS": []
+  ]
 };
 
 // =============================================================================
