@@ -158,65 +158,6 @@ const STORE_CONFIG = {
       "image": "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1778239126878-1778239561305-Messenger-creation-2437459D-A810-4853-B647-DB2C2D0BD6EC.jpeg",
       "updatedAt": "2026-09-13T20:38:21.355Z"
     },
-    "1778244770962": {
-      "name": "T-shirt sanix",
-      "price": 1500,
-      "description": "",
-      "category": "",
-      "stock": 0,
-      "featured": false,
-      "availableColors": [
-        "أبيض"
-      ],
-      "availableSizes": [
-        "S",
-        "M"
-      ],
-      "ageRanges": [],
-      "colorImages": {
-        "أبيض": {
-          "images": [
-            "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1778244770962-أبيض-1778244898209-Messenger-creation-DBC61123-8E41-4C75-933B-A5397461B678.jpeg"
-          ],
-          "ageRanges": [
-            {
-              "ageFrom": " ",
-              "ageTo": " ",
-              "size": "S"
-            },
-            {
-              "ageFrom": " ",
-              "ageTo": " ",
-              "size": "M"
-            }
-          ]
-        },
-        "أسود": {
-          "images": [
-            "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1778244770962-أسود-1778244929756-Messenger-creation-DBC61123-8E41-4C75-933B-A5397461B678.jpeg"
-          ],
-          "ageRanges": [
-            {
-              "ageFrom": " ",
-              "ageTo": " ",
-              "size": "S"
-            },
-            {
-              "ageFrom": " ",
-              "ageTo": " ",
-              "size": "M"
-            }
-          ]
-        }
-      },
-      "sizeGuide": {
-        "enabled": false,
-        "guide": {}
-      },
-      "createdAt": "2026-05-08T12:52:50.962Z",
-      "image": "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1778244770962-1778244812749-Messenger-creation-DBC61123-8E41-4C75-933B-A5397461B678.jpeg",
-      "updatedAt": "2026-09-13T20:37:53.001Z"
-    },
     "1787306198490": {
       "name": "Baggy joggers polo",
       "price": 3000,
@@ -357,7 +298,6 @@ const STORE_CONFIG = {
   "PRODUCT_ORDER": {
     "1778238518007": 5,
     "1778239126878": 4,
-    "1778244770962": 2,
     "1787306198490": 1
   },
   "DELIVERY_PRICES": {
