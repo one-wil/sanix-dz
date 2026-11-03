@@ -160,7 +160,7 @@ const STORE_CONFIG = {
     },
     "1787306198490": {
       "name": "Baggy joggers polo",
-      "price": 3000,
+      "price": 2500,
       "description": "",
       "category": "",
       "stock": 0,
@@ -292,7 +292,7 @@ const STORE_CONFIG = {
       },
       "createdAt": "2026-08-21T09:56:38.490Z",
       "image": "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1787306198490-1787306427064-IMG-1791.jpeg",
-      "updatedAt": "2026-08-21T10:21:22.962Z"
+      "updatedAt": "2026-11-03T19:36:18.034Z"
     }
   },
   "PRODUCT_ORDER": {
@@ -556,12 +556,13 @@ const STORE_CONFIG = {
   "DISCOUNTS": {
     "enableQuantityDiscount": true,
     "minQuantityForDiscount": 2,
-    "discountPerItem": 250,
+    "discountPerItem": 500,
     "discountScope": "selected",
     "discountProducts": [
-      1778239126878
+      1778239126878,
+      1787306198490
     ],
-    "enablePromotionalDiscount": true,
+    "enablePromotionalDiscount": false,
     "promotionalDiscountPercent": 16,
     "promotionalDiscountedPrice": null,
     "promoDiscountScope": "selected",
