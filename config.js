@@ -234,7 +234,7 @@ const STORE_CONFIG = {
       "stock": 0,
       "featured": false,
       "availableColors": [
-        "أصفر"
+        "رمادي"
       ],
       "availableSizes": [
         "S"
@@ -247,7 +247,7 @@ const STORE_CONFIG = {
       },
       "createdAt": "2026-11-22T22:35:51.970Z",
       "image": "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1795386951970-1795387250539-IMG-4067.jpeg",
-      "updatedAt": "2026-11-22T22:41:04.245Z"
+      "updatedAt": "2026-11-22T23:06:31.650Z"
     },
     "1795387268068": {
       "name": "Hoodie oversize crops ",
@@ -281,7 +281,7 @@ const STORE_CONFIG = {
       "stock": 0,
       "featured": false,
       "availableColors": [
-        "أحمر"
+        "أسود"
       ],
       "availableSizes": [
         "S",
@@ -297,7 +297,7 @@ const STORE_CONFIG = {
       },
       "createdAt": "2026-11-22T22:42:25.739Z",
       "image": "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1795387345739-1795387395255-IMG-3866.jpeg",
-      "updatedAt": "2026-11-22T22:43:39.474Z"
+      "updatedAt": "2026-11-22T23:06:51.466Z"
     },
     "1795387426529": {
       "name": "Hoodie oversize ",
@@ -306,7 +306,9 @@ const STORE_CONFIG = {
       "category": "",
       "stock": 0,
       "featured": false,
-      "availableColors": [],
+      "availableColors": [
+        "وردي"
+      ],
       "availableSizes": [
         "XL",
         "XXL"
@@ -319,7 +321,7 @@ const STORE_CONFIG = {
       },
       "createdAt": "2026-11-22T22:43:46.529Z",
       "image": "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1795387426529-1795387465207-IMG-3876.jpeg",
-      "updatedAt": "2026-11-22T22:44:41.015Z"
+      "updatedAt": "2026-11-22T23:07:07.102Z"
     }
   },
   "PRODUCT_ORDER": {
