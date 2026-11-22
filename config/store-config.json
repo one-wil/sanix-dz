@@ -85,74 +85,6 @@
       "image": "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1778238518007-1778238752545-Messenger-creation-37FFDF3B-1672-4523-9137-8D369929585F.jpeg",
       "updatedAt": "2026-08-21T09:42:36.522Z"
     },
-    "1778239126878": {
-      "name": "T-shirt ",
-      "price": 1500,
-      "description": "",
-      "category": "",
-      "stock": 0,
-      "featured": false,
-      "availableColors": [
-        "أسود"
-      ],
-      "availableSizes": [
-        "M"
-      ],
-      "ageRanges": [],
-      "colorImages": {
-        "أبيض": {
-          "images": [
-            "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1778239126878-أبيض-1778239631074-Messenger-creation-408051E2-5D87-46C2-96F2-DBAC792167FB.jpeg"
-          ],
-          "ageRanges": [
-            {
-              "ageFrom": " ",
-              "ageTo": " ",
-              "size": "S"
-            },
-            {
-              "ageFrom": " ",
-              "ageTo": " ",
-              "size": "M"
-            },
-            {
-              "ageFrom": " ",
-              "ageTo": " ",
-              "size": "L"
-            }
-          ]
-        },
-        "أسود": {
-          "images": [
-            "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1778239126878-أسود-1778239655886-Messenger-creation-2437459D-A810-4853-B647-DB2C2D0BD6EC.jpeg"
-          ],
-          "ageRanges": [
-            {
-              "ageFrom": " ",
-              "ageTo": " ",
-              "size": "S"
-            },
-            {
-              "ageFrom": " ",
-              "ageTo": " ",
-              "size": "M"
-            },
-            {
-              "ageFrom": " ",
-              "ageTo": " ",
-              "size": "L"
-            }
-          ]
-        }
-      },
-      "sizeGuide": {
-        "enabled": false,
-        "guide": {}
-      },
-      "createdAt": "2026-05-08T11:18:46.878Z",
-      "image": "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1778239126878-1778239561305-Messenger-creation-2437459D-A810-4853-B647-DB2C2D0BD6EC.jpeg",
-      "updatedAt": "2026-09-13T20:38:21.355Z"
-    },
     "1787306198490": {
       "name": "Baggy joggers polo",
       "price": 2500,
@@ -288,11 +220,105 @@
       "createdAt": "2026-08-21T09:56:38.490Z",
       "image": "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1787306198490-1787306427064-IMG-1791.jpeg",
       "updatedAt": "2026-11-03T19:36:18.034Z"
+    },
+    "1795386951970": {
+      "name": "Hoodie oversize crops",
+      "price": 3000,
+      "description": "",
+      "category": "",
+      "stock": 0,
+      "featured": false,
+      "availableColors": [
+        "أصفر"
+      ],
+      "availableSizes": [
+        "S"
+      ],
+      "ageRanges": [],
+      "colorImages": {},
+      "sizeGuide": {
+        "enabled": false,
+        "guide": {}
+      },
+      "createdAt": "2026-11-22T22:35:51.970Z",
+      "image": "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1795386951970-1795387250539-IMG-4067.jpeg",
+      "updatedAt": "2026-11-22T22:41:04.245Z"
+    },
+    "1795387268068": {
+      "name": "Hoodie oversize crops ",
+      "price": 3000,
+      "description": "",
+      "category": "",
+      "stock": 0,
+      "featured": false,
+      "availableColors": [
+        "أحمر"
+      ],
+      "availableSizes": [
+        "S",
+        "M"
+      ],
+      "ageRanges": [],
+      "colorImages": {},
+      "sizeGuide": {
+        "enabled": false,
+        "guide": {}
+      },
+      "createdAt": "2026-11-22T22:41:08.068Z",
+      "image": "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1795387268068-1795387319154-IMG-3837.jpeg",
+      "updatedAt": "2026-11-22T22:42:22.108Z"
+    },
+    "1795387345739": {
+      "name": "Hoodie oversize ",
+      "price": 2500,
+      "description": "",
+      "category": "",
+      "stock": 0,
+      "featured": false,
+      "availableColors": [
+        "أحمر"
+      ],
+      "availableSizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "ageRanges": [],
+      "colorImages": {},
+      "sizeGuide": {
+        "enabled": false,
+        "guide": {}
+      },
+      "createdAt": "2026-11-22T22:42:25.739Z",
+      "image": "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1795387345739-1795387395255-IMG-3866.jpeg",
+      "updatedAt": "2026-11-22T22:43:39.474Z"
+    },
+    "1795387426529": {
+      "name": "Hoodie oversize ",
+      "price": 2500,
+      "description": "",
+      "category": "",
+      "stock": 0,
+      "featured": false,
+      "availableColors": [],
+      "availableSizes": [
+        "XL",
+        "XXL"
+      ],
+      "ageRanges": [],
+      "colorImages": {},
+      "sizeGuide": {
+        "enabled": false,
+        "guide": {}
+      },
+      "createdAt": "2026-11-22T22:43:46.529Z",
+      "image": "https://raw.githubusercontent.com/one-wil/sanix-dz/main/images/product-1795387426529-1795387465207-IMG-3876.jpeg",
+      "updatedAt": "2026-11-22T22:44:41.015Z"
     }
   },
   "PRODUCT_ORDER": {
     "1778238518007": 5,
-    "1778239126878": 4,
     "1787306198490": 1
   },
   "DELIVERY_PRICES": {
